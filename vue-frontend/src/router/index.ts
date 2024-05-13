@@ -31,6 +31,11 @@ const routes: Array<RouteRecordRaw> = [
     ],
   },
   {
+    path: "/pages/jobs/:id",
+    name: "job-details",
+    component: job_details,
+  },
+  {
     path:"/manual",
     component : Manual,
   },

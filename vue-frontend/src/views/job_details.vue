@@ -13,7 +13,7 @@
 
         <!-- Job details table -->
       <div class="table-responsive">
-        <table class="table table-striped"  style="border-collapse: separate; border-spacing: 0 10px;">
+        <table class="table table-striped" >
           <thead>
             <tr>
               <th class="table-content" >Job ID</th>
@@ -167,7 +167,7 @@ export default {
       },
 
     fetchJobDetails(jobId) {
-      axios.get(`http://127.0.0.1:8000/jobs/${jobId}`)
+      axios.get(`http://localhost:8000/jobs/${jobId}`)
         .then(response => {
           this.job = response.data.data;
         })
@@ -177,7 +177,7 @@ export default {
     },
 
     fetchCandidateDetails(jobId){
-      axios.get(`http://127.0.0.1:8000/candidatesByJobId/${jobId}`)
+      axios.get(`http://localhost:8000/candidatesByJobId/${jobId}`)
         .then(response => {
           this.candidates = response.data.candidates;
           console.log(this.candidates);
@@ -211,8 +211,8 @@ export default {
 .table-content{
   font-size: 15px; 
   font-weight: 800;
-  padding: 10px; 
-  padding-right: 40px;
+  padding: 0px; 
+  padding-right: 1px;
   white-space: nowrap; 
   overflow: hidden; 
   text-overflow: ellipsis;

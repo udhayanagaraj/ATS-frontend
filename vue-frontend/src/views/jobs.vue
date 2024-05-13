@@ -245,7 +245,7 @@
 
      
 
-      <nav aria-label="Page navigation">
+    <nav aria-label="Page navigation">
       <ul class="pagination justify-content-center">
         <li class="page-item" :class="{ disabled: currentPage === 1 }">
           <button class="page-link" @click="prevPage">Previous</button>
@@ -374,7 +374,6 @@
           return 'Now';
         }
         const RefreshedAt = days + ' days ago';
-        console.log("refreshed at",RefreshedAt);
         return RefreshedAt;
       },
 
@@ -413,7 +412,7 @@
 
 
       fetchJobs() {
-        axios.get('http://192.168.1.3:8000/jobs')
+        axios.get('http://localhost:8000/jobs')
           .then(response => {
             console.log('Response:', response.data);
             this.jobs = response.data.data;
@@ -463,7 +462,7 @@
   .search-group {
     display: flex;
     justify-content: flex-end; 
-    margin-top: -55px;
+    margin-top: -45px;
     margin-right: 7px;
   }
 
@@ -513,7 +512,14 @@
     display: block; /* Show the search box */
 }
 
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+  }
 
+  .table-responsive table{
+    min-width: 100%;
+  }
 
   </style>
   
