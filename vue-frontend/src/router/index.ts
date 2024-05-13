@@ -1,9 +1,11 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import jobs from "@/views/jobs.vue";
-import applicants from "@/views/applicants.vue";
+import applicants from "@/views/applicant/applicants.vue";
 import addJob from "@/views/add-job.vue";
 import job_details from "@/views/job_details.vue";
 import updateJob from "@/views/update-job.vue";
+import Manual from "@/views/applicant/manual-parsing/manual.vue";
+import Parser from "@/views/applicant/automation/parser.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -29,9 +31,10 @@ const routes: Array<RouteRecordRaw> = [
     ],
   },
   {
-    path: "/:pathMatch(.*)*",
-    redirect: "/pages/jobs",
+    path:"/manual",
+    component : Manual,
   },
+  
   {
     path:"/applicants",
     component : applicants,
@@ -39,7 +42,15 @@ const routes: Array<RouteRecordRaw> = [
   {
     path:"/add",
     component : addJob
-  }
+  },
+  {
+    path:"/parser",
+    component : Parser
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    redirect: "/pages/jobs",
+  },
 ];
 
 const router = createRouter({

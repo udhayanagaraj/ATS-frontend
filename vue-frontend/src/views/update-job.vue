@@ -223,10 +223,10 @@
           </div>
         </div>
 
-        <!-- <div class="form-group">
-          <h1>Text editor</h1>
+        <div class="form-group">
+          <h1>Description</h1>
           <ckeditor :editor="editor" ></ckeditor>
-        </div> -->
+        </div>
         
       </div>
       
@@ -239,11 +239,11 @@
   </template>
   
   <script>
+
   import axios from 'axios';
   import VueMultiselect from 'vue-multiselect'
   
-  // import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-
+  
   export default {
     name: 'updateJob',
     data() {
@@ -255,9 +255,7 @@
         education:'',
         status:'',
         skills:'',
-        // editor : ClassicEditor,
-        
-
+        editor : ClassicEditor,
         selectedSkills: [],
         options:['Java','Python','Machine learning','Accounting','Tally','Executive','Excel','Computer Networks','OpenCV','Electronics','Communication','Arduino'],
        
@@ -267,7 +265,9 @@
       const jobId = this.$route.params.id;
       this.fetchJobDetails(jobId);
     },
-    components: { VueMultiselect },
+    components: { 
+      VueMultiselect 
+    },
 
     methods: {
       getMinimumExperience(exp){
