@@ -8,7 +8,7 @@
               Added successfully!
             </div>
             
-            <div class="row" style="margin-top: -235px;">
+            <div class="row" style="margin-top: -255px;">
               <label style="font-size: 20px;" >Documents</label>
               <button class="button-save">Save and continue</button>
               <button class="button-reset">Reset</button>
@@ -60,9 +60,9 @@
     margin-left:380px;
   }
   .container-fluid{
-    margin-top: 45px;
+    margin-top: 90px;
     margin-left: 250px;
-    width: 1000px;
+    width: 400px;
   }
 
   .card {
@@ -90,15 +90,16 @@
 
 
     .button-save{
-        margin-left:640px;
+        margin-left:630px;
         max-width: 190px;
     }
     .button-save:hover{
         background-color: #e0e0e0;
     }
     .button-reset{
-        margin-left:20px;
+        margin-left:840px;
         max-width: 110px;
+        margin-top: -30px;
     }
     .button-reset:hover{
         background-color: #e0e0e0;

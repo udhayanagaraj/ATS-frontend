@@ -9,7 +9,8 @@
             </div>
             
             <div class="row" >
-              <label style="font-size: 20px; position: fixed" >Certifications</label>
+              <label style="font-size: 20px" >Certifications</label>
+              <br>
               <button class="button-save">Save and continue</button>
               <button class="button-reset">Reset</button>
               
