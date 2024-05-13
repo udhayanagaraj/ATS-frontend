@@ -15,9 +15,6 @@
     <template v-if="componentState.language">
         <Language/>
     </template>
-    <template v-if="componentState.employee">
-        <Employee/>
-    </template>
     <template v-if="componentState.experience">
         <Experience/>
     </template>
@@ -26,8 +23,6 @@
 
 <script>
 
-import axios from 'axios';
-import VueMultiselect from 'vue-multiselect';
 import Documents from './documents.vue';
 import Education from './education.vue';
 import Sidebar from '../side-bar/sidebar.vue';
@@ -35,7 +30,6 @@ import Personal from './personal.vue';
 import Language from './language.vue';
 import Certifications from './certification.vue';
 import Experience from './experience.vue';
-import Employee from './employee.vue';
 
 
 export default{
@@ -47,7 +41,6 @@ export default{
       Experience,
       Certifications,
       Language,
-      Employee,
       Sidebar,
     },
     data(){
@@ -57,7 +50,6 @@ export default{
                 language:false,
                 education:false,
                 certifications:false,
-                employee:false,
                 experience:false,
                 documents : false,
             }  

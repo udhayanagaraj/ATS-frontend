@@ -8,7 +8,7 @@
               Added successfully!
             </div>
             
-            <div class="row">
+            <div class="row" style="margin-top:-275px">
               <label style="font-size: 20px;" >Experience</label>
               <button class="button-save">Save and continue</button>
               <button class="button-reset">Reset</button>

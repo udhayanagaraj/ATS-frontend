@@ -9,7 +9,7 @@
               Added successfully!
             </div>
             
-            <div class="row">
+            <div class="row" style="margin-top:-10px">
               <label style="font-size: 20px;" >Personal Details</label>
               <button class="button-save">Save and continue</button>
               <button class="button-reset">Reset</button>

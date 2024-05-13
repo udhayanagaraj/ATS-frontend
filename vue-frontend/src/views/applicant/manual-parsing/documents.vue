@@ -63,7 +63,6 @@
     margin-top: 45px;
     margin-left: 250px;
     width: 1000px;
-    
   }
 
   .card {
