@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container-fluid">
       <h1 class="text-center">Update Job</h1>
       <div v-if="updateSuccess" class="alert alert-success" role="alert">
             Updated successfully!
@@ -8,7 +8,7 @@
       <div class="row">
         <!-- First half of the form -->
         <div class="col-md-6">
-          <div class="card">
+          <div class="card border-0">
             <div class="card-body">
               <div class="form-group">
                 <label for="title"><h3>Title:</h3></label>
@@ -25,7 +25,7 @@
                         <div class="col">
                           <div class="form-group">
                               <h3>Min</h3>
-                              <select class="form-control rounded-pill" v-model="minExperience">
+                              <select class="form-control " v-model="minExperience">
                                   <option value="0">0</option>
                                   <option value="1">1</option>
                                   <option value="2">2</option>
@@ -37,7 +37,7 @@
                         <div class="col">
                           <div class="form-group">
                               <h3>Max</h3>
-                              <select class="form-control rounded-pill" v-model="maxExperience">
+                              <select class="form-control " v-model="maxExperience">
                                   <option value="5">5</option>
                                   <option value="10">10</option>
                                   <option value="15">15</option>
@@ -55,7 +55,7 @@
                 <div class="row">
                   <div class="col">
                     <div class="form-group">
-                      <select class="form-control rounded-pill" v-model="job[7]">
+                      <select class="form-control l" v-model="job[7]">
                         <option value="">Select Degree</option>
                         <option value="0">None</option>
                         <option value="UG-Any degree">UG-Any degree</option>
@@ -87,7 +87,7 @@
                 <div class="row">
                   <div class="col">
                     <div class="form-group">
-                      <select class="form-control rounded-pill" v-model="job[10]">
+                      <select class="form-control l" v-model="job[10]">
                         <option value="">Select Status</option>
                         <option value="Active">Active</option>
                         <option value="On-Hold">On-Hold</option>
@@ -98,15 +98,15 @@
                   </div>
                 </div>
               </div>
-
+              
               <div class="form-group">
-                <label for="description"><h3>Description:</h3></label>
-                <textarea class="form-control" id="description" rows="3" v-model="job[2]"></textarea>
+                <h1>Description</h1>
+                <ckeditor :editor="editor" v-model="job[2]"></ckeditor>
               </div>
 
               <div class="form-group">
                 <label for="description"><h3>Benefits:</h3></label>
-                <textarea class="form-control" id="description" rows="3" v-model="job[8]"></textarea>
+                <ckeditor :editor="editor" v-model="job[8]"></ckeditor>
               </div>
 
             </div>
@@ -114,13 +114,13 @@
         </div>
         <!-- Second half of the form -->
         <div class="col-md-6">
-          <div class="card">
+          <div class="card border-0">
             <div class="card-body">
               
             <div class="form-group">
               <label for="title"><h3>Job Type:</h3></label>
               
-              <select class="form-control rounded-pill" v-model="job[21]">
+              <select class="form-control " v-model="job[21]">
                 <option value="">Select Type</option>
                 <option value="Fulltime / Permanent">Fulltime / Permanent</option>
                 <option value="Fulltime/ Internship / Permanent">Fulltime/ Internship / Permanent</option>
@@ -152,7 +152,7 @@
               <div class="form-group">
                 <label for="title"><h3>Locations:</h3></label>
                 <!-- <input type="text" class="form-control" id="title" v-model="job[3]"> -->
-                <select class="form-control rounded-pill" v-model="job[3]">
+                <select class="form-control " v-model="job[3]">
                   <option value="">Select Location</option>
                   <option value="Chennai, Tamil Nadu">Chennai, Tamil Nadu</option>
                   <option value="Coimbatore, Tamil Nadu">Coimbatore, Tamil Nadu</option>
@@ -172,7 +172,7 @@
                 <div class="row">
                   <div class="col">
                     <div class="form-group">
-                      <select class="form-control rounded-pill" v-model="job[5]">
+                      <select class="form-control " v-model="job[5]">
                         <option value="">Select Industry</option>
                         <option value="Information Technology">Information Technology</option>
                         <option value="Financial Sector">Financial Sector</option>
@@ -215,19 +215,13 @@
 
               <div class="form-group">
                 <label for="description"><h3>About:</h3></label>
-                <textarea class="form-control" id="description" rows="3" v-model="job[9]"></textarea>
+                <ckeditor :editor="editor" v-model="job[9]"></ckeditor>
               </div>
             </div>
 
             
           </div>
         </div>
-
-        <div class="form-group">
-          <h1>Description</h1>
-          <ckeditor :editor="editor" ></ckeditor>
-        </div>
-        
       </div>
       
           <button class="btn btn-primary btn-margin-right" @click="updateJob">Update</button>
@@ -356,8 +350,9 @@
   </script>
   
   <style scoped>
-  .container {
-    margin-top: 20px;
+  .container-fluid {
+    margin-top: 70px;
+    width: 1200px;
   }
   .card {
     margin-top: 20px;

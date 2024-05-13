@@ -1,171 +1,152 @@
 <template>
-  <div v-if="job" class="container" :class="{ 'container': !isSidebarOpen, 'full-width': isSidebarOpen }">
-    <div class="card">
-      <div class="card-header">
-        <h5 class="card-title mb-0 text-center mx-auto " >Job Detail</h5>
-      </div>
-    
-      <div class="row justify-content-end">
-        <div class="btn-group">
-          <router-link :to="'/pages/jobs/update/' + job[0]" class="btn btn-primary btn-sm">Edit</router-link>
+  <div v-if="job" class="container-fluid">
+    <div class="card p-4 shadow">
+      <!-- Job details table -->
+      <div>
+        <div class="row">
+          <div class="col-md-6">
+            
+            <router-link :to="'/pages/jobs/'" >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+              </svg>
+            </router-link>
+            <button class="btn btn-sm btn-success status-button">{{job[10]}}</button>
+            <div class="align-margin">
+              <p><strong>Job ID:</strong> {{ job[0] }} &emsp;&emsp;{{ job[1] }}</p>
+              <span>{{ job[4] }}  &emsp;&emsp; <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                </svg>{{ job[3] }}
+              </span>
+            </div>
+            
+          </div>
         </div>
-      </div>
-
-        <!-- Job details table -->
-      <div class="table-responsive">
-        <table class="table table-striped" >
-          <thead>
-            <tr>
-              <th class="table-content" >Job ID</th>
-              <th class="table-content" >Company</th>
-              <th class="table-content"  >Title</th>
-              <th class="table-content" >Experience</th>
-              <th class="table-content" >Job Type</th>
-              <th class="table-content">Primary skills</th>
-              <th class="table-content">Location</th>
-              <th class="table-content">Created At</th>
-              <th class="table-content">Refreshed At</th>
-              <th class="table-content">Job Owner</th>
-              <th class="table-content">Primary Recruiter</th>
-              <th class="table-content">Status</th>
-              <th class="table-content">Profiles Submitted</th>
-              <th class="table-content">Interviews</th>
-              <th class="table-content">Selected</th>
-              <th class="table-content">Joined</th>
-              <th class="table-content">Backouts</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr >
-              <td class="wrap-content">{{ job[0] }}</td>
-              <td class="wrap-content">{{ job[4] }}</td>
-              <td class="wrap-content">{{ job[1] }}</td>
-              <td class="wrap-content">{{ job[6] }}</td>
-              <td class="wrap-content">{{ job[21] }}</td>
-              <td class="wrap-content">{{ job[11] }}</td>
-              <td class="wrap-content">{{ job[3] }}</td>
-              <td class="wrap-content">{{ calculateDateTime(job[12]) }}</td>
-              <td class="wrap-content">{{ calculateRefreshedAt(job[13]) }}</td>
-              <td class="wrap-content">{{ job[14] }}</td>
-              <td class="wrap-content">{{ job[15] }}</td>
-              <td class="wrap-content">{{ job[10] }}</td>
-              <td class="wrap-content">{{ job[16] }}</td>
-              <td class="wrap-content">{{ job[17] }}</td>
-              <td class="wrap-content">{{ job[18] }}</td>
-              <td class="wrap-content">{{ job[19] }}</td>
-              <td class="wrap-content">{{ job[20] }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      
-    
-      <div class="container-candidate">
+        <br>
+        <router-link :to="'/pages/jobs/update/' + job[0]" class="btn btn-secondary btn-sm align-margin" style="margin-top: -20px;">Edit Job</router-link>
+        <hr>
         <br>
         <br>
-        <h3 class="text-center">Candidate Information</h3>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th class="table-content">Candidate ID</th>
-              <th class="table-content">Candidate Name</th>
-              <th class="table-content">Mobile No</th>
-              <th class="table-content">Address</th>
-              <th class="table-content">Education</th>
-              <th class="table-content">Status</th>
-              <th class="table-content">Resume</th>
-
-             
-            </tr>
-          </thead>
-          <tbody>
-           
-            <tr v-for="candidate in candidates" :key="candidate.id">
-              <td>{{ candidate.id }}</td>
-              <td>{{ candidate.name }}</td>
-              <td>{{ candidate.mobile }}</td>
-              <td>{{ candidate.address }}</td>
-              <td>{{ candidate.education }}</td>
-              <td>{{ candidate.status }}</td>
-              <td>
-               <a :href="'http://localhost:8000/view-resume/' + candidate.id">
-                  <i class="bi bi-file-earmark-pdf" style="width: 60px ;margin-left:20px"></i>
-                </a>
-              </td>
-              
-            </tr>
-          </tbody>
-        </table>
+        <div class="align-margin">
+          <p><strong>Delivery Manager</strong>&emsp;&emsp;&emsp; <strong>Created by:</strong></p>
+          <p style="margin-top: -8px">{{ job[14] }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ job[14] }}</p>
+        </div>
+        <br>
+        <br>
+        <div class="align-margin">
+          <h5>Job Description</h5>
+          <div v-html="job[2]" :class="{ 'collapsed': !showAllDescription }"></div>
+          <button v-if="!showAllDescription" @click="toggleDescription" class="btn btn-link">More</button>
+          <button v-if="showAllDescription" @click="toggleDescriptionLess" class="btn btn-link">Less</button>
+        </div>
       </div>
     </div>
   </div>
-  <div v-else class="alert alert-danger text-center" role="alert" style="width: 50%; margin: 0 auto;">Job not found</div>
-  <router-link to="/pages/jobs" class="btn btn-secondary mt-3" style="margin-left: 45px;">Back to Job List</router-link>
-</template>
+  <br>
+  <br>
+  <div  class="container-fluid2">
+    <div class="card p-4 shadow">
+      <!-- Job details table -->
+      <div>
+        <div class="row">
+          <p><strong>Submissions</strong></p>
+          <div class="right-section">
+            <div class="form-group search-group">
+              
+              <input type="text" class="form-control search-input" placeholder="Search..." v-model="searchQuery">
+            </div>
+          </div>
+            <div class="row">
+              <div v-if="candidates" class="col">
+                <table class="table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Submitted on</th>
+                    <th>Mobile / Location</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="candidate in candidates" :key="candidate.id">
+                    <td>
+                      {{ candidate.name }} 
+                      <a :href="'http://localhost:8000/view-resume/' + candidate.id" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-pdf" viewBox="0 0 16 16">
+                          <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2M9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+                          <path d="M4.603 14.087a.8.8 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.7 7.7 0 0 1 1.482-.645 20 20 0 0 0 1.062-2.227 7.3 7.3 0 0 1-.43-1.295c-.086-.4-.119-.796-.046-1.136.075-.354.274-.672.65-.823.192-.077.4-.12.602-.077a.7.7 0 0 1 .477.365c.088.164.12.356.127.538.007.188-.012.396-.047.614-.084.51-.27 1.134-.52 1.794a11 11 0 0 0 .98 1.686 5.8 5.8 0 0 1 1.334.05c.364.066.734.195.96.465.12.144.193.32.2.518.007.192-.047.382-.138.563a1.04 1.04 0 0 1-.354.416.86.86 0 0 1-.51.138c-.331-.014-.654-.196-.933-.417a5.7 5.7 0 0 1-.911-.95 11.7 11.7 0 0 0-1.997.406 11.3 11.3 0 0 1-1.02 1.51c-.292.35-.609.656-.927.787a.8.8 0 0 1-.58.029m1.379-1.901q-.25.115-.459.238c-.328.194-.541.383-.647.547-.094.145-.096.25-.04.361q.016.032.026.044l.035-.012c.137-.056.355-.235.635-.572a8 8 0 0 0 .45-.606m1.64-1.33a13 13 0 0 1 1.01-.193 12 12 0 0 1-.51-.858 21 21 0 0 1-.5 1.05zm2.446.45q.226.245.435.41c.24.19.407.253.498.256a.1.1 0 0 0 .07-.015.3.3 0 0 0 .094-.125.44.44 0 0 0 .059-.2.1.1 0 0 0-.026-.063c-.052-.062-.2-.152-.518-.209a4 4 0 0 0-.612-.053zM8.078 7.8a7 7 0 0 0 .2-.828q.046-.282.038-.465a.6.6 0 0 0-.032-.198.5.5 0 0 0-.145.04c-.087.035-.158.106-.196.283-.04.192-.03.469.046.822q.036.167.09.346z"/>
+                        </svg>
+                      </a>
+                    </td>
+                    <td>{{candidate.created_at.slice(0,10)}}</td>
+                    <td>{{candidate.mobile}} / {{ candidate.address }}</td>
+                    <td>{{candidate.name}}</td>
+                    <td>{{candidate.status}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+              <div >
 
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+</template>
 
 <script>
 import axios from 'axios';
 
 export default {
-  name:'job-details',
+  name: 'job-details',
   data() {
     return {
       job: {},
-      candidates:{},
+      searchQuery:'', 
+      candidates: {},
       isSidebarOpen: true,
+      resume : null,
+      showAllDescription: false,
+      descriptionToShow: '',
+      
     };
   },
   mounted() {
     const jobId = this.$route.params.id;
-   
     this.fetchJobDetails(jobId);
     this.fetchCandidateDetails(jobId);
-
-    const asideToggle = document.getElementById("kt_aside_toggle");
-    if (asideToggle) {
-      asideToggle.addEventListener("click", this.toggleSidebar);
-    } 
-  },
-
-  beforeUnmount() {
-    // Remove event listener to avoid memory leaks
-    const asideToggle = document.getElementById("kt_aside_toggle");
-    if (asideToggle) {
-      asideToggle.removeEventListener("click", this.toggleSidebar);
+    if (this.job[2]) {
+      this.descriptionToShow = this.job[2].split('\n').slice(0, 2).join('\n');
+    } else {
+      this.descriptionToShow = ''; // or any default value you want
     }
   },
-  
   methods: {
-      toggleSidebar() {
-        this.isSidebarOpen = !this.isSidebarOpen;
-      },
-      calculateRefreshedAt(timeStamp){
-        const currentTime = Date.now();
-        const responseTimeStamp = new Date(timeStamp).getTime(); 
-        const differenceTimeStamp = currentTime - responseTimeStamp;
-        const days = Math.floor(differenceTimeStamp / (1000 * 60 * 60 * 24));
-        if (days == 0){
-          return 'Now';
-        }
-        const RefreshedAt = days + ' days ago';
-        console.log("refreshed at",RefreshedAt);
-        return RefreshedAt;
-      },
-
-      calculateDateTime(timeStamp){
-        const currentTime = Date.now();
-        const responseTimeStamp = new Date(timeStamp).getTime(); 
-        const differenceTimeStamp = currentTime - responseTimeStamp;
-        const days = Math.floor(differenceTimeStamp / (1000 * 60 * 60 * 24));
-        if (days == 0){
-          return 'Today';
-        }
-        const createdAt = days + ' days ago';
-        return createdAt;
-      },
-
+    
+    toggleDescription() {
+      // Toggle between showing only two lines and showing full description
+      this.showAllDescription = !this.showAllDescription;
+      if (this.showAllDescription) {
+        this.descriptionToShow = this.job[2];
+      } else {
+        this.descriptionToShow = this.job[2].split('\n').slice(0, 2).join('\n');
+      }
+    },
+    toggleDescriptionLess() {
+      // Toggle between showing only two lines and showing full description
+      this.showAllDescription = !this.showAllDescription;
+      if (this.showAllDescription) {
+        this.descriptionToShow = this.job[2];
+      } else {
+        this.descriptionToShow = this.job[2].split('\n').slice(0, 2).join('\n');
+      }
+    },
     fetchJobDetails(jobId) {
       axios.get(`http://localhost:8000/jobs/${jobId}`)
         .then(response => {
@@ -175,8 +156,7 @@ export default {
           console.error('Error fetching job details:', error);
         });
     },
-
-    fetchCandidateDetails(jobId){
+    fetchCandidateDetails(jobId) {
       axios.get(`http://localhost:8000/candidatesByJobId/${jobId}`)
         .then(response => {
           this.candidates = response.data.candidates;
@@ -185,51 +165,61 @@ export default {
         .catch(error => {
           console.error('Error fetching candidate details:', error);
         });
-    }
-  }
+    },
+
+    filterCandidates() {
+        let filtered = this.candidates;
+        if (this.searchQuery ) {
+          filtered = filtered.filter(candidate => {
+            return candidate.name.toLowerCase().includes(this.searchQuery.toLowerCase()) 
+          });
+        }
+        
+        const startIndex = (1 - 1) * 1;
+        const endIndex = startIndex + 1;
+        return filtered.slice(startIndex, endIndex);
+      },
+  },
+ 
 };
 </script>
 
 <style scoped>
-.container {
-  margin-top: -50px;
+.container-fluid{
+  width: 800px;
+  height: 440px;
+  margin-top: 50px;
+  margin-left: -10px;
+  overflow: auto;
 }
+
+.container-fluid2{
+  width: 780px;
+  margin-top: -10px;
+ 
+}
+
+
+
 .card {
   margin-top: 20px;
 }
 
-.margin-align{
-  margin-right: 40px;
+.align-margin{
+  margin-left:28px;
+  margin-top: -45px; 
 }
 
-.wrap-content{
-  white-space: nowrap; 
-  overflow: hidden; 
+.status-button{
+  margin-left: 600px;
+  margin-top: -40px;
+}
+
+.collapsed {
+  overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.table-content{
-  font-size: 15px; 
-  font-weight: 800;
-  padding: 0px; 
-  padding-right: 1px;
-  white-space: nowrap; 
-  overflow: hidden; 
-  text-overflow: ellipsis;
-}
-
-.btn-group {
-  display: inline-block; /* Ensure the container only takes up as much space as needed */
-  max-width: 100px; /* Adjust the maximum width as needed */
-  align-items: flex-end;
-}
-
-.row {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.full-width {
-  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to show */
+  -webkit-box-orient: vertical;
 }
 </style>

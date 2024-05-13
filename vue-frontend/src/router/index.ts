@@ -25,17 +25,18 @@ const routes: Array<RouteRecordRaw> = [
         name: "job-details",
         component: job_details,
       },
-      {
-        path: "/pages/jobs/update/:id",
-        name: "updateJob",
-        component: updateJob,
-      },
+      
     ],
   },
   {
     path: "/pages/jobs/:id",
     name: "job-details",
     component: job_details,
+  },
+  {
+    path: "/pages/jobs/update/:id",
+    name: "updateJob",
+    component: updateJob,
   },
   {
     path:"/manual",
@@ -59,7 +60,7 @@ const routes: Array<RouteRecordRaw> = [
     redirect: "/pages/jobs",
   },
   {
-    path:"/candidate",
+    path:"/candidate/:id",
     component : Candidate
   },
 ];

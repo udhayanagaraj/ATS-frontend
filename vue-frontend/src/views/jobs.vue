@@ -14,20 +14,26 @@
         <table class="table table-striped"  style="border-collapse: separate; border-spacing: 0 10px;">
           <thead>
             <tr>
-              <th style=" font-size: 15px; font-weight: 800;padding: 10px; padding-right: 40px; position:relative;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+              <th style=" font-size: 15px; font-weight: 800;padding: 10px; padding-right: 40px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                 Company
                 <div class="filter-icon" @click="toggleCompanyFilter">
-                  <i class="bi bi-funnel"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
+                    <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
+                  </svg>
                 </div>
-                <div class="search-box-wrapper" style="position: relative;">
+                <div class="search-box-wrapper" >
                   <div class="search-box show-search-box" v-show="show_company_filter " style="width:300px">
                     <label for="searchInput" class="form-label">Enter Company</label>
-                    <i class="bi bi-x" 
-                      style="width: 40px; margin-left: 170px; cursor: pointer; transition: transform 0.3s;"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"
+                      style="width: 40px; margin-left: 140px; cursor: pointer; transition: transform 0.3s;"
                       @click="show_company_filter = false"
                       @mouseenter="$event.target.style.transform = 'scale(1.2)'"
-                      @mouseleave="$event.target.style.transform = 'scale(1)'">
-                    </i>
+                      @mouseleave="$event.target.style.transform = 'scale(1)'"
+                    >
+                      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                    </svg>
+                      
+                    
                     <div class="input-group">
                         <input type="text" class="form-control" id="searchInput" placeholder="Search..." v-model="searchQuery" @click.stop>
                         <button class="btn btn-outline-secondary" type="button" >Search</button>
@@ -36,20 +42,24 @@
                 </div>
               </th>
               
-              <th style="font-size: 15px;font-weight: 800;padding: 10px;padding-right: 40px; position: relative;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+              <th style="font-size: 15px;font-weight: 800;padding: 10px;padding-right: 40px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                 Title
                 <div class="filter-icon" @click="toggletitleFilter">
-                  <i class="bi bi-funnel"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
+                    <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
+                  </svg>
                 </div>
-                <div class="search-box-wrapper" style="position: relative;">
+                <div class="search-box-wrapper" >
                   <div class="search-box show-search-box" v-show="show_title_filter " style="width:300px">
                     <label for="searchInput" class="form-label">Enter Title</label>
-                    <i class="bi bi-x" 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"
                       style="width: 40px; margin-left: 170px; cursor: pointer; transition: transform 0.3s;"
                       @click="show_title_filter = false"
                       @mouseenter="$event.target.style.transform = 'scale(1.2)'"
-                      @mouseleave="$event.target.style.transform = 'scale(1)'">
-                    </i>
+                      @mouseleave="$event.target.style.transform = 'scale(1)'"
+                    >
+                      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                    </svg>
                     <div class="input-group">
                         <input type="text" class="form-control" id="searchInput" placeholder="Search..." v-model="searchQuery" @click.stop>
                         <button class="btn btn-outline-secondary" type="button">Search</button>
@@ -61,17 +71,21 @@
               <th style="font-size: 15px;font-weight: 800;padding: 10px;padding-right: 40px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                 Experience
                 <div class="filter-icon" @click="toggleExperienceFilter">
-                  <i class="bi bi-funnel"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
+                    <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
+                  </svg>
                 </div>
                 <div class="search-box-wrapper" >
                   <div class="search-box show-search-box" v-show="show_experience_filter" style="width:300px">
                     <label for="searchInput" class="form-label">Enter Experience</label>
-                    <i class="bi bi-x" 
-                      style="width: 40px; margin-left: 170px; cursor: pointer; transition: transform 0.3s;"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"
+                      style="width: 40px; margin-left: 140px; cursor: pointer; transition: transform 0.3s;"
                       @click="show_experience_filter = false"
                       @mouseenter="$event.target.style.transform = 'scale(1.2)'"
-                      @mouseleave="$event.target.style.transform = 'scale(1)'">
-                    </i>
+                      @mouseleave="$event.target.style.transform = 'scale(1)'"
+                    >
+                      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                    </svg>
                     <div class="input-group">
                         <input type="text" class="form-control" id="searchInput" placeholder="Search..." v-model="searchQuery" @click.stop>
                         <button class="btn btn-outline-secondary" type="button">Search</button>
@@ -83,17 +97,21 @@
               <th style="font-size: 15px;font-weight: 800;padding: 10px;padding-right: 40px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                 Job Type
                 <div class="filter-icon" @click="toggleJobTypeFilter">
-                  <i class="bi bi-funnel"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
+                    <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
+                  </svg>
                 </div>
                 <div class="search-box-wrapper" >
                   <div class="search-box show-search-box" v-show="show_job_filter " style="width:300px">
                     <label for="searchInput" class="form-label">Enter Job Type</label>
-                    <i class="bi bi-x" 
-                      style="width: 40px; margin-left: 170px; cursor: pointer; transition: transform 0.3s;"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"
+                      style="width: 40px; margin-left: 140px; cursor: pointer; transition: transform 0.3s;"
                       @click="show_job_filter = false"
                       @mouseenter="$event.target.style.transform = 'scale(1.2)'"
-                      @mouseleave="$event.target.style.transform = 'scale(1)'">
-                    </i>
+                      @mouseleave="$event.target.style.transform = 'scale(1)'"
+                    >
+                      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                    </svg>
                     <div class="input-group">
                         <input type="text" class="form-control" id="searchInput" placeholder="Search..." v-model="searchQuery" @click.stop>
                         <button class="btn btn-outline-secondary" type="button">Search</button>
@@ -105,17 +123,21 @@
               <th style="font-size: 15px; font-weight: 800; padding: 10px; padding-right: 40px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                   Primary skills
                   <div class="filter-icon" @click="toggleSkillsFilter">
-                      <i class="bi bi-funnel"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
+                      <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
+                    </svg>
                   </div>
                   <div class="search-box-wrapper">
                       <div class="search-box show-search-box" v-show="show_skills_filter" style="width:300px">
                           <label for="searchInput" class="form-label">Enter Primary Skills</label>
-                          <i class="bi bi-x" 
-                              style="width: 40px; margin-left: 170px; cursor: pointer; transition: transform 0.3s;"
-                              @click="show_skills_filter = false"
-                              @mouseenter="$event.target.style.transform = 'scale(1.2)'"
-                              @mouseleave="$event.target.style.transform = 'scale(1)'">
-                          </i>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"
+                            style="width: 40px; margin-left: 130px; cursor: pointer; transition: transform 0.3s;"
+                            @click="show_skills_filter = false"
+                            @mouseenter="$event.target.style.transform = 'scale(1.2)'"
+                            @mouseleave="$event.target.style.transform = 'scale(1)'"
+                          >
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                          </svg>
                           <div class="input-group">
                               <input type="text" class="form-control" id="searchInput" placeholder="Search..." v-model="searchQuery" @click.stop>
                               <button class="btn btn-outline-secondary" type="button">Search</button>
@@ -124,20 +146,24 @@
                   </div>
               </th>
 
-              <th style="font-size: 15px; font-weight: 800; padding: 10px; padding-right: 40px; position: relative;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+              <th style="font-size: 15px; font-weight: 800; padding: 10px; padding-right: 40px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                   Location
                   <div class="filter-icon" @click="toggleLocationFilter">
-                      <i class="bi bi-funnel"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
+                      <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
+                    </svg>
                   </div>
-                  <div class="search-box-wrapper" style="position: relative;">
+                  <div class="search-box-wrapper" >
                       <div class="search-box show-search-box" v-show="show_location_filter" style="width:300px">
                           <label for="searchInput" class="form-label">Enter Location</label>
-                          <i class="bi bi-x" 
-                              style="width: 40px; cursor: pointer;margin-left:170px; transition: transform 0.3s;"
-                              @click="show_location_filter = false"
-                              @mouseenter="$event.target.style.transform = 'scale(1.2)'"
-                              @mouseleave="$event.target.style.transform = 'scale(1)'">
-                          </i>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"
+                            style="width: 40px; margin-left: 140px; cursor: pointer; transition: transform 0.3s;"
+                            @click="show_location_filter = false"
+                            @mouseenter="$event.target.style.transform = 'scale(1.2)'"
+                            @mouseleave="$event.target.style.transform = 'scale(1)'"
+                          >
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                          </svg>
                           <div class="input-group">
                               <input type="text" class="form-control" id="searchInput" placeholder="Search..." v-model="searchQuery" @click.stop>
                               <button class="btn btn-outline-secondary" type="button">Search</button>
@@ -149,31 +175,39 @@
               <th style="font-size: 15px;font-weight: 800;padding: 10px;padding-right: 40px;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                 Created At
                 <div class="filter-icon" @click="toggleSearchBox">
-                  <i class="bi bi-funnel"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
+                    <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
+                  </svg>
                 </div>
               </th>
 
               <th style="font-size: 15px;font-weight: 800;padding: 10px;padding-right: 40px;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                 Refreshed At
                 <div class="filter-icon" @click="toggleSearchBox">
-                  <i class="bi bi-funnel"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
+                    <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
+                  </svg>
                 </div>
               </th>
 
               <th style="font-size: 15px;font-weight: 800;padding: 10px;padding-right: 40px;white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                 Job Owner
                 <div class="filter-icon" @click="toggleJobOwnerFilter">
-                  <i class="bi bi-funnel"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
+                  <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2z"/>
+                </svg>
                 </div>
                 <div class="search-box-wrapper">
                   <div class="search-box show-search-box" v-show="show_job_owner_filter"  style="width:300px">
-                    <label for="searchInput" class="form-label">Enter Location</label>
-                    <i class="bi bi-x" 
-                      style="width: 40px; margin-left: 170px; cursor: pointer; transition: transform 0.3s;"
+                    <label for="searchInput" class="form-label">Enter Owner</label>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"
+                      style="width: 40px; margin-left: 160px; cursor: pointer; transition: transform 0.3s;"
                       @click="show_job_owner_filter = false"
                       @mouseenter="$event.target.style.transform = 'scale(1.2)'"
-                      @mouseleave="$event.target.style.transform = 'scale(1)'">
-                    </i>
+                      @mouseleave="$event.target.style.transform = 'scale(1)'"
+                    >
+                      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                    </svg>
                     <div class="input-group">
                         <input type="text" class="form-control" id="searchInput" placeholder="Search..." v-model="searchQuery" @click.stop>
                         <button class="btn btn-outline-secondary" type="button">Search</button>
@@ -448,12 +482,10 @@
   
   <style >
   .job-c{
-    position: fixed;
-    left: 0;
+    margin-left: -55px;
     width: 100%; 
-    margin: 0; 
-    padding: 0;
-    margin-top: -263px;
+    margin-top: 70px;
+    margin-right: 20px;
   }
 
   .add-button{

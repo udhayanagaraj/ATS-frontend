@@ -34,7 +34,7 @@
                   <div class="col">
                     <div class="form-group">
                       <h3>Min</h3>
-                      <select class="form-control rounded-pill" v-model="minExperience">
+                      <select class="form-control " v-model="minExperience">
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -46,7 +46,7 @@
                   <div class="col">
                     <div class="form-group">
                       <h3>Max</h3>
-                      <select class="form-control rounded-pill" v-model="maxExperience">
+                      <select class="form-control " v-model="maxExperience">
                         <option value="5">5</option>
                         <option value="10">10</option>
                         <option value="15">15</option>
@@ -62,7 +62,7 @@
                 <div class="row">
                   <div class="col">
                     <div class="form-group">
-                      <select class="form-control rounded-pill" v-model="job.education">
+                      <select class="form-control  " v-model="job.education">
                         <option value="">Select Degree</option>
                         <option value="0">None</option>
                         <option value="UG-Any degree">UG-Any degree</option>
@@ -112,7 +112,7 @@
               <div class="form-group">
                 <br/>
                 <label for="title"><h3>Job Type:</h3></label>
-                <select class="form-control rounded-pill" v-model="job.job_type">
+                <select class="form-control  " v-model="job.job_type">
                   <option value="">Select Type</option>
                   <option value="Fulltime / Permanent">Fulltime / Permanent</option>
                   <option value="Fulltime/ Internship / Permanent">Fulltime/ Internship / Permanent</option>
@@ -127,7 +127,7 @@
 
               <div class="form-group">
                 <label for="title"><h3>Locations:</h3></label>
-                <select class="form-control rounded-pill" v-model="job.locations">
+                <select class="form-control  " v-model="job.locations">
                   <option value="">Select Location</option>
                   <option value="Chennai, Tamil Nadu">Chennai, Tamil Nadu</option>
                   <option value="Coimbatore, Tamil Nadu">Coimbatore, Tamil Nadu</option>
@@ -146,7 +146,7 @@
                 <div class="row">
                   <div class="col">
                     <div class="form-group">
-                      <select class="form-control rounded-pill" v-model="job.industry">
+                      <select class="form-control  " v-model="job.industry">
                         <option value="">Select Industry</option>
                         <option value="Information Technology">Information Technology</option>
                         <option value="Financial Sector">Financial Sector</option>
@@ -239,11 +239,11 @@
         const skillRegex = /Skills\s*:\s*([^\n]+)/i;
         const companyRegex = /Company\s*:\s*([^\n]+)/i;
         const locationRegex = /Location\s*:\s*([^\n]+)/i;
-
         const educationRegex = /Education\s*:\s*UG:\s*([^\n,]+)(?:,\s*PG:\s*([^\n,]+))?/i;
         const industryRegex = /Industry\s*Type\s*:\s*([^\n,]+)/i;
+        const descriptionRegex = /Description\s*:\s*([^\n]+)/i;
 
-        
+
         const titleMatch = this.pastedText.match(titleRegex);
         const salaryMatch = this.pastedText.match(salaryRegex);
         const skillMatch = this.pastedText.match(skillRegex);
@@ -251,6 +251,7 @@
         const locationMatch = this.pastedText.match(locationRegex);
         const educationMatch = this.pastedText.match(educationRegex);
         const industryMatch = this.pastedText.match(industryRegex);
+        const descriptionMatch = this.pastedText.match(descriptionRegex);
 
         if (titleMatch) {
           this.job.title = titleMatch[1].trim();
@@ -267,8 +268,8 @@
         if (locationMatch) {
           this.job.locations = locationMatch[1].trim();
         }
-        if (locationMatch) {
-          this.job.locations = locationMatch[1].trim();
+        if (descriptionMatch) {
+          this.job.description = descriptionMatch[1].trim();
         }
         if (educationMatch) {
           this.job.education =  {

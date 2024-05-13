@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-sm  navbar-dark ">
       <div class="container-fluid"> <!-- Use container-fluid for full-width -->
         <a class="navbar-brand" href="#">
           <img src="./Logo.jpeg" alt="Logo" class="navbar-logo">
@@ -46,6 +46,7 @@
     left: 0;
     margin-left: 0;
     z-index: 1000;
+    background-color: rgb(109, 170, 240);
   }
   .navbar-logo {
   width: 35px; /* Adjust the width as needed */
