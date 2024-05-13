@@ -8,13 +8,14 @@
               Added successfully!
             </div>
             
-            <div class="row" style="margin-top:-275px">
+            <div class="row" style="margin-top:-205px">
               <label style="font-size: 20px;" >Experience</label>
-              <button class="button-save">Save and continue</button>
-              <button class="button-reset">Reset</button>
-
+              <button class="button-save btn btn-primary">Save and continue</button>
+              <button class="button-reset btn btn-secondary">Reset</button>
+              
               <!-- First half of the form -->
               <div class="col-md-4">
+                <br>
                   <div class="form-group">
                       <br>
                       <label for="title"><h6>Company Name</h6></label>
@@ -25,15 +26,8 @@
                   
                 
                   <div class="form-group">
-                      <label for="company"><h6>State</h6></label>
-                      <select class="form-control" v-model="job.job_type" style="width:230px;">
-                      <option value="">Select State</option>
-                      <option value="Tamil Nadu">Tamil Nadu</option>
-                      <option value="Maharastra">Maharastra</option>
-                      <option value="Kerala">Kerala</option>
-                      <option value="Andhra Pradesh">Andhra Pradesh</option>
-                      <option value="Karnataka">Karnataka</option>
-                      </select>
+                      <label for="company"><h6>Reson for quiting</h6></label>
+                      <textarea class="form-control" id="description" rows="3" v-model="job[9]" style="width: 550px;"></textarea>
                   </div>
 
                     
@@ -41,24 +35,20 @@
 
               <!-- Second half of the form -->
               <div class="col-md-4">
-                  
+                <br>
                 <div class="form-group">
                     <br>
-                    <label for="title"><h6>Middle Name</h6></label>
+                    <label for="title"><h6>Job Title</h6></label>
                     <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
                 </div>
 
-                <div class="form-group">
-                  <div class="form-group">
-                      <label for="company"><h6>Alternate Mobile Number</h6></label>
-                      <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
-                  </div>
-                </div>
+              
 
                 
               </div>
 
               <div class="col-md-4">
+                <br>
                   <div class="form-group" >
                       <br>
                       <label for="recruiter" ><h6>Experience</h6></label>
@@ -79,10 +69,7 @@
                       </select>
                       <h6 style="display: inline"> Months</h6>
                   </div>
-                  <div class="form-group">
-                      <label for="title"><h6>Email</h6></label>
-                      <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
-                  </div>
+                  
                   
 
               </div>
@@ -91,6 +78,7 @@
               </div>
               
               <router-link to="/pages/jobs" class="btn btn-secondary btn-margin-right">Cancel</router-link>
+              <button class="btn btn-primary btn-margin-right">Submit</button>
           </div>
         </div>
     </div>
@@ -217,7 +205,7 @@
     }
     .button-reset{
         margin-left:20px;
-        max-width: 110px;
+        max-width: 100px;
     }
     .button-reset:hover{
         background-color: #e0e0e0;

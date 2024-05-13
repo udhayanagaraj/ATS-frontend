@@ -9,8 +9,8 @@
             
             <div class="row" style="margin-top:-10px">
               <label style="font-size: 20px;" >Education</label>
-              <button class="button-save">Save and continue</button>
-              <button class="button-reset">Reset</button>
+              <button class="button-save btn btn-primary">Save and continue</button>
+              <button class="button-reset btn btn-secondary">Reset</button>
 
               <!-- First half of the form -->
               <div class="col-md-4">
@@ -251,7 +251,7 @@
     }
     .button-reset{
         margin-left:20px;
-        max-width: 110px;
+        max-width: 100px;
     }
     .button-reset:hover{
         background-color: #e0e0e0;

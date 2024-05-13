@@ -6,6 +6,8 @@ import job_details from "@/views/job_details.vue";
 import updateJob from "@/views/update-job.vue";
 import Manual from "@/views/applicant/manual-parsing/manual.vue";
 import Parser from "@/views/applicant/automation/parser.vue";
+import Candidate from '@/views/candidates/candidate-details.vue';
+
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -50,6 +52,10 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/:pathMatch(.*)*",
     redirect: "/pages/jobs",
+  },
+  {
+    path:"/candidate",
+    component : Candidate
   },
 ];
 

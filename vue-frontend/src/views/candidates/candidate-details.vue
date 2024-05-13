@@ -1,0 +1,249 @@
+<template>
+    <div class="container-fluid " >
+      <div class="card">
+        <div class="card-header border-0">
+          <span>Add to &emsp;</span>
+          <span>Send email &emsp;</span>
+          <span>Set remainder &emsp;</span>
+          <span>Forward &emsp;</span>
+          <span>Schedule video call &emsp;</span>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="container-1">
+                <br>
+                <br>
+                <img src="" alt="Profile Photo" class="img-fluid rounded-circle mb-3">
+                
+                <h3 class="mb-2" style="margin-left:140px; margin-top: -70px;">Isha Priya</h3>
+                    <div class="first-row">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase" viewBox="0 0 16 16">
+                            <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5m1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0M1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5"/>
+                        </svg> 1 yr
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet2" viewBox="0 0 16 16">
+                            <path d="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5z"/>
+                        </svg> ₹ 2.15 Lacks
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                        </svg>Chennai
+                    </div>
+                    
+                   
+                    <div class="first-row"style="margin-top:6px">
+                        <strong>Current:</strong> Position 
+                    </div>
+                     
+                    <div class="first-row"style="margin-top:6px">
+                        <strong>Highest Degree:</strong> Degree 
+                    </div>
+                
+                    <div class="first-row"style="margin-top:6px">
+                        <strong>Preferred locations:</strong> Chennai
+                    </div>
+                    <div class="first-row" style="margin-top:8px" >
+                        <strong>mobile:</strong><span> 9170260440</span>
+                        <button class="btn btn-secondary" style="margin-left:20px">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+                            </svg>
+                            Call candidate</button>
+                    </div>
+                    
+                    <div class="first-row" style="margin-top:8px" >
+                        Email Address
+                    </div>
+                    
+                    
+                <h5>Profile detail</h5>
+
+                <h6>Summary</h6>
+                <div class="mb-3">
+                    <p>
+                        This is the summary of the candidate. It could contain a brief overview of their skills, experience, and qualifications.
+                    </p>
+                </div>
+                
+                <h6>Skills</h6>
+                <div class="mb-3">
+                    <span class="badge bg-primary">Java</span>
+                    <span class="badge bg-primary">Python</span>
+                </div>
+
+                <h6>Language Known</h6>
+                <div class="mb-3">
+                    <span class="badge bg-secondary">English</span>
+                    <span class="badge bg-secondary">Tamil</span>
+                </div>
+
+                <h6>Personal details</h6>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <span>Date of Birth:</span>
+                            <span>{{ dob }}</span>
+                        </div>
+                        <div class="col-sm-3">
+                            <span>Gender:</span>
+                            <span>{{ gender }}</span>
+                        </div>
+                        <div class="col-sm-3">
+                            <span>Marital Status:</span>
+                            <span>{{ maritalStatus }}</span>
+                        </div>
+                        <div class="col-sm-3">
+                            <span>Physically Challenged:</span>
+                            <span>{{ physicallyChallenged }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h6>Desired job detail</h6>
+                <div class="mb-3">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span>Job title:</span>
+                            <span>title</span>
+                        </div>
+                        <div class="col-sm-6">
+                            <span>Employment status:</span>
+                            <span>fulltime</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h6>Attached cv</h6>
+                <object data="http://example.com/path/to/udhayaResume.pdf" type="application/pdf" width="100%" height="600">
+                    <iframe src="http://example.com/path/to/udhayaResume.pdf" width="100%" height="600" style="border: none;">
+                        This browser does not support PDFs. Please download the PDF to view it: <a href="http://example.com/path/to/udhayaResume.pdf">Download PDF</a>
+                    </iframe>
+                </object>
+                </div>
+            </div>
+
+            <!-- second half -->
+            <div class="col-md-4">
+                <div class="container-2">
+                <br>
+                <br>
+                <h3 class="text-center">Similar profiles</h3>
+                
+                </div>
+            </div>
+        </div>
+        
+        
+      </div>
+    </div>
+  </template>
+  
+  
+  <script>
+  import axios from 'axios';
+  
+  export default {
+    name:'candidate-detail',
+    data() {
+      return {
+        dob: 'dob',
+        gender: 'male',
+        maritalStatus: 'Single',
+        physicallyChallenged: 'No',
+        resumeUrl : 'udhayaResume.pdf'
+
+      };
+    },
+    mounted() {
+      const jobId = this.$route.params.id;
+     
+      this.fetchJobDetails(jobId);
+      this.fetchCandidateDetails(jobId);
+    },
+  
+    
+    
+    methods: {
+    
+      fetchCandidateDetails(jobId){
+        axios.get(`http://127.0.0.1:8000/candidatesByJobId/${jobId}`)
+          .then(response => {
+            this.candidates = response.data.candidates;
+            console.log(this.candidates);
+          })
+          .catch(error => {
+            console.error('Error fetching candidate details:', error);
+          });
+      }
+    }
+  };
+  </script>
+  
+  <style scoped>
+
+    .second-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .row-item {
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
+    .card-header{
+        border:none;
+
+    }
+  .container-fluid{
+    width:1200px;
+    margin-top: 50px;
+    border: none;
+  }
+
+  .container-1{
+    margin-top: 10px;
+    margin-left: -370px;
+
+  }
+  .card {
+    margin-top: 20px;
+  }
+  
+
+  .wrap-content{
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+  }
+
+  
+  .btn-group {
+    display: inline-block; /* Ensure the container only takes up as much space as needed */
+    max-width: 100px; /* Adjust the maximum width as needed */
+    align-items: flex-end;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+
+  .first-row{
+    margin-left: 140px;
+  }
+  .resume-container {
+        height: 600px; /* Set height according to your preference */
+        overflow: auto;
+    }
+    .resume-iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+  </style>
+  

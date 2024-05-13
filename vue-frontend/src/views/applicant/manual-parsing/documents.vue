@@ -10,8 +10,8 @@
             
             <div class="row" style="margin-top: -255px;">
               <label style="font-size: 20px;" >Documents</label>
-              <button class="button-save">Save and continue</button>
-              <button class="button-reset">Reset</button>
+              <button class="button-save btn btn-primary">Save and continue</button>
+              <button class="button-reset btn btn-secondary">Reset</button>
 
               <div class="form-group resume-container">
                   <br>
@@ -98,8 +98,8 @@
     }
     .button-reset{
         margin-left:840px;
-        max-width: 110px;
-        margin-top: -30px;
+        max-width: 100px;
+        margin-top: -40px;
     }
     .button-reset:hover{
         background-color: #e0e0e0;

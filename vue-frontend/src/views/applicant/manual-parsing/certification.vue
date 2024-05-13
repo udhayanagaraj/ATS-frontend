@@ -11,9 +11,9 @@
             <div class="row" >
               <label style="font-size: 20px" >Certifications</label>
               <br>
-              <button class="button-save">Save and continue</button>
-              <button class="button-reset">Reset</button>
-              
+              <button class="button-save btn btn-primary">Save and continue</button>
+              <button class="button-reset btn btn-secondary">Reset</button>
+
               <div class="form-group">
                 <br>
                 <br>
@@ -157,7 +157,7 @@
     }
     .button-reset{
         margin-left:20px;
-        max-width: 110px;
+        max-width: 100px;
     }
     .button-reset:hover{
         background-color: #e0e0e0;
