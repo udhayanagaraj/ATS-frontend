@@ -16,7 +16,7 @@
                 <br>
                 <img src="./Logo.jpeg" alt="Profile Photo" class="logo mb-3">
                 
-                <h3 class="mb-2" style="margin-left:100px; margin-top: -120px;">{{can.name  }}</h3>
+                <h3 class="mb-2" style="margin-left:100px; margin-top: -120px;">{{can.name}}</h3>
                     <div class="first-row">
                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase" viewBox="0 0 16 16">
                             <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5m1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0M1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5"/>
@@ -37,7 +37,7 @@
                     </div>
                      
                     <div class="first-row"style="margin-top:6px">
-                        <strong>Highest Degree:</strong> {{ can.education }}
+                        <strong>Highest Degree:</strong> 
                     </div>
                 
                     <div class="first-row"style="margin-top:6px">
@@ -68,9 +68,7 @@
                 
                 <h6>Skills</h6>
                 <div class="mb-3">
-                    <span class="badge bg-primary">Java</span>
-                    &emsp;
-                    <span class="badge bg-primary">Python</span>
+                    <span  class="badge bg-primary">{{ can.skills }}</span>
                 </div>
 
                 <h6>Language Known</h6>
@@ -87,17 +85,17 @@
                         <div class="col-sm-3">
                             <span >Date of Birth:</span>
                             <br>
-                            <span>{{ can.name }}</span>
+                            <span>{{ can.dob }}</span>
                         </div>
                         <div class="col-sm-3">
                             <span>Gender:</span>
                             <br>
-                            <span>male</span>
+                            <span>{{can.gender}}</span>
                         </div>
                         <div class="col-sm-3">
                             <span>Marital Status:</span>
                             <br>
-                            <span>bachelor</span>
+                            <span>{{ can.martialstatus }}</span>
                         </div>
                         <div class="col-sm-3">
                             <span>Physically Challenged:</span>
@@ -113,7 +111,7 @@
                         <div class="col-sm-6">
                             <span>Job title:</span>
                             <br>
-                            <span>title</span>
+                            <span>{{ can.job_title }}</span>
                         </div>
                         <div class="col-sm-6">
                             <span>Employment status:</span>
@@ -124,11 +122,9 @@
                 </div>
 
                 <h6>Attached cv</h6>
-                <!-- <object data="http://example.com/path/to/udhayaResume.pdf" type="application/pdf" width="100%" height="600">
-                    <iframe src="http://example.com/path/to/udhayaResume.pdf" width="100%" height="600" style="border: none;">
-                        This browser does not support PDFs. Please download the PDF to view it: <a href="http://example.com/path/to/udhayaResume.pdf">Download PDF</a>
-                    </iframe>
-                </object> -->
+                <iframe :src="'http://127.0.0.1:8000/view-resume/'+can.id" width="100%" height="600" style="border: none;">
+                </iframe>
+
               </div>
             </div>
 
@@ -137,7 +133,6 @@
                 <div class="container-2">
                 <br>
                 <h3 class="text-center">Similar profiles</h3>
-                  
                 </div>
             </div>
         </div>
@@ -156,6 +151,7 @@
     data() {
       return {
         candidate:{},
+        skills:{},
         resumeUrl : 'udhayaResume.pdf'
 
       };
@@ -163,22 +159,22 @@
     mounted() {
       const candidateId = this.$route.params.id;
       this.fetchCandidateDetails(candidateId);
+      
     },
-  
-    
-    
+ 
     methods: {
-    
       fetchCandidateDetails(candidateId){
-        axios.get(`http://127.0.0.1:8000/candidatesByJobId/${candidateId}`)
+        axios.get(`http://127.0.0.1:8000/candidateById/${candidateId}`)
           .then(response => {
             this.candidate = response.data.candidates;
             console.log(this.candidate);
           })
           .catch(error => {
             console.error('Error fetching candidate details:', error);
-          });
-      }
+        });
+      },
+
+
     }
   };
   </script>

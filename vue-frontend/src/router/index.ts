@@ -61,6 +61,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path:"/candidate/:id",
+    name:"candidate-detail",
     component : Candidate
   },
 ];
