@@ -31,13 +31,10 @@
   
   <script>
 
-  import VueMultiselect from 'vue-multiselect';
-
+ 
   export default {
     name: 'document',
-    components: {
-      VueMultiselect 
-    },
+    
     data() {
       return {
         resume:null,
@@ -47,7 +44,7 @@
    
     methods: {
       addJob() {
-        console.log("first")
+        console.log(this.resume)
     }
 }
 };

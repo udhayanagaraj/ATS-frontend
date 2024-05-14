@@ -10,30 +10,30 @@
             <div class="row" style="margin-top:-10px">
               <label style="font-size: 20px;" >Personal Details</label>
               <button class="button-save btn btn-primary">Save and continue</button>
-              <button class="button-reset btn btn-secondary">Reset</button>
+              <button class="button-reset btn btn-secondary" @click="reset">Reset</button>
 
               <!-- First half of the form -->
               <div class="col-md-4">
                   <div class="form-group">
                       <br>
                       <label for="title"><h6>First Name</h6></label>
-                      <input type="text" class="form-control" id="title" v-model="job.title" style="width: 230px;">
+                      <input type="text" class="form-control" id="title" v-model="personal.first_name" style="width: 230px;">
                   </div>
                   <div class="form-group">
                       <label for="company"><h6>Mobile Number</h6></label>
-                      <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                      <input type="text" class="form-control" id="company" v-model="personal.mobile" style="width: 230px;">
                   </div>
               
                   <div class="form-group">
                       <label for="experience"><h6>Date Of Birth</h6></label>
-                      <input type="date" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                      <input type="date" class="form-control" id="company" v-model="personal.dob" style="width: 230px;">
                   </div>
                   
                   
                 
                   <div class="form-group">
                       <label for="company"><h6>State</h6></label>
-                      <select class="form-control" v-model="job.job_type" style="width:230px;">
+                      <select class="form-control" v-model="personal.state" style="width:230px;">
                       <option value="">Select State</option>
                       <option value="Tamil Nadu">Tamil Nadu</option>
                       <option value="Maharastra">Maharastra</option>
@@ -45,7 +45,7 @@
 
                   <div class="form-group">
                       <label for="experience"><h6>Job Title</h6></label>
-                      <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                      <input type="text" class="form-control" id="company" v-model="personal.job_title" style="width: 230px;">
                   </div>
               </div>
 
@@ -55,31 +55,31 @@
                 <div class="form-group">
                     <br>
                     <label for="title"><h6>Middle Name</h6></label>
-                    <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                    <input type="text" class="form-control" id="company" v-model="personal.middle_name" style="width: 230px;">
                 </div>
 
                 <div class="form-group">
                   <div class="form-group">
                       <label for="company"><h6>Alternate Mobile Number</h6></label>
-                      <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                      <input type="text" class="form-control" id="company" v-model="personal.alternate_mobile" style="width: 230px;">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="title"><h6>Address:</h6></label>
-                  <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                  <input type="text" class="form-control" id="company" v-model="personal.address" style="width: 230px;">
                 </div>
 
                 <div class="form-group">
-                  <label for="company"><h6>Zip code</h6></label>
-                  <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                  <label for="company"><h6>Pin code</h6></label>
+                  <input type="text" class="form-control" id="company" v-model="personal.pincode" style="width: 230px;">
                 </div>
 
                 <div class="form-group">
-                  <label for="description"><h6>Relocation</h6></label>
+                  <label for="description"><h6>Willling to Relocate</h6></label>
                   <br>
-                  <input type="radio"  value="yes"><label style="font-size:19px">&nbsp; yes &nbsp;</label>  
-                  <input type="radio" value="no"><label style="font-size:19px">&nbsp; No</label>
+                  <input type="radio" v-model="personal.relocation" value="yes"><label style="font-size:19px">&nbsp; yes &nbsp;</label>  
+                  <input type="radio" v-model="personal.relocation" value="no"><label style="font-size:19px">&nbsp; No</label>
                 </div>
               </div>
 
@@ -87,19 +87,19 @@
                   <div class="form-group">
                       <br>
                       <label for="title"><h6>Last Name</h6></label>
-                      <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                      <input type="text" class="form-control" id="company" v-model="personal.last_name" style="width: 230px;">
                   </div>
                   <div class="form-group">
                       <label for="title"><h6>Email</h6></label>
-                      <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                      <input type="text" class="form-control" id="company" v-model="personal.email" style="width: 230px;">
                   </div>
                   <div class="form-group">
                       <label for="title"><h6>City</h6></label>
-                      <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                      <input type="text" class="form-control" id="company" v-model="personal.city" style="width: 230px;">
                   </div>
                   <div class="form-group">
                       <label for="title"><h6>Linkedin URL</h6></label>
-                      <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                      <input type="text" class="form-control" id="company" v-model="personal.linkedin_url" style="width: 230px;">
                   </div>
                   <div class="form-group">
                       <label for="title"><h6>Skills</h6></label>
@@ -111,6 +111,7 @@
                               :multiple="true"
                               :close-on-select="true"
                               placeholder="Pick some"
+                              style="width:227px"
                               >
                               </VueMultiselect>
                           </div>
@@ -136,85 +137,49 @@
     },
     data() {
       return {
-        job: {
-            title: '',
-            description: '',
-            locations: '',
-            company: '',
-            industry: '',
-            experience: '',
-            education: '',
-            benefits: '', 
-            about: '',
-            skills: '',
-            recruiter:'',
-            num_profile:0,
-            interviews:0,
-            selections:0,
-            joined:0,
-            backouts:0,
-            job_type:''            
-            
+        personal: {
+            first_name: '',
+            last_name: '',
+            middle_name: '',
+            mobile: '',
+            dob: '',
+            state: '',
+            job_title: '',
+            alternate_mobile: '', 
+            address: '',
+            city: '',
+            pincode:'',
+            email:'',
+            linkedin_url:'',
+            relocation:'',
+                            
         },
         
-        maxExperience:'0',
-        minExperience : '0',
+        
         updateSuccess : false,
-        pastedText : '',
         selectedSkills: [],
         options:['Java','Python','Machine learning','Accounting','Tally','Executive','Excel','Computer Networks','OpenCV','Electronics','Communication','Arduino'],
-       
-        
       };
     },
    
     methods: {
-      parsing(){
-        const titleRegex = /(?:Job\s)?Title\s*:\s*([^\n]+)/i;
-        const salaryRegex = /Salary\s*:\s*([^\n]+)/i;
-        const skillRegex = /Skills\s*:\s*([^\n]+)/i;
-        const companyRegex = /Company\s*:\s*([^\n]+)/i;
-        const locationRegex = /Location\s*:\s*([^\n]+)/i;
-
-        const educationRegex = /Education\s*:\s*UG:\s*([^\n,]+)(?:,\s*PG:\s*([^\n,]+))?/i;
-        const industryRegex = /Industry\s*Type\s*:\s*([^\n,]+)/i;
-
-        
-        const titleMatch = this.pastedText.match(titleRegex);
-        const salaryMatch = this.pastedText.match(salaryRegex);
-        const skillMatch = this.pastedText.match(skillRegex);
-        const companyMatch = this.pastedText.match(companyRegex);
-        const locationMatch = this.pastedText.match(locationRegex);
-        const educationMatch = this.pastedText.match(educationRegex);
-        const industryMatch = this.pastedText.match(industryRegex);
-
-        if (titleMatch) {
-          this.job.title = titleMatch[1].trim();
-        }
-        if (salaryMatch) {
-          this.job.salary = salaryMatch[1].trim();
-        }
-        if (skillMatch) {
-          this.job.skills = skillMatch[1].trim();
-        }
-        if (companyMatch) {
-          this.job.company = companyMatch[1].trim();
-        }
-        if (locationMatch) {
-          this.job.locations = locationMatch[1].trim();
-        }
-        if (locationMatch) {
-          this.job.locations = locationMatch[1].trim();
-        }
-        if (educationMatch) {
-          this.job.education =  {
-            UG: educationMatch[1].trim(),
-            PG: educationMatch[2] ? educationMatch[2].trim() : ''
-          };
-        }
-        if (industryMatch) {
-          this.job.industry = industryMatch[1].trim();
-        }
+      
+      reset(){
+        this.personal.first_name = '',
+        this.personal.last_name= '',
+        this.personal.middle_name= '',
+        this.personal.mobile= '',
+        this.personal.dob= '',
+        this.personal.state= '',
+        this.personal.job_title= '',
+        this.personal.alternate_mobile= '', 
+        this.personal.address= '',
+        this.personal.city= '',
+        this.personal.pincode='',
+        this.personal.email='',
+        this.personal.linkedin_url='',
+        this.personal.relocation='',
+        this.selectedSkills = null
       },
 
       addJob() {

@@ -2,7 +2,7 @@
 <template>
     
     <div class="container-fluid">
-        <div class="card" style=" margin-top:-190px;">
+        <div class="card" >
           <div class="card-body">
             <div v-if="updateSuccess" class="alert alert-success" role="alert">
               Added successfully!
@@ -36,7 +36,7 @@
 
               <div v-if="selectedSkills.length > 0">
                 <label><h4>Selected Skills:</h4></label>
-                <div v-for="(skill, index) in selectedSkills" :key="index" class="selected-skill">
+                <div v-for="(skill, index) in selectedSkills" :key="index" class="selected-skill" >
                   <span>{{ skill }}</span>
                   <button @click="removeSelectedSkill(index)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
@@ -88,89 +88,64 @@
 }
 };
   </script>
-  
-  <style scoped>
-  .icons-con{
-    margin-left: -40px;
-  }
-  .container{
-    position: fixed;  
-    width: 100%; 
-    left: 170px;
-    margin-left: 0;
-    margin-top:-167px;
-    text-align:center;
-  }
 
-  .container-fluid{
-    margin-top: 45px;
-    margin-left: 250px;
-    width: 1000px;
-    
-  }
-
-  .card {
-    margin-top: 20px;
-    border:none;
-  }
-
-  .form-group {
-    margin-bottom: 20px;
-  }
-
-  .btn-margin-top {
-  margin-right: 10px;
-  margin-top: -10px;
-  margin-bottom: 15px;
+<style scoped>
+.container-fluid {
+  position: fixed;
+  top: 50%;
+  left: 62%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  margin-top: 1px; /* Adjust as needed */
+  overflow: auto;
 }
 
-.btn-margin-right {
-  margin-right: 13px;
+.card {
+  margin-top: 165px;
+  height: 700px;
+  border: none;
+  overflow: auto;
 }
 
-.button-container {
-  margin-top: 190px; /* Add some top margin */
+.form-group {
+  margin-bottom: 20px;
 }
 
-
-
-.custom-button {
-  padding: 10px 20px; /* Adjust padding as needed */
-  background-color: #f8efef; /* White-silver background color */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Show pointer cursor on hover */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  margin-bottom: 10px; /* Add margin between buttons */
-  width: 300px;
+.button-save {
+  margin-left: 640px;
+  max-width: 190px;
 }
 
-.custom-button:hover {
-  background-color: #e0e0e0; /* Darken background on hover */
+.button-save:hover {
+  background-color: #e0e0e0;
 }
 
-    .button-save{
-        margin-left:640px;
-        max-width: 190px;
-    }
-    .button-save:hover{
-        background-color: #e0e0e0;
-    }
-    .button-reset{
-        margin-left:20px;
-        max-width: 100px;
-    }
-    .button-reset:hover{
-        background-color: #e0e0e0;
-    }
-    .selected-skill {
-      margin-bottom: 5px;
-    }
-    .selected-skill button {
-      margin-left: 10px;
-    }
+.button-reset {
+  margin-left: 20px;
+  max-width: 100px;
+}
 
-    .card-body{
-      position:relative;
-    }
-  </style>
-   <style src="vue-multiselect/dist/vue-multiselect.css"></style>
+.button-reset:hover {
+  background-color: #e0e0e0;
+}
+
+.selected-skill {
+  margin-bottom: 5px;
+}
+
+.selected-skill button {
+  margin-left: 10px;
+}
+
+.card-body {
+  position: relative;
+}
+
+/* Add this style to prevent container from moving up */
+.card-body::after {
+  content: "";
+  display: block;
+  height: 1px; /* Adjust as needed */
+  clear: both;
+}
+</style>

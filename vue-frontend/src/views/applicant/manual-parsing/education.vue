@@ -10,16 +10,16 @@
             <div class="row" style="margin-top:-10px">
               <label style="font-size: 20px;" >Education</label>
               <button class="button-save btn btn-primary">Save and continue</button>
-              <button class="button-reset btn btn-secondary">Reset</button>
+              <button class="button-reset btn btn-secondary" @click="reset">Reset</button>
 
               <!-- First half of the form -->
               <div class="col-md-4">
                   <div class="form-group">
                       <br>
-                      <span>10th Mark</span>
+                      <span>Secondary School</span>
                       <br>
                       <label for="company"><h6>Board</h6></label>
-                      <select class="form-control" v-model="job.job_type" style="width:230px;">
+                      <select class="form-control" v-model="education.secondary_board" style="width:230px;">
                         <option value="">Select Board</option>
                         <option value="State Board">State Board</option>
                         <option value="Central Board">Central Board</option>
@@ -27,10 +27,10 @@
                       </select>
                   </div>
                   <div class="form-group">
-                      <span>12th Mark</span>
+                      <span>Higher Secondary</span>
                       <br>
                       <label for="company"><h6>Board</h6></label>
-                      <select class="form-control" v-model="job.job_type" style="width:230px;">
+                      <select class="form-control" v-model="education.higher_secondary_board" style="width:230px;">
                         <option value="">Select Board</option>
                         <option value="State Board">State Board</option>
                         <option value="Central Board">Central Board</option>
@@ -41,7 +41,7 @@
                   <div class="form-group">
                       <br>
                       <label for="experience"><h6>UG</h6></label>
-                      <select class="form-control" v-model="job.job_type" style="width:230px;">
+                      <select class="form-control" v-model="education.UG_institute" style="width:230px;">
                         <option value="">Select College</option>
                         <option value="Anna University">Anna University</option>
                         <option value="Madras University">Madras University</option>
@@ -54,7 +54,7 @@
                   <div class="form-group">
                       <br>
                       <label for="experience"><h6>PG</h6></label>
-                      <select class="form-control" v-model="job.job_type" style="width:230px;">
+                      <select class="form-control" v-model="education.PG_institute" style="width:230px;">
                         <option value="">Select College</option>
                         <option value="Anna University">Anna University</option>
                         <option value="Madras University">Madras University</option>
@@ -72,27 +72,27 @@
                     <br>
                     <br>
                     <label for="title"><h6>10th Percentage</h6></label>
-                    <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                    <input type="text" class="form-control" id="company" v-model="education.secondary_percentage" style="width: 230px;">
                 </div>
 
                 <div class="form-group">
                   <div class="form-group">
                       <br>
                       <label for="company"><h6>12th Percentage</h6></label>
-                      <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                      <input type="text" class="form-control" id="company" v-model="education.higher_secondary_percentage" style="width: 230px;">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <br>
                   <label for="title"><h6>UG Percentage</h6></label>
-                  <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                  <input type="text" class="form-control" id="company" v-model="education.UG_percentage" style="width: 230px;">
                 </div>
 
                 <div class="form-group">
                   <br>
                   <label for="company"><h6>PG Percentage</h6></label>
-                  <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                  <input type="text" class="form-control" id="company" v-model="education.PG_percentage" style="width: 230px;">
                 </div>
 
               </div>
@@ -102,22 +102,22 @@
                     <br>
                     <br>
                     <label for="title"><h6>Passed out year</h6></label>
-                    <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                    <input type="text" class="form-control" id="company" v-model="education.secondary_passed_out_year" style="width: 230px;">
                 </div>
                 <div class="form-group">
                     <br>
                     <label for="title"><h6>Passed out year</h6></label>
-                    <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                    <input type="text" class="form-control" id="company" v-model="education.higher_secondary_passed_out_year" style="width: 230px;">
                 </div>
                 <div class="form-group">
                     <br>
                     <label for="title"><h6>Passed out year</h6></label>
-                    <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                    <input type="text" class="form-control" id="company" v-model="education.UG_passed_out_year" style="width: 230px;">
                 </div>
                 <div class="form-group">
                     <br>
                     <label for="title"><h6>Passed out year</h6></label>
-                    <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                    <input type="text" class="form-control" id="company" v-model="education.PG_passed_out_year" style="width: 230px;">
                 </div>
               </div>
 
@@ -141,45 +141,41 @@
     },
     data() {
       return {
-        job: {
-            title: '',
-            description: '',
-            locations: '',
-            company: '',
-            industry: '',
-            experience: '',
-            education: '',
-            benefits: '', 
-            about: '',
-            skills: '',
-            recruiter:'',
-            num_profile:0,
-            interviews:0,
-            selections:0,
-            joined:0,
-            backouts:0,
-            job_type:''            
-            
+        education: {
+            secondary_board: '',
+            secondary_percentage: '',
+            secondary_passed_out_year: '',
+            higher_secondary_board: '',
+            higher_secondary_percentage: '',
+            higher_secondary_passed_out_year: '',
+            UG_institute: '',
+            UG_percentage: '',
+            UG_passed_out_year: '',
+            PG_institute: '',
+            PG_percentage: '',
+            PG_passed_out_year: '',  
         },
-        // editor : ClassicEditor,
-        personal:'',
-        documents : '',
-        maxExperience:'0',
-        minExperience : '0',
-        updateSuccess : false,
-        pastedText : '',
-        selectedSkills: [],
-        options:['Java','Python','Machine learning','Accounting','Tally','Executive','Excel','Computer Networks','OpenCV','Electronics','Communication','Arduino'],
-       
         
+        updateSuccess : false,  
       };
     },
    
     methods: {
-      addJob() {
-        console.log("first")
-    }
-}
+      reset() {        
+        this.education.secondary_board= '',
+        this.education.secondary_percentage= '',
+        this.education.secondary_passed_out_year= '',
+        this.education.higher_secondary_board= '',
+        this.education.higher_secondary_percentage= '',
+        this.education.higher_secondary_passed_out_year= '',
+        this.education.UG_institute= '',
+        this.education.UG_percentage= '',
+        this.education.UG_passed_out_year= '',
+        this.education.PG_institute= '',
+        this.education.PG_percentage= '',
+        this.education.PG_passed_out_year= ''
+    },
+  }
 };
   </script>
   

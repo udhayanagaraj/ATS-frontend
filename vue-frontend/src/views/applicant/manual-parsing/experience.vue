@@ -11,7 +11,7 @@
             <div class="row" style="margin-top:-205px">
               <label style="font-size: 20px;" >Experience</label>
               <button class="button-save btn btn-primary">Save and continue</button>
-              <button class="button-reset btn btn-secondary">Reset</button>
+              <button class="button-reset btn btn-secondary" @click="reset">Reset</button>
               
               <!-- First half of the form -->
               <div class="col-md-4">
@@ -19,7 +19,7 @@
                   <div class="form-group">
                       <br>
                       <label for="title"><h6>Company Name</h6></label>
-                      <input type="text" class="form-control" id="title" v-model="job.title" style="width: 230px;">
+                      <input type="text" class="form-control" id="title" v-model="company_name" style="width: 230px;">
                   </div>
                   
                   
@@ -27,7 +27,7 @@
                 
                   <div class="form-group">
                       <label for="company"><h6>Reson for quiting</h6></label>
-                      <textarea class="form-control" id="description" rows="3" v-model="job[9]" style="width: 550px;"></textarea>
+                      <textarea class="form-control" id="description" rows="3" v-model="reason_for_quiting" style="width: 550px;"></textarea>
                   </div>
 
                     
@@ -39,7 +39,7 @@
                 <div class="form-group">
                     <br>
                     <label for="title"><h6>Job Title</h6></label>
-                    <input type="text" class="form-control" id="company" v-model="job.company" style="width: 230px;">
+                    <input type="text" class="form-control" id="company" v-model="job_title" style="width: 230px;">
                 </div>
 
               
@@ -53,21 +53,21 @@
                       <br>
                       <label for="recruiter" ><h6>Experience</h6></label>
                       <br>
-                      <select class="form-control " v-model="job.job_type" style="width:80px;display: inline">
+                      <select class="form-control " v-model="exp_years" style="width:80px;display: inline">
                           <option value="">Years </option>
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
                       </select>
                       
-                      <h6 style="display: inline;"> years  </h6>
-                      <select class="form-control " v-model="job.job_type" style="width:80px;display: inline">
+                      <h6 style="display: inline; margin-left:4px"> years </h6>
+                      <select class="form-control " v-model="exp_months" style="width:80px;display: inline; margin-left:4px ">
                           <option value=""> Months </option>
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
                       </select>
-                      <h6 style="display: inline"> Months</h6>
+                      <h6 style="display: inline; margin-left:4px"> Months</h6>
                   </div>
                   
                   
@@ -95,44 +95,26 @@
     },
     data() {
       return {
-        job: {
-            title: '',
-            description: '',
-            locations: '',
-            company: '',
-            industry: '',
-            experience: '',
-            education: '',
-            benefits: '', 
-            about: '',
-            skills: '',
-            recruiter:'',
-            num_profile:0,
-            interviews:0,
-            selections:0,
-            joined:0,
-            backouts:0,
-            job_type:''            
-            
-        },
-        // editor : ClassicEditor,
-        personal:'',
-        documents : '',
-        maxExperience:'0',
-        minExperience : '0',
-        updateSuccess : false,
-        pastedText : '',
-        selectedSkills: [],
-        options:['Java','Python','Machine learning','Accounting','Tally','Executive','Excel','Computer Networks','OpenCV','Electronics','Communication','Arduino'],
-       
+        
+        company_name:'',
+        exp_years:'',
+        exp_months:'',
+        company_location:'',
+        reason_for_quiting:'',
+        job_title:''
         
       };
     },
    
     methods: {
-      addJob() {
-        console.log("first")
-    }
+      reset() {
+        this.company_name = '',
+        this.exp_years = '',
+        this.exp_months = '',
+        this.company_location = '',
+        this.reason_for_quiting = '',
+        this.job_title = ''
+    },
 }
 };
   </script>
