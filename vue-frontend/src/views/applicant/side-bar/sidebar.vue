@@ -63,16 +63,18 @@ export default  {
 }
 .container{
   position: fixed;  
-  width: 100%; 
+  width: 330px; 
+  height: 400px;
   left: 170px;
-  margin-left: 0;
-  margin-top:-167px;
+  margin-left: -160px;
+  top:0;
   text-align:center;
 }
 
 
 .button-container {
-  margin-top: 140px; /* Add some top margin */
+  margin-top: 70px;
+
 }
 
 .custom-button {

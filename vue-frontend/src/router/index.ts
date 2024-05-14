@@ -64,6 +64,11 @@ const routes: Array<RouteRecordRaw> = [
     name:"candidate-detail",
     component : Candidate
   },
+  {
+    path:"/parser",
+    name:"parsed-detail",
+    component : Parser
+  },
 ];
 
 const router = createRouter({

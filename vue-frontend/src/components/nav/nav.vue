@@ -52,7 +52,10 @@
   width: 35px; /* Adjust the width as needed */
   height: auto; /* Maintain aspect ratio */
   margin-right: 10px; /* Add margin if needed */
+  border-radius: 50%;
 }
+
+  
   </style>
 
 <script>

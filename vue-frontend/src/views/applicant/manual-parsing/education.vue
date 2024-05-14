@@ -191,13 +191,13 @@
     position: fixed;  
     width: 100%; 
     left: 170px;
-    margin-left: 0;
-    margin-top:-167px;
+    
+    margin-top:-177px;
     text-align:center;
   }
 
   .container-fluid{
-    margin-top: 45px;
+    margin-top: 35px;
     margin-left: 250px;
     width: 1000px;
     

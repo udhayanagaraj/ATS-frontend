@@ -1,7 +1,5 @@
 
 <template>
-  
-
     <div class="container-fluid">
         <div class="card">
           <div class="card-body">
@@ -265,24 +263,16 @@
     .icons-con{
       margin-left: -40px;
     }
-    .container{
-      position: fixed;  
-      width: 100%; 
-      left: 170px;
-      margin-left: 0;
-      margin-top:-167px;
-      text-align:center;
+
+    .container-fluid{
+      top:0;
+      margin-left: 250px;
+      width: 1000px;
+      height: 580px;
     }
 
-  .container-fluid{
-    margin-top: 45px;
-    margin-left: 250px;
-    width: 1000px;
-    
-  }
-
   .card {
-    margin-top: 20px;
+    margin-top: 30px;
     border:none;
   }
 
@@ -291,34 +281,34 @@
   }
 
   .btn-margin-top {
-  margin-right: 10px;
-  margin-top: -10px;
-  margin-bottom: 15px;
-}
+    margin-right: 10px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+  }
 
-.btn-margin-right {
-  margin-right: 13px;
-}
+  .btn-margin-right {
+    margin-right: 13px;
+  }
 
-.button-container {
-  margin-top: 190px; /* Add some top margin */
-}
+  .button-container {
+    margin-top: 190px; /* Add some top margin */
+  }
 
 
 
-.custom-button {
-  padding: 10px 20px; /* Adjust padding as needed */
-  background-color: #f8efef; /* White-silver background color */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Show pointer cursor on hover */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  margin-bottom: 10px; /* Add margin between buttons */
-  width: 300px;
-}
+    .custom-button {
+      padding: 10px 20px; /* Adjust padding as needed */
+      background-color: #f8efef; /* White-silver background color */
+      border-radius: 5px; /* Rounded corners */
+      cursor: pointer; /* Show pointer cursor on hover */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+      margin-bottom: 10px; /* Add margin between buttons */
+      width: 300px;
+    }
 
-.custom-button:hover {
-  background-color: #e0e0e0; /* Darken background on hover */
-}
+    .custom-button:hover {
+      background-color: #e0e0e0; /* Darken background on hover */
+    }
 
     .button-save{
         margin-left:640px;
