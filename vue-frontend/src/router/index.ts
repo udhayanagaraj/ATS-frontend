@@ -7,9 +7,13 @@ import updateJob from "@/views/update-job.vue";
 import Manual from "@/views/applicant/manual-parsing/manual.vue";
 import Parser from "@/views/applicant/automation/parser.vue";
 import Candidate from '@/views/candidates/candidate-details.vue';
+<<<<<<< HEAD
 import Search from '@/views/applicant/search/search.vue';
 
 
+=======
+import ApplicantSearch from '@/views/applicant/applicant-search/applicant_search.vue';
+>>>>>>> a899d71eaf6461c3878156b2968ba7aa7be24d5e
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -72,9 +76,15 @@ const routes: Array<RouteRecordRaw> = [
     component : Parser
   },
   {
+<<<<<<< HEAD
     path:"/applicant-search",
     name:"applicant-search",
     component : Search
+=======
+    path:"/search-applicant",
+    name:"search-applicant",
+    component : ApplicantSearch
+>>>>>>> a899d71eaf6461c3878156b2968ba7aa7be24d5e
   },
 ];
 
