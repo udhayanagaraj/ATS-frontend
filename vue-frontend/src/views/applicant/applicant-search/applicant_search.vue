@@ -6,7 +6,7 @@
             <div class="form-group">
 
                 <select class="form-control select-style" v-model="searchCategory"
-                    style="width:130px; height:43px ; cursor: pointer;">
+                    style="width:130px; height:41px ; cursor: pointer;">
                     <option value="" disabled selected>Search By
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-chevron-down" viewBox="0 0 16 16">
@@ -53,9 +53,6 @@
                             <th>Experience</th>
                             <th>Location</th>
                             <th>State</th>
-
-
-
                         </tr>
                     </thead>
 
