@@ -19,11 +19,7 @@
               <a class="nav-link" href="/#/applicants">Applicants</a>
             </li>
             <li class="nav-item">
-<<<<<<< HEAD
               <a class="nav-link" href="/#/applicant-search">Search candidate</a>
-=======
-              <a class="nav-link" href="/#/search-applicant">Search Candidates</a>
->>>>>>> a899d71eaf6461c3878156b2968ba7aa7be24d5e
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/#/applicants">Vendors</a>
