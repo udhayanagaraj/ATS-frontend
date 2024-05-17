@@ -9,7 +9,7 @@
             
             <div class="row" style="margin-top:-10px">
               <label style="font-size: 20px;" >Education</label>
-              <button class="button-save btn btn-primary">Save and continue</button>
+              <button class="button-save btn btn-primary" @click="handleClick">Save and continue</button>
               <button class="button-reset btn btn-secondary" @click="reset">Reset</button>
 
               <!-- First half of the form -->
@@ -133,6 +133,8 @@
   <script>
   import axios from 'axios';
   import VueMultiselect from 'vue-multiselect';
+  import EventBus from './event-bus';
+
 
   export default {
     name: 'education',
@@ -175,6 +177,12 @@
         this.education.PG_percentage= '',
         this.education.PG_passed_out_year= ''
     },
+
+
+    handleClick(){
+      EventBus.$emit('education-data',this.education);
+      console.log("education data emitted");
+    }
   }
 };
   </script>

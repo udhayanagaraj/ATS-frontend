@@ -19,7 +19,7 @@
               <a class="nav-link" href="/#/applicants">Applicants</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/#/applicants">Clients</a>
+              <a class="nav-link" href="/#/applicant-search">Search candidate</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/#/applicants">Vendors</a>

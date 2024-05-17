@@ -3,13 +3,9 @@
   <div class="container-fluid" style="margin-top: -70px;">
     <div class="card">
       <div class="card-body">
-        <div v-if="updateSuccess" class="alert alert-success" role="alert">
-          Added successfully!
-        </div>
-
         <div class="row">
           <label style="font-size: 20px;">Language</label>
-          <button class="button-save btn btn-primary">Save and continue</button>
+          <button class="button-save btn btn-primary" @click="handleClick">Save and continue</button>
           <button class="button-reset btn btn-secondary" @click="reset">Reset</button>
 
           <!-- First half of the form -->
@@ -149,6 +145,8 @@
 <script>
 import axios from 'axios';
 import VueMultiselect from 'vue-multiselect';
+import EventBus from './event-bus';
+
 
 export default {
   name: 'language',
@@ -197,6 +195,11 @@ export default {
       this.lang3_speak='',
       this.lang3_read='',
       this.lang3_write= ''
+    },
+
+    handleClick(){
+      EventBus.$emit('language-data',this.lang1);
+      console.log("language data emitted");
     }
   }
 };

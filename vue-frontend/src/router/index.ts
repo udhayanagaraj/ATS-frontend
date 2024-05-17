@@ -7,6 +7,8 @@ import updateJob from "@/views/update-job.vue";
 import Manual from "@/views/applicant/manual-parsing/manual.vue";
 import Parser from "@/views/applicant/automation/parser.vue";
 import Candidate from '@/views/candidates/candidate-details.vue';
+import Search from '@/views/applicant/search/search.vue';
+
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -68,6 +70,11 @@ const routes: Array<RouteRecordRaw> = [
     path:"/parser",
     name:"parsed-detail",
     component : Parser
+  },
+  {
+    path:"/applicant-search",
+    name:"applicant-search",
+    component : Search
   },
 ];
 
