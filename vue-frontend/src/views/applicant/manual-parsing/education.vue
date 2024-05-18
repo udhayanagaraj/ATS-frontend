@@ -15,10 +15,9 @@
               <!-- First half of the form -->
               <div class="col-md-4">
                   <div class="form-group">
-                      <br>
-                      <span>Secondary School</span>
-                      <br>
-                      <label for="company"><h6>Board</h6></label>
+                    <br>
+                    <br>
+                      <label for="company"><h6>Secondary School</h6></label>
                       <select class="form-control" v-model="education.secondary_board" style="width:230px;">
                         <option value="">Select Board</option>
                         <option value="State Board">State Board</option>
@@ -27,9 +26,8 @@
                       </select>
                   </div>
                   <div class="form-group">
-                      <span>Higher Secondary</span>
-                      <br>
-                      <label for="company"><h6>Board</h6></label>
+                    <br>
+                      <label for="company"><h6>Higher Secondary</h6></label>
                       <select class="form-control" v-model="education.higher_secondary_board" style="width:230px;">
                         <option value="">Select Board</option>
                         <option value="State Board">State Board</option>

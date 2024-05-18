@@ -16,7 +16,7 @@
                 <h6>Select a language</h6>
               </label>
               <select class="form-control" v-model="lang1" style="width:230px;">
-                <option value="">Select</option>
+                <option value="" disabled selected>Select</option>
                 <option value="English">English</option>
                 <option value="Tamil">Tamil</option>
                 <option value="Hindi">Hindi</option>
@@ -29,7 +29,7 @@
                 <h6>Select a language</h6>
               </label>
               <select class="form-control" v-model="lang2" style="width:230px;">
-                <option value="">Select</option>
+                <option value="" disabled selected>Select</option>
                 <option value="English">English</option>
                 <option value="Tamil">Tamil</option>
                 <option value="Hindi">Hindi</option>
@@ -42,7 +42,7 @@
                 <h6>Select a language</h6>
               </label>
               <select class="form-control" v-model="lang3" style="width:230px;">
-                <option value="">Select</option>
+                <option value="" disabled selected>Select</option>
                 <option value="English">English</option>
                 <option value="Tamil">Tamil</option>
                 <option value="Hindi">Hindi</option>
@@ -64,7 +64,7 @@
                 <h6>Fluency level</h6>
               </label>
               <select class="form-control" v-model="lang1_proficiency" style="width:230px;">
-                <option value="">Select</option>
+                <option value="" disabled selected>Select</option>
                 <option value="Beginner">Beginner</option>
                 <option value="Intermediate">Intermediate</option>
                 <option value="Advanced">Advanced</option>
@@ -76,7 +76,7 @@
                 <h6>Fluency level</h6>
               </label>
               <select class="form-control" v-model="lang2_proficiency" style="width:230px;">
-                <option value="">Select</option>
+                <option value="" disabled selected>Select</option>
                 <option value="Beginner">Beginner</option>
                 <option value="Intermediate">Intermediate</option>
                 <option value="Advanced">Advanced</option>
@@ -88,7 +88,7 @@
                 <h6>Fluency level</h6>
               </label>
               <select class="form-control" v-model="lang3_proficiency" style="width:230px;">
-                <option value="">Select</option>
+                <option value="" disabled selected>Select</option>
                 <option value="Beginner">Beginner</option>
                 <option value="Intermediate">Intermediate</option>
                 <option value="Advanced">Advanced</option>
@@ -106,9 +106,9 @@
                 <h6>Proficiency</h6>
               </label>
               <br>
-              <input type="checkbox" name="" v-model="lang1_speak" value="Speack"><label style="font-size:19px">&nbsp; Speak &nbsp;</label>
-              <input type="checkbox" name="" v-model="lang1_read" value="Read"><label style="font-size:19px">&nbsp; Read &nbsp;</label>
-              <input type="checkbox" name="" v-model="lang1_write" value="Write"><label style="font-size:19px">&nbsp; Write</label>
+              <input type="checkbox"  v-model="lang1_speak" value="Speack"><label style="font-size:19px">&nbsp; Speak &nbsp;</label>
+              <input type="checkbox"  v-model="lang1_read" value="Read"><label style="font-size:19px">&nbsp; Read &nbsp;</label>
+              <input type="checkbox" v-model="lang1_write" value="Write"><label style="font-size:19px">&nbsp; Write</label>
             </div>
             <div class="form-group" style="margin-top: -10px;">
               <br>
@@ -116,9 +116,9 @@
                 <h6>Proficiency</h6>
               </label>
               <br>
-              <input type="checkbox" name="" v-model="lang2_speak" value="Speak"><label style="font-size:19px">&nbsp; Speak &nbsp;</label>
-              <input type="checkbox" name="" v-model="lang2_read" value="Read"><label style="font-size:19px">&nbsp; Read &nbsp;</label>
-              <input type="checkbox" name="" v-model="lang2_write" value="Write"><label style="font-size:19px">&nbsp; Write</label>
+              <input type="checkbox" v-model="lang2_speak" value="Speak"><label style="font-size:19px">&nbsp; Speak &nbsp;</label>
+              <input type="checkbox"  v-model="lang2_read" value="Read"><label style="font-size:19px">&nbsp; Read &nbsp;</label>
+              <input type="checkbox"  v-model="lang2_write" value="Write"><label style="font-size:19px">&nbsp; Write</label>
             </div>
             <div class="form-group" style="margin-top: -10px;">
               <br>
@@ -126,9 +126,9 @@
                 <h6>Proficiency</h6>
               </label>
               <br>
-              <input type="checkbox" name=""v-model="lang3_speak" value="Speak"><label style="font-size:19px">&nbsp; Speak &nbsp;</label>
-              <input type="checkbox" name=""v-model="lang3_read" value="Read"><label style="font-size:19px">&nbsp; Read &nbsp;</label>
-              <input type="checkbox" name=""v-model="lang3_write" value="Write"><label style="font-size:19px">&nbsp; Write</label>
+              <input type="checkbox"v-model="lang3_speak" value="Speak"><label style="font-size:19px">&nbsp; Speak &nbsp;</label>
+              <input type="checkbox" v-model="lang3_read" value="Read"><label style="font-size:19px">&nbsp; Read &nbsp;</label>
+              <input type="checkbox" v-model="lang3_write" value="Write"><label style="font-size:19px">&nbsp; Write</label>
             </div>
           </div>
 

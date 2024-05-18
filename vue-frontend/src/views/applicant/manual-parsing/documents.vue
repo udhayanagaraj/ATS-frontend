@@ -69,6 +69,7 @@ export default {
   margin-top: 90px;
   margin-left: 250px;
   width: 400px;
+  position: relative
 }
 
 .card {

@@ -5,7 +5,7 @@
       <div class="card-body">
         <div class="row" style="margin-top:-205px">
           <label style="font-size: 20px;">Experience</label>
-          <button class="button-save btn btn-primary">Save and continue</button>
+          <button class="button-save btn btn-primary" @click="printData">Save and continue</button>
           <button class="button-reset btn btn-secondary" @click="reset">Reset</button>
 
           <!-- First half of the form -->
@@ -159,9 +159,7 @@ export default {
     handleCertificationData(data){
       this.certificates = data;
       console.log("certificate data",data);
-    }
-
-
+    },
   }
 };
 </script>

@@ -41,7 +41,7 @@
                 <h6>State</h6>
               </label>
               <select class="form-control" v-model="personal.state" style="width:230px;">
-                <option value="">Select State</option>
+                <option value=""  disabled selected>Select State</option>
                 <option value="Tamil Nadu">Tamil Nadu</option>
                 <option value="Maharastra">Maharastra</option>
                 <option value="Kerala">Kerala</option>
@@ -111,19 +111,26 @@
               <label for="title">
                 <h6>Last Name</h6>
               </label>
-              <input type="text" class="form-control" id="company" v-model="personal.last_name" style="width: 230px;">
+              <input type="text" class="form-control" id="last_name" v-model="personal.last_name" style="width: 230px;">
             </div>
             <div class="form-group">
               <label for="title">
                 <h6>Email</h6>
               </label>
-              <input type="text" class="form-control" id="company" v-model="personal.email" style="width: 230px;">
+              <input type="email" class="form-control" id="email" v-model="personal.email" style="width: 230px;">
             </div>
             <div class="form-group">
-              <label for="title">
+              <label for="company">
                 <h6>City</h6>
               </label>
-              <input type="text" class="form-control" id="company" v-model="personal.city" style="width: 230px;">
+              <select class="form-control" v-model="personal.city" style="width:230px;">
+                <option value="" disabled selected>Select city</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Cochi">Cochi</option>
+                <option value="Mumbai "> Mumbai</option>
+                <option value="Pune">Pune</option>
+              </select>
             </div>
             <div class="form-group">
               <label for="title">

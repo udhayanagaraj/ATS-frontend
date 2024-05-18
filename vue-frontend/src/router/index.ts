@@ -8,6 +8,7 @@ import Manual from "@/views/applicant/manual-parsing/manual.vue";
 import Parser from "@/views/applicant/automation/parser.vue";
 import Candidate from '@/views/candidates/candidate-details.vue';
 import Applicant_search from "@/views/applicant/applicant-search/applicant_search.vue";
+import Theme from "@/views/applicant/manual-parsing/theme.vue";
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -57,10 +58,6 @@ const routes: Array<RouteRecordRaw> = [
     component : Parser
   },
   {
-    path: "/:pathMatch(.*)*",
-    redirect: "/pages/jobs",
-  },
-  {
     path:"/candidate/:id",
     name:"candidate-detail",
     component : Candidate
@@ -74,6 +71,11 @@ const routes: Array<RouteRecordRaw> = [
     path:"/applicant-search",
     name:"applicant-search",
     component : Applicant_search
+  },
+  {
+    path:"/theme",
+    name:"theme",
+    component:Theme
   },
 ];
 

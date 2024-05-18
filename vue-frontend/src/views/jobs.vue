@@ -448,11 +448,17 @@
       fetchJobs() {
         axios.get('http://localhost:8000/jobs')
           .then(response => {
-            console.log('Response:', response.data);
             this.jobs = response.data.data;
           })
           .catch(error => {
-            console.error('Error fetching jobs:', error);
+            if (error.response) {
+              console.error('Server responded with error status:', error.response.status);
+            } else if (error.request) {
+              // The request was made but no response was received
+              console.error('No response received from the server:', error.request);
+            } else {
+              console.error('Error setting up the request:', error.message);
+            }
           });
       },
       

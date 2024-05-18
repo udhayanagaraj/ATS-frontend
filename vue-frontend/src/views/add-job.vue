@@ -8,6 +8,7 @@
           <div v-if="updateSuccess" class="alert alert-success" role="alert">
             Added successfully!
           </div>
+          <h4 style="text-align: center">Add Job</h4>
           <router-link :to="'/pages/jobs'" class="btn btn-secondary btn-margin-top" >Back</router-link>
           <div>
             <textarea class="form-control" rows="5" v-model="pastedText" placeholder="Paste text here"></textarea>
@@ -330,7 +331,10 @@
 
   .container-fluid{
     margin-top: 45px;
-    width: 1280px;
+    margin-left: 70px;
+    width: 1100px;
+    align-items: center;
+   
   }
 
   .card {

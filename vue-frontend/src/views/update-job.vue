@@ -352,7 +352,8 @@
   <style scoped>
   .container-fluid {
     margin-top: 70px;
-    width: 1200px;
+    width: 1080px;
+    margin-left: 7%;
   }
   .card {
     margin-top: 20px;
