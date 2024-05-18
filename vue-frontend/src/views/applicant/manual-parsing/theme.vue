@@ -4,40 +4,34 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="#installation" @click.prevent="scrollToInstallation">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-tool">
-                                <path
-                                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                            </svg>
-                            Personal Details</a>
-                    </li>
-                
-                    <li>
-                        <a href="#input-types" @click.prevent="scrollToInput">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-align-justify">
+                        <a href="#installation" @click.prevent="scrollToPersonal">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-align-justify">
                                 <line x1="21" y1="10" x2="3" y2="10" />
                                 <line x1="21" y1="6" x2="3" y2="6" />
                                 <line x1="21" y1="14" x2="3" y2="14" />
                                 <line x1="21" y1="18" x2="3" y2="18" />
                             </svg>
+                            Personal Details</a>
+                    </li>
+                
+                    <li>
+                        <a href="#input-types" @click.prevent="scrollToDocuments">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tool">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                            </svg>
                             Documents</a>
                     </li>
                     <li>
-                        <a href="#checkbox-and-radio">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-check-square">
-                                <polyline points="9 11 12 14 22 4" />
-                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                        <a href="#checkbox-and-radio" @click.prevent="scrollToEducation">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                                <polyline points="2 17 12 22 22 17" />
+                                <polyline points="2 12 12 17 22 12" />
                             </svg>
                             Education</a>
                     </li>
                     <li>
-                        <a href="#fieldset">
+                        <a href="#fieldset" @click.prevent="scrollToCertifications">
                             <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(90deg)" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round" class="feather feather-columns">
@@ -48,19 +42,18 @@
                     </li>
 
                     <li>
-                        <a href="#icons">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-feather">
-                                <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" />
-                                <line x1="16" y1="8" x2="2" y2="22" />
-                                <line x1="17.5" y1="15" x2="9" y2="15" />
+                        <a href="#icons" @click.prevent="scrollToLanguages">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-check-square">
+                                <polyline points="9 11 12 14 22 4" />
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
                             </svg>
                             Languages</a>
                     </li>
                     
                     <li>
-                        <a href="#other">
+                        <a href="#other" @click.prevent="scrollToExperience">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="feather feather-server">
@@ -79,7 +72,7 @@
         <main class="demo-page-content">
             
             <section>
-                <div class="href-target" id="input-types"></div>
+                <div class="href-target" id="personal-details"></div>
                 <h1>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -183,24 +176,10 @@
                         </VueMultiselect required>
                     </div>
                 </div>
-
-                <!-- <details>
-                    <summary>
-                        <div class="toggle-code" @click="toggleCode3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-code">
-                                <polyline points="16 18 22 12 16 6" />
-                                <polyline points="8 6 2 12 8 18" />
-                            </svg>
-                            Toggle code
-                        </div>
-                    </summary>
-                </details> -->
             </section>
 
             <section>
-                <div class="href-target" id="installation"></div>
+                <div class="href-target" id="Documents"></div>
                 <h1>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -218,7 +197,7 @@
             </section>
 
             <section>
-                <div class="href-target" id="input-types"></div>
+                <div class="href-target" id="Education"></div>
                 <h1>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -314,14 +293,13 @@
             </section>
 
             <section>
-                <div class="href-target" id="icons"></div>
+                <div class="href-target" id="Certificates"></div>
                 <h1>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="feather feather-feather">
-                        <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" />
-                        <line x1="16" y1="8" x2="2" y2="22" />
-                        <line x1="17.5" y1="15" x2="9" y2="15" />
+                    <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(90deg)" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-columns">
+                        <path
+                            d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18" />
                     </svg>
                     Certifications
                 </h1>
@@ -337,7 +315,7 @@
             </section>
 
             <section>
-                <div class="href-target" id="checkbox-and-radio"></div>
+                <div class="href-target" id="Languages"></div>
                 <h1>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -409,7 +387,7 @@
           
 
             <section>
-                <div class="href-target" id="other"></div>
+                <div class="href-target" id="Experience"></div>
                 <h1>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -475,14 +453,38 @@ export default {
         }
     },
     methods: {
-        scrollToInstallation() {
-            const installationSection = document.getElementById('installation');
+        scrollToPersonal() {
+            const installationSection = document.getElementById('personal-details');
             if (installationSection) {
                 installationSection.scrollIntoView({ behavior: 'smooth' });
             }
         },
-        scrollToInput() {
-            const inputSection = document.getElementById('input-types');
+        scrollToDocuments() {
+            const inputSection = document.getElementById('Documents');
+            if (inputSection) {
+                inputSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        },
+        scrollToEducation() {
+            const inputSection = document.getElementById('Education');
+            if (inputSection) {
+                inputSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        },
+        scrollToCertifications() {
+            const inputSection = document.getElementById('Certificates');
+            if (inputSection) {
+                inputSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        },
+        scrollToLanguages() {
+            const inputSection = document.getElementById('Languages');
+            if (inputSection) {
+                inputSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        },
+        scrollToExperience() {
+            const inputSection = document.getElementById('Experience');
             if (inputSection) {
                 inputSection.scrollIntoView({ behavior: 'smooth' });
             }
@@ -503,6 +505,7 @@ export default {
         addExperience(){
             this.company++;
         }
+
 
     }
 
