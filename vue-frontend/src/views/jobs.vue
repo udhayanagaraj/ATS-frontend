@@ -1,4 +1,13 @@
 <template>
+  <template v-if="loading">
+    <div class="text-center">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only"></span>
+      </div>
+    </div>
+  </template>
+
+  <template v-else>
     <div class="container-fluid job-c">
       <router-link to="/add" class="btn btn-primary mb-3 add-button">Add Job</router-link>
       
@@ -294,6 +303,8 @@
     </nav>
     </div>
   </template>
+    
+  </template>
   
   <script>
   import axios from 'axios';
@@ -318,6 +329,7 @@
         show_location_filter:false,
         show_skills_filter:false,
         show_job_owner_filter:false,
+        loading:true
       };
     },
     computed: {

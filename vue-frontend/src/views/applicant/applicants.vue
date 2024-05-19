@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     navigateToManual() {
-      this.$router.push('/manual');
+      this.$router.push('/theme');
     },
 
     uploadResume() {

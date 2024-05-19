@@ -1,11 +1,13 @@
 <template>
     <div class="demo-page">
-        <div class="demo-page-navigation" >
+        <div class="demo-page-navigation">
             <nav>
                 <ul>
                     <li>
                         <a href="#installation" @click.prevent="scrollToPersonal">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-align-justify">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-align-justify">
                                 <line x1="21" y1="10" x2="3" y2="10" />
                                 <line x1="21" y1="6" x2="3" y2="6" />
                                 <line x1="21" y1="14" x2="3" y2="14" />
@@ -13,17 +15,22 @@
                             </svg>
                             Personal Details</a>
                     </li>
-                
+
                     <li>
                         <a href="#input-types" @click.prevent="scrollToDocuments">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tool">
-                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-tool">
+                                <path
+                                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
                             </svg>
                             Documents</a>
                     </li>
                     <li>
                         <a href="#checkbox-and-radio" @click.prevent="scrollToEducation">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-layers">
                                 <polygon points="12 2 2 7 12 12 22 7 12 2" />
                                 <polyline points="2 17 12 22 22 17" />
                                 <polyline points="2 12 12 17 22 12" />
@@ -43,15 +50,15 @@
 
                     <li>
                         <a href="#icons" @click.prevent="scrollToLanguages">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-check-square">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-check-square">
                                 <polyline points="9 11 12 14 22 4" />
                                 <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
                             </svg>
                             Languages</a>
                     </li>
-                    
+
                     <li>
                         <a href="#other" @click.prevent="scrollToExperience">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -64,13 +71,13 @@
                             </svg>
                             Experiene</a>
                     </li>
-                   
-                   
+
+
                 </ul>
             </nav>
         </div>
         <main class="demo-page-content">
-            
+
             <section>
                 <div class="href-target" id="personal-details"></div>
                 <h1>
@@ -87,36 +94,36 @@
                 <p>All available input types are included</p>
 
                 <div style="display:flex; gap:4px">
-                    <div class="nice-form-group" >
+                    <div class="nice-form-group">
                         <label>First Name</label>
-                        <input style="width:248px;" type="text" placeholder="First Name" value=""required />
+                        <input style="width:248px;" type="text" placeholder="First Name" value="" required />
                     </div>
-                    <div class="nice-form-group" >
+                    <div class="nice-form-group">
                         <label>Last Name</label>
-                        <input  style="width:248px;" type="text" placeholder="Last Name" value="" required/> 
+                        <input style="width:248px;" type="text" placeholder="Last Name" value="" required />
                     </div>
                 </div>
-               
+
                 <div class="nice-form-group">
                     <label>Jot Title</label>
-                    <input type="text" placeholder="Job Title" value=""  required/>
+                    <input type="text" placeholder="Job Title" value="" required />
                 </div>
 
                 <div class="nice-form-group">
                     <label>Email</label>
-                    <input type="email" placeholder="Your email" value="" required/>
+                    <input type="email" placeholder="Your email" value="" required />
                 </div>
 
                 <div class="nice-form-group">
                     <label>Phonenumber</label>
-                    <input type="tel" placeholder="Your alternate phonenumber" value="" required/>
+                    <input type="tel" placeholder="Your alternate phonenumber" value="" required />
                 </div>
 
                 <div class="nice-form-group">
                     <label>Alternate Phonenumber</label>
                     <input type="tel" placeholder="Your phonenumber" value="" />
                 </div>
-                
+
                 <div style="display :flex; gap:4px">
                     <div class="nice-form-group">
                         <label>DOB</label>
@@ -124,15 +131,15 @@
                     </div>
                     <div class="nice-form-group">
                         <label>Linkedin Url</label>
-                        <input type="url" placeholder="www.google.com" value="" style="width:248px"/>
+                        <input type="url" placeholder="www.google.com" value="" style="width:248px" />
                     </div>
                 </div>
-                
+
 
 
                 <div class="nice-form-group">
                     <label>Address</label>
-                    <input type="text" placeholder="Your address" value="" required/>
+                    <input type="text" placeholder="Your address" value="" required />
                 </div>
 
                 <div style="display :flex; gap:4px">
@@ -150,7 +157,7 @@
                     <div class="nice-form-group">
                         <label>State</label>
                         <select style="width:248px;">
-                            <option value=""  disabled selected>Select State</option>
+                            <option value="" disabled selected>Select State</option>
                             <option value="Tamil Nadu">Tamil Nadu</option>
                             <option value="Maharastra">Maharastra</option>
                             <option value="Kerala">Kerala</option>
@@ -163,16 +170,12 @@
                 <div style="display :flex; gap:4px">
                     <div class="nice-form-group">
                         <label>Pincode</label>
-                        <input type="text" placeholder="Enter your area pincode" style="width:248px"/>
+                        <input type="text" placeholder="Enter your area pincode" style="width:248px" />
                     </div>
                     <div class="nice-form-group">
                         <label>Skills</label>
-                        <VueMultiselect 
-                            v-model="selectedSkills" 
-                            :options="options" 
-                            :multiple="true" 
-                            :close-on-select="true"
-                            placeholder="Pick some" style="width:248px; overflow:visible">
+                        <VueMultiselect v-model="selectedSkills" :options="options" :multiple="true"
+                            :close-on-select="true" placeholder="Pick some" style="width:248px; overflow:visible">
                         </VueMultiselect required>
                     </div>
                 </div>
@@ -193,7 +196,7 @@
                     <label>File upload</label>
                     <input type="file" />
                 </div>
-               
+
             </section>
 
             <section>
@@ -211,7 +214,7 @@
                 </h1>
 
                 <div style="display:flex; gap:4px">
-                    <div class="nice-form-group" >
+                    <div class="nice-form-group">
                         <label>Secondary School</label>
                         <select style="width:180px;">
                             <option value="" disabled selected>Select Board</option>
@@ -220,18 +223,18 @@
                             <option value="International">International</option>
                         </select>
                     </div>
-                    <div class="nice-form-group" >
+                    <div class="nice-form-group">
                         <label>Percentage</label>
-                        <input  style="width:180px;" type="text" placeholder="Percentage" value="" /> 
+                        <input style="width:180px;" type="text" placeholder="Percentage" value="" />
                     </div>
-                    <div class="nice-form-group" >
+                    <div class="nice-form-group">
                         <label>Passed Out Year</label>
-                        <input  style="width:140px;" type="text" placeholder="Passed Out Year" value="" /> 
+                        <input style="width:140px;" type="text" placeholder="Passed Out Year" value="" />
                     </div>
                 </div>
 
                 <div style="display:flex; gap:4px">
-                    <div class="nice-form-group" >
+                    <div class="nice-form-group">
                         <label>Higher Secondary</label>
                         <select style="width:180px;">
                             <option value="" disabled selected>Select Board</option>
@@ -240,18 +243,18 @@
                             <option value="International">International</option>
                         </select>
                     </div>
-                    <div class="nice-form-group" >
+                    <div class="nice-form-group">
                         <label>Percentage</label>
-                        <input  style="width:180px;" type="text" placeholder="Percentage" value="" /> 
+                        <input style="width:180px;" type="text" placeholder="Percentage" value="" />
                     </div>
-                    <div class="nice-form-group" >
+                    <div class="nice-form-group">
                         <label>Passed Out Year</label>
-                        <input  style="width:140px;" type="text" placeholder="Passed Out Year" value="" /> 
+                        <input style="width:140px;" type="text" placeholder="Passed Out Year" value="" />
                     </div>
                 </div>
 
                 <div style="display:flex; gap:4px">
-                    <div class="nice-form-group" >
+                    <div class="nice-form-group">
                         <label>UnderGraduate</label>
                         <select style="width:180px;">
                             <option value="" disabled selected>Select College</option>
@@ -260,18 +263,18 @@
                             <option value="Vels University">Vels University</option>
                         </select>
                     </div>
-                    <div class="nice-form-group" >
+                    <div class="nice-form-group">
                         <label>Percentage</label>
-                        <input  style="width:180px;" type="text" placeholder="Percentage" value="" /> 
+                        <input style="width:180px;" type="text" placeholder="Percentage" value="" />
                     </div>
-                    <div class="nice-form-group" >
+                    <div class="nice-form-group">
                         <label>Passed Out Year</label>
-                        <input  style="width:140px;" type="text" placeholder="Passed Out Year" value="" /> 
+                        <input style="width:140px;" type="text" placeholder="Passed Out Year" value="" />
                     </div>
                 </div>
 
                 <div style="display:flex; gap:4px">
-                    <div class="nice-form-group" >
+                    <div class="nice-form-group">
                         <label>PostGraduate</label>
                         <select style="width:180px;">
                             <option value="" disabled selected>Select College</option>
@@ -280,24 +283,24 @@
                             <option value="Vels University">Vels University</option>
                         </select>
                     </div>
-                    <div class="nice-form-group" >
+                    <div class="nice-form-group">
                         <label>Percentage</label>
-                        <input  style="width:180px;" type="text" placeholder="Percentage" value="" /> 
+                        <input style="width:180px;" type="text" placeholder="Percentage" value="" />
                     </div>
-                    <div class="nice-form-group" >
+                    <div class="nice-form-group">
                         <label>Passed Out Year</label>
-                        <input  style="width:140px;" type="text" placeholder="Passed Out Year" value="" /> 
+                        <input style="width:140px;" type="text" placeholder="Passed Out Year" value="" />
                     </div>
                 </div>
-               
+
             </section>
 
             <section>
                 <div class="href-target" id="Certificates"></div>
                 <h1>
-                    <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(90deg)" width="24"
-                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-columns">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(90deg)" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-columns">
                         <path
                             d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18" />
                     </svg>
@@ -305,14 +308,15 @@
                 </h1>
                 <div class="nice-form-group">
                     <label>Certificates</label>
-                    <VueMultiselect v-model="selectedCertifcates" :options="certicates" :multiple="true" :close-on-select="true"
-                        placeholder="Pick some" style="width: 500px;">
+                    <VueMultiselect v-model="selectedCertifcates" :options="certicates" :multiple="true"
+                        :close-on-select="true" placeholder="Pick some" style="width: 500px;">
                     </VueMultiselect>
-                    <div v-for="(c,index) in selectedCertifcates" :key="index">
-                        <p>{{c}}</p>
+                    <div v-for="(c, index) in selectedCertifcates" :key="index">
+                        <p>{{ c }}</p>
                     </div>
                 </div>
             </section>
+
 
             <section>
                 <div class="href-target" id="Languages"></div>
@@ -325,10 +329,12 @@
                     </svg>
                     Language
                 </h1>
-                <div v-for="index in count" :key="index" class="language-container" >
-                    <div class="nice-form-group" >
+                <div v-for="(language, index) in languages" :key="index" class="language-container">
+                    <button v-if="index >= 1" @click="removeLanguage(index)" class="close-btn">×</button>
+                    <div class="nice-form-group">
                         <label>Select a language</label>
-                        <select style="width:160px; height: 30px; padding: 4px 0; line-height: 20px; padding-left: 2px;">
+                        <select v-model="language.name"
+                            style="width:160px; height: 30px; padding: 4px 0; line-height: 20px; padding-left: 2px;">
                             <option value="" disabled selected>Select a language</option>
                             <option value="English">English</option>
                             <option value="Tamil">Tamil</option>
@@ -339,52 +345,46 @@
                     <fieldset class="nice-form-group">
                         <label for="">Language Proficiency</label>
                         <div class="nice-form-group">
-                            <input type="radio" name="radio" id="r-1" />
-                            <label for="r-1">Beginner</label>
+                            <input type="radio" :name="'proficiency-' + index" :id="'beginner-' + index"
+                                value="Beginner" v-model="language.proficiency" />
+                            <label :for="'beginner-' + index">Beginner</label>
                         </div>
-
                         <div class="nice-form-group">
-                            <input type="radio" name="radio" id="r-2" />
-                            <label for="r-2">Intermediate
-                            </label>
+                            <input type="radio" :name="'proficiency-' + index" :id="'intermediate-' + index"
+                                value="Intermediate" v-model="language.proficiency" />
+                            <label :for="'intermediate-' + index">Intermediate</label>
                         </div>
-
                         <div class="nice-form-group">
-                            <input type="radio" name="radio" id="r-2" />
-                            <label for="r-2">Advanced</label>
+                            <input type="radio" :name="'proficiency-' + index" :id="'advanced-' + index"
+                                value="Advanced" v-model="language.proficiency" />
+                            <label :for="'advanced-' + index">Advanced</label>
                         </div>
                     </fieldset>
 
                     <fieldset class="nice-form-group">
-                        <label for="">Language fluency</label>
+                        <label for="">Language Fluency</label>
                         <div class="nice-form-group">
-                            <input type="checkbox" id="check-1" />
-                            <label for="check-1">Speak</label>
+                            <input type="checkbox" :id="'speak-' + index" v-model="language.fluency.speak" />
+                            <label :for="'speak-' + index">Speak</label>
                         </div>
-
                         <div class="nice-form-group">
-                            <input type="checkbox" id="check-2" />
-                            <label for="check-2">Read</label>
+                            <input type="checkbox" :id="'read-' + index" v-model="language.fluency.read" />
+                            <label :for="'read-' + index">Read</label>
                         </div>
-
                         <div class="nice-form-group">
-                            <input type="checkbox" id="check-2" />
-                            <label for="check-2">Write</label>
+                            <input type="checkbox" :id="'write-' + index" v-model="language.fluency.write" />
+                            <label :for="'write-' + index">Write</label>
                         </div>
-                       
                     </fieldset>
-                    <div v-if="count > 1">
+
+                    <div v-if="languages.length > 1">
                         <hr>
                     </div>
                 </div>
-                <button @click="addLanguage" class="btn btn-secondary btn-sm" style="margin-top: 10px;">+ Add Language</button>
-                
-                
-             
-              
-            </section>
 
-          
+                <button v-if="languages.length < 3" @click="addLanguage" class="btn btn-secondary btn-sm"
+                    style="margin-top: 10px;">+ Add Language</button>
+            </section>
 
             <section>
                 <div class="href-target" id="Experience"></div>
@@ -399,31 +399,33 @@
                     </svg>
                     Experience
                 </h1>
-                <div  v-for="index in company" :key="index" class="companyContainer">
-                    <div class="nice-form-group">
-                        <label>Job Title</label>
-                        <input type="text" placeholder="Job Title" />
+                <div v-for="(company, index) in experiences" :key="index" class="companyContainer">
+                    <button v-if="index >= 1" @click="removeExperience(index)" class="close-btn">×</button>
+                    <div  class="nice-form-group">
+                       <label>Job Title</label>
+                        <input type="text" placeholder="Job Title" v-model="company.jobTitle" />
                     </div>
-
                     <div class="nice-form-group">
                         <label>Company Name</label>
-                        <input type="text" placeholder="Company name" />
+                        <input type="text" placeholder="Company name" v-model="company.companyName" />
                     </div>
 
                     <div class="nice-form-group">
-                        <label>Experience</label>
-                        <input type="number" placeholder="5" />
+                        <label>Experience (years)</label>
+                        <input type="number" placeholder="5" v-model="company.years" />
                     </div>
-                    <div v-if="company>1">
-                        <hr>
+                    <div v-if="experiences.length > 1">
+                        <hr />
                     </div>
                 </div>
 
-                <button @click="addExperience" class="btn btn-secondary btn-sm" style="margin-top: 10px;">+ Add Company</button>
-                
+                <button v-if="experiences.length < 3" @click="addExperience" class="btn btn-secondary btn-sm"
+                    style="margin-top: 10px;">+ Add Company</button>
+                <button @click="getExperienceData" class="btn btn-primary btn-sm" style="margin-top: 10px;">Get
+                    Experience Data</button>
             </section>
 
-            
+
         </main>
     </div>
 
@@ -439,12 +441,56 @@ export default {
     components: {
         VueMultiselect
     },
-    data(){
-        return{
-            count:1,
-            company:1,
-            languages:[],
-            experience:[],
+    data() {
+        return {
+            firstname: '',
+            lastname: '',
+            job_title: '',
+            email: '',
+            mobile: '',
+            alternate_mobile: '',
+            dob: '',
+            linkedin: '',
+            address: '',
+            city: '',
+            state: '',
+            pincode: '',
+
+            document: null,
+
+            secondary_school: '',
+            secondary_percentage: '',
+            secondary_passed: '',
+            higher_secondary_school: '',
+            higher_secondary_percentage: '',
+            higher_secondary_passed: '',
+            undergraduate: '',
+            undergraduate_percentage: '',
+            undergraduate_passed: '',
+            postgraduate: '',
+            postgraduate_percentage: '',
+            postgraduate_passed: '',
+
+            count: 1,
+            company: 1,
+            languages: [
+                {
+                    name: '',
+                    proficiency: '',
+                    fluency: {
+                        speak: false,
+                        read: false,
+                        write: false,
+                    },
+                },
+            ],
+            experiences: [
+                {
+                    jobTitle: '',
+                    companyName: '',
+                    years: '',
+                },
+            ],
             selectedSkills: [],
             options: ['Java', 'Python', 'Machine learning', 'Accounting', 'Tally', 'Executive', 'Excel', 'Computer Networks', 'OpenCV', 'Electronics', 'Communication', 'Arduino'],
             selectedCertifcates: [],
@@ -489,24 +535,39 @@ export default {
                 inputSection.scrollIntoView({ behavior: 'smooth' });
             }
         },
-        loadScript(scriptUrl) {
-            const script = document.createElement('script');
-            script.src = scriptUrl;
-            script.setAttribute('type', 'text/javascript');
-            document.body.appendChild(script);
-        },
-        addLanguage(){
-            if (this.count < 3) {
-                this.count++; 
-            } else {
-                alert("You can choose only 3 languages");
+        addLanguage() {
+            if (this.languages.length < 3) {
+                this.languages.push({
+                    name: '',
+                    proficiency: '',
+                    fluency: {
+                        speak: false,
+                        read: false,
+                        write: false,
+                    },
+                });
+                console.log(this.languages.at(0));
             }
         },
-        addExperience(){
-            this.company++;
-        }
-
-
+        addExperience() {
+            if (this.experiences.length < 3) {
+                this.experiences.push({
+                jobTitle: '',
+                companyName: '',
+                years: '',
+                });
+            }
+        },
+        getExperienceData() {
+            console.log(this.experiences);
+            // You can now process the data or send it to a server as needed
+        },
+        removeExperience(index) {
+            this.experiences.splice(index, 1);
+        },
+        removeLanguage(index) {
+            this.languages.splice(index, 1);
+        },
     }
 
 }
@@ -640,6 +701,15 @@ q:before {
     content: "";
     content: none;
 }
+.close-btn {
+  position: absolute;
+  right:0;
+  margin-top: -30px;
+  background: transparent;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+}
 
 table {
     border-collapse: collapse;
@@ -690,12 +760,12 @@ table {
     --switch-height: calc(var(--nf-input-size) * 1.25 + var(--switch-orb-offset));
 }
 
-.document-upload{
-    display:flex;
+.document-upload {
+    display: flex;
     align-items: center;
 }
 
-.flexed-code{
+.flexed-code {
     --nf-input-size: 1rem;
     --nf-input-font-size: calc(var(--nf-input-size) * 0.875);
     --nf-small-font-size: calc(var(--nf-input-size) * 0.875);
@@ -1420,9 +1490,8 @@ body {
     display: flex;
     max-width: 65em;
     margin-top: 40px;
-    margin-left: 40px;
+    margin-left: 20%;
 }
-
 
 
 .demo-page .demo-page-navigation {
