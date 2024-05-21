@@ -15,7 +15,7 @@
         <!-- Job details table -->
         <div>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-9">
 
               <router-link :to="'/pages/jobs/'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -27,7 +27,7 @@
               <button class="btn btn-sm btn-success status-button">{{ job[10] }}</button>
               <div class="align-margin">
                 <p><strong>Job ID:</strong> {{ job[0] }} &emsp;&emsp; <strong>Title: </strong>{{ job[1] }}</p>
-                <span>{{ job[4] }} &emsp;&emsp; <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                <span><strong>Company:</strong>{{ job[4] }} &emsp;&emsp; <strong>Location:</strong><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                     fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
                     <path
                       d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
@@ -45,12 +45,39 @@
           <br>
           <br>
           <div class="align-margin">
-            <p><strong>Posted By</strong>&emsp;&emsp;&emsp; <strong>Created At</strong></p>
-            <p style="margin-top: -8px">{{ job[14] }} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{{ job[12] }}</p>
+            <div class="row"> 
+              <div class="col-md-3">
+                <strong>Posted By</strong>   
+                <div> {{job[14]}} </div>
+              
+              </div>
+              <div class="col-md-3">
+                <strong>Created At</strong>
+                <div>
+                  {{ job[12].slice(0,10) }}
+                </div>
+              </div>
+              <div class="col-md-3">
+                <strong>Job Type</strong>
+                <div>
+                  {{ job[21] }}
+                </div>
+              </div>
+              <div class="col-md-3">
+                <strong>Total Submissions</strong>
+                <div style="text-align: center">
+                  {{ 2 }}
+                </div>
+              </div>
+            </div>
+           
+          
+            
           </div>
           <br>
           <br>
           <div class="align-margin">
+            <br>
             <h5>Job Description</h5>
             <div v-html="job[2]" :class="{ 'collapsed': !showAllDescription }"></div>
             <button v-if="!showAllDescription" @click="toggleDescription" class="btn btn-link">More</button>
@@ -103,7 +130,9 @@
                         </a>
                       </td>
 
-                      <td>{{ candidate.created_at.slice(0, 10) }}</td>
+                      <td v-if="candidate.created_at && typeof candidate.created_at === 'string'">
+                          {{ candidate.created_at.slice(0,10) }}
+                      </td>
                       <td>{{ candidate.mobile }} / {{ candidate.address }}</td>
                       <td>{{ candidate.email }}</td>
                       <td>{{ candidate.status }}</td>
@@ -183,7 +212,7 @@ export default {
         .then(response => {
           this.loading  = false;
           this.job = response.data.data;
-          
+          console.log(this.job);
         })
         .catch(error => {
           console.error('Error fetching job details:', error);
@@ -244,6 +273,9 @@ export default {
 .align-margin {
   margin-left: 28px;
   margin-top: -45px;
+  white-space: nowrap;
+  overflow: hidden; 
+  text-overflow: ellipsis;
 }
 
 .status-button {

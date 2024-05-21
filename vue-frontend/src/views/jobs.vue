@@ -460,6 +460,7 @@
       fetchJobs() {
         axios.get('http://localhost:8000/jobs')
           .then(response => {
+            this.loading = false;
             this.jobs = response.data.data;
           })
           .catch(error => {

@@ -62,9 +62,9 @@
                             <td>{{ candidate.email }}</td>
                             <td>{{ candidate.mobile }}</td>
                             <td>{{ candidate.job_title }}</td>
-                            <td>{{ candidate.experience }}</td>
-                            <td>{{ candidate.address }}</td>
-                            <td>{{ candidate.address }}</td>
+                            <td>{{ parseExperience(candidate.experience) }}</td>
+                            <td>{{ candidate.ctiy }}</td>
+                            <td>{{ candidate.state }}</td>
 
                         </tr>
 
@@ -187,10 +187,19 @@ export default {
              else {
                 return [{ name: 'Please select a category' }];
             }
-        }
+        },
+       
     },
-
+   
     methods: {
+        parseExperience(experience) {
+            if (experience === null) {
+                return ''; 
+            }
+
+            const y = JSON.parse(experience);
+            return y[0].years;
+        },
         fetchCandidatesBySearch() {
             if (this.searchCategory === 'skills') {
                 axios.get(`http://localhost:8000/candidate/searchBySkill/${this.selected.name.toLowerCase()}`)
@@ -286,6 +295,37 @@ export default {
                         }
                     });
             }
+            else if (this.searchCategory === 'state') {
+                axios.get(`http://localhost:8000/candidate/searchByState/${this.selected.name.toLowerCase()}`)
+                    .then(response => {
+                        this.notFound = false;
+                        this.candidates = [];
+                        this.candidates = response.data.candidates;
+
+
+                        let d = Date(Date.now());
+
+                        const newSearch = {
+                            id: d.slice(4, 25),
+                            query: this.selected.name,
+                            data: response.data.candidates
+                        };
+                        this.recentSearches.unshift(newSearch);
+
+                        if (this.recentSearches.length > 5) {
+                            this.recentSearches.pop();
+                        }
+                        localStorage.setItem('recentSearches', JSON.stringify(this.recentSearches));
+                    })
+                    .catch(error => {
+                        if (error.response.status === 404) {
+                            this.candidates = [];
+                            this.notFound = true;
+                        } else {
+                            console.error("Error fetching the candidates:", error);
+                        }
+                    });
+            }
         },
         routeToCandidateDetails(canId) {
             this.$router.push({ name: 'candidate-detail', params: { id: canId } });
@@ -313,6 +353,7 @@ export default {
     left: 0;
     overflow-y: hidden;
     height: 100vh;
+    overflow-y: auto;
 }
 
 .search-heading {
@@ -345,6 +386,8 @@ export default {
 .results-container {
     margin-top: 20px;
     text-align: center;
+    max-height: 500px; /* Adjust the max height as needed */
+    overflow-y: auto;
 }
 
 .results-container ul {

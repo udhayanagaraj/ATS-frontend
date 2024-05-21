@@ -17,6 +17,16 @@
                     </li>
 
                     <li>
+                        <a href="#icons" @click.prevent="scrollToAdditional">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather">
+                        <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" />
+                        <line x1="16" y1="8" x2="2" y2="22" />
+                        <line x1="17.5" y1="15" x2="9" y2="15" />
+                        </svg>
+                        Additional</a>
+                    </li>
+
+                    <li>
                         <a href="#input-types" @click.prevent="scrollToDocuments">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -69,7 +79,7 @@
                                 <line x1="6" y1="6" x2="6.01" y2="6" />
                                 <line x1="6" y1="18" x2="6.01" y2="18" />
                             </svg>
-                            Experiene</a>
+                            Experience</a>
                     </li>
 
 
@@ -77,6 +87,9 @@
             </nav>
         </div>
         <main class="demo-page-content">
+            <div v-if="updateSuccess" class="alert alert-success" role="alert">
+                Added successfully!
+            </div>
 
             <section>
                 <div class="href-target" id="personal-details"></div>
@@ -91,61 +104,81 @@
                     </svg>
                     Personal Details
                 </h1>
-                <p>All available input types are included</p>
 
                 <div style="display:flex; gap:4px">
                     <div class="nice-form-group">
                         <label>First Name</label>
-                        <input style="width:248px;" type="text" placeholder="First Name" value="" required />
+                        <input style="width:248px;" type="text" placeholder="First Name" value="" required
+                            v-model="firstname" />
                     </div>
                     <div class="nice-form-group">
                         <label>Last Name</label>
-                        <input style="width:248px;" type="text" placeholder="Last Name" value="" required />
+                        <input style="width:248px;" type="text" placeholder="Last Name" value="" required
+                            v-model="lastname" />
+                    </div>
+                </div>
+
+                <div style="display:flex; gap:4px">
+                    <div class="nice-form-group">
+                        <label>Gender</label>
+                        <select style="width:248px;height:45px;" v-model="gender">
+                            <option value="" disabled selected>Select gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Prefer not say">Prefer not say</option>
+                        </select>
+                    </div>
+                    <div class="nice-form-group">
+                        <label>Martial Status</label>
+                        <select style="width:248px; height:45px;" v-model="martialStatus">
+                            <option value="" disabled selected>Select status</option>
+                            <option value="Single">Single</option>
+                            <option value="Married">Married</option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="nice-form-group">
                     <label>Jot Title</label>
-                    <input type="text" placeholder="Job Title" value="" required />
+                    <input type="text" placeholder="Job Title" value="" required v-model=" job_title" />
                 </div>
 
                 <div class="nice-form-group">
                     <label>Email</label>
-                    <input type="email" placeholder="Your email" value="" required />
+                    <input type="email" placeholder="Your email" value="" required v-model="email" />
                 </div>
 
                 <div class="nice-form-group">
                     <label>Phonenumber</label>
-                    <input type="tel" placeholder="Your alternate phonenumber" value="" required />
+                    <input type="tel" placeholder="Your alternate phonenumber" value="" required v-model=" mobile" />
                 </div>
 
                 <div class="nice-form-group">
                     <label>Alternate Phonenumber</label>
-                    <input type="tel" placeholder="Your phonenumber" value="" />
+                    <input type="tel" placeholder="Your phonenumber" value="" v-model="alternate_mobile" />
                 </div>
 
                 <div style="display :flex; gap:4px">
                     <div class="nice-form-group">
                         <label>DOB</label>
-                        <input type="date" style="width:248px" />
+                        <input type="date" style="width:248px" v-model="dob" />
                     </div>
                     <div class="nice-form-group">
                         <label>Linkedin Url</label>
-                        <input type="url" placeholder="www.google.com" value="" style="width:248px" />
+                        <input type="url" placeholder="www.google.com" value="" style="width:248px"
+                            v-model="linkedin" />
                     </div>
                 </div>
 
-
-
                 <div class="nice-form-group">
                     <label>Address</label>
-                    <input type="text" placeholder="Your address" value="" required />
+                    <input type="text" placeholder="Your address" value="" required v-model="address" />
                 </div>
 
                 <div style="display :flex; gap:4px">
                     <div class="nice-form-group">
                         <label>City</label>
-                        <select style="width:248px;">
+                        <select style="width:248px;" v-model="city">
                             <option value="" disabled selected>Select city</option>
                             <option value="Chennai">Chennai</option>
                             <option value="Bangalore">Bangalore</option>
@@ -156,7 +189,7 @@
                     </div>
                     <div class="nice-form-group">
                         <label>State</label>
-                        <select style="width:248px;">
+                        <select style="width:248px;" v-model="state">
                             <option value="" disabled selected>Select State</option>
                             <option value="Tamil Nadu">Tamil Nadu</option>
                             <option value="Maharastra">Maharastra</option>
@@ -170,7 +203,8 @@
                 <div style="display :flex; gap:4px">
                     <div class="nice-form-group">
                         <label>Pincode</label>
-                        <input type="text" placeholder="Enter your area pincode" style="width:248px" />
+                        <input type="text" placeholder="Enter your area pincode" style="width:248px"
+                            v-model="pincode" />
                     </div>
                     <div class="nice-form-group">
                         <label>Skills</label>
@@ -179,6 +213,65 @@
                         </VueMultiselect required>
                     </div>
                 </div>
+
+                <div style="display:flex; gap:4px">
+                    <div class="nice-form-group">
+                        <label>Current Salary</label>
+                        <input style="width:248px;" type="text" placeholder="Current Salary" value="" required
+                            v-model="current_salary" />
+                    </div>
+                    <div class="nice-form-group">
+                        <label>Expected Salary</label>
+                        <input style="width:248px;" type="text" placeholder="Expected Salary" value="" required
+                            v-model="expected_salary" />
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="href-target" id="additional"></div>
+                <h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-feather">
+                        <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z" />
+                        <line x1="16" y1="8" x2="2" y2="22" />
+                        <line x1="17.5" y1="15" x2="9" y2="15" />
+                    </svg>
+                    Additional
+                </h1>
+
+                <div class="nice-form-group">
+                    <label>Profile Summary</label>
+                    <textarea rows="5" placeholder="Summary"></textarea>
+                </div>
+
+                <div style="display :flex; gap:4px">
+                    <div class="nice-form-group">
+                        <label>Preferred Job</label>
+                        <VueMultiselect v-model="preferred_job" :options="roles" :multiple="true"
+                            :close-on-select="true" placeholder="Pick some" style="width:248px; overflow:visible">
+                        </VueMultiselect required>
+                    </div>
+                    <div class="nice-form-group">
+                        <label>Preferred locations</label>
+                        <VueMultiselect v-model="preferred_locations" :options="cities" :multiple="true"
+                            :close-on-select="true" placeholder="Pick some" style="width:248px; overflow:visible">
+                        </VueMultiselect required>
+                    </div>
+                    
+                </div>
+                <div class="nice-form-group">
+                    <label>Physically Challenged</label>
+                    <select style="width:248px;" v-model="state">
+                        <option value="" disabled selected>Select options</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div>
+                
+
+
+                
+
             </section>
 
             <section>
@@ -194,7 +287,7 @@
                 </h1>
                 <div class="nice-form-group">
                     <label>File upload</label>
-                    <input type="file" />
+                    <input type="file" v-on:change="onFileChange" />
                 </div>
 
             </section>
@@ -204,11 +297,10 @@
                 <h1>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="feather feather-align-justify">
-                        <line x1="21" y1="10" x2="3" y2="10" />
-                        <line x1="21" y1="6" x2="3" y2="6" />
-                        <line x1="21" y1="14" x2="3" y2="14" />
-                        <line x1="21" y1="18" x2="3" y2="18" />
+                        class="feather feather-layers">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                        <polyline points="2 17 12 22 22 17" />
+                        <polyline points="2 12 12 17 22 12" />
                     </svg>
                     Education
                 </h1>
@@ -216,7 +308,7 @@
                 <div style="display:flex; gap:4px">
                     <div class="nice-form-group">
                         <label>Secondary School</label>
-                        <select style="width:180px;">
+                        <select style="width:180px;" v-model="education.secondary_school">
                             <option value="" disabled selected>Select Board</option>
                             <option value="State Board">State Board</option>
                             <option value="Central Board">Central Board</option>
@@ -225,18 +317,20 @@
                     </div>
                     <div class="nice-form-group">
                         <label>Percentage</label>
-                        <input style="width:180px;" type="text" placeholder="Percentage" value="" />
+                        <input style="width:180px;" type="text" placeholder="Percentage" value=""
+                            v-model="education.secondary_percentage" />
                     </div>
                     <div class="nice-form-group">
                         <label>Passed Out Year</label>
-                        <input style="width:140px;" type="text" placeholder="Passed Out Year" value="" />
+                        <input style="width:140px;" type="text" placeholder="Passed Out Year" value=""
+                            v-model="education.secondary_passed" />
                     </div>
                 </div>
 
                 <div style="display:flex; gap:4px">
                     <div class="nice-form-group">
                         <label>Higher Secondary</label>
-                        <select style="width:180px;">
+                        <select style="width:180px;" v-model="education.higher_secondary_school">
                             <option value="" disabled selected>Select Board</option>
                             <option value="State Board">State Board</option>
                             <option value="Central Board">Central Board</option>
@@ -245,18 +339,20 @@
                     </div>
                     <div class="nice-form-group">
                         <label>Percentage</label>
-                        <input style="width:180px;" type="text" placeholder="Percentage" value="" />
+                        <input style="width:180px;" type="text" placeholder="Percentage" value=""
+                            v-model="education.higher_secondary_percentage" />
                     </div>
                     <div class="nice-form-group">
                         <label>Passed Out Year</label>
-                        <input style="width:140px;" type="text" placeholder="Passed Out Year" value="" />
+                        <input style="width:140px;" type="text" placeholder="Passed Out Year" value=""
+                            v-model="education.higher_secondary_passed" />
                     </div>
                 </div>
 
                 <div style="display:flex; gap:4px">
                     <div class="nice-form-group">
                         <label>UnderGraduate</label>
-                        <select style="width:180px;">
+                        <select style="width:180px;" v-model="education.undergraduate">
                             <option value="" disabled selected>Select College</option>
                             <option value="Anna University">Anna University</option>
                             <option value="Madras University">Madras University</option>
@@ -265,18 +361,20 @@
                     </div>
                     <div class="nice-form-group">
                         <label>Percentage</label>
-                        <input style="width:180px;" type="text" placeholder="Percentage" value="" />
+                        <input style="width:180px;" type="text" placeholder="Percentage" value=""
+                            v-model="education.undergraduate_percentage" />
                     </div>
                     <div class="nice-form-group">
                         <label>Passed Out Year</label>
-                        <input style="width:140px;" type="text" placeholder="Passed Out Year" value="" />
+                        <input style="width:140px;" type="text" placeholder="Passed Out Year" value=""
+                            v-model="education.undergraduate_passed" />
                     </div>
                 </div>
 
                 <div style="display:flex; gap:4px">
                     <div class="nice-form-group">
                         <label>PostGraduate</label>
-                        <select style="width:180px;">
+                        <select style="width:180px;" v-model="education.postgraduate">
                             <option value="" disabled selected>Select College</option>
                             <option value="Anna University">Anna University</option>
                             <option value="Madras University">Madras University</option>
@@ -285,11 +383,13 @@
                     </div>
                     <div class="nice-form-group">
                         <label>Percentage</label>
-                        <input style="width:180px;" type="text" placeholder="Percentage" value="" />
+                        <input style="width:180px;" type="text" placeholder="Percentage" value=""
+                            v-model="education.postgraduate_percentage" />
                     </div>
                     <div class="nice-form-group">
                         <label>Passed Out Year</label>
-                        <input style="width:140px;" type="text" placeholder="Passed Out Year" value="" />
+                        <input style="width:140px;" type="text" placeholder="Passed Out Year" value=""
+                            v-model="education.postgraduate_passed" />
                     </div>
                 </div>
 
@@ -327,7 +427,7 @@
                         <polyline points="9 11 12 14 22 4" />
                         <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
                     </svg>
-                    Language
+                    Languages
                 </h1>
                 <div v-for="(language, index) in languages" :key="index" class="language-container">
                     <button v-if="index >= 1" @click="removeLanguage(index)" class="close-btn">×</button>
@@ -401,8 +501,8 @@
                 </h1>
                 <div v-for="(company, index) in experiences" :key="index" class="companyContainer">
                     <button v-if="index >= 1" @click="removeExperience(index)" class="close-btn">×</button>
-                    <div  class="nice-form-group">
-                       <label>Job Title</label>
+                    <div class="nice-form-group">
+                        <label>Job Title</label>
                         <input type="text" placeholder="Job Title" v-model="company.jobTitle" />
                     </div>
                     <div class="nice-form-group">
@@ -421,7 +521,7 @@
 
                 <button v-if="experiences.length < 3" @click="addExperience" class="btn btn-secondary btn-sm"
                     style="margin-top: 10px;">+ Add Company</button>
-                <button @click="getExperienceData" class="btn btn-primary btn-sm" style="margin-top: 10px;">Get
+                <button @click="addCandidate" class="btn btn-primary btn-sm" style="margin-top: 10px;">Get
                     Experience Data</button>
             </section>
 
@@ -433,6 +533,7 @@
 
 
 <script>
+import axios from 'axios';
 import VueMultiselect from 'vue-multiselect';
 
 
@@ -443,8 +544,11 @@ export default {
     },
     data() {
         return {
+            updateSuccess:false,
             firstname: '',
             lastname: '',
+            gender:'',
+            martialStatus:'',
             job_title: '',
             email: '',
             mobile: '',
@@ -455,22 +559,28 @@ export default {
             city: '',
             state: '',
             pincode: '',
+            current_salary:'',
+            expected_salary:'',
+            preferred_job : [],
+            preferred_locations : [],
 
             document: null,
-
-            secondary_school: '',
-            secondary_percentage: '',
-            secondary_passed: '',
-            higher_secondary_school: '',
-            higher_secondary_percentage: '',
-            higher_secondary_passed: '',
-            undergraduate: '',
-            undergraduate_percentage: '',
-            undergraduate_passed: '',
-            postgraduate: '',
-            postgraduate_percentage: '',
-            postgraduate_passed: '',
-
+            education : [
+                {
+                    secondary_school: '',
+                    secondary_percentage: '',
+                    secondary_passed: '',
+                    higher_secondary_school: '',
+                    higher_secondary_percentage: '',
+                    higher_secondary_passed: '',
+                    undergraduate: '',
+                    undergraduate_percentage: '',
+                    undergraduate_passed: '',
+                    postgraduate: '',
+                    postgraduate_percentage: '',
+                    postgraduate_passed: '',
+                }
+            ],
             count: 1,
             company: 1,
             languages: [
@@ -495,10 +605,135 @@ export default {
             options: ['Java', 'Python', 'Machine learning', 'Accounting', 'Tally', 'Executive', 'Excel', 'Computer Networks', 'OpenCV', 'Electronics', 'Communication', 'Arduino'],
             selectedCertifcates: [],
             certicates: ['Associate Java Programming from oracle', 'Machine learning with python', 'Cloud computing with Aws ', 'Tally and advanced excel from microsoft', 'Python Programming', 'Ethical Hacking', 'Computer Networking', 'Automation with Devops', 'Electronics and Communications from iit', 'Embedded system and arduino programming'],
-
+            cities : ['Chennai','Mumbai','Cochi'],
+            roles : ['Lawyer','Doctor','Accountant','Mechanical Engineer','Chemical Engineer','Computer Engineer','Software Developer','Software Engineer']
         }
     },
     methods: {
+        addCandidate(){
+            const educationdata = [
+                {
+                    'level':'Secondary school',
+                    'board':this.education.secondary_school,
+                    'percentage':this.education.secondary_percentage,
+                    'passed_out_year':this.education.secondary_percentage
+                },
+                {
+                    'level':'Higher secondary',
+                    'board':this.education.higher_secondary_school,
+                    'percentage':this.education.higher_secondary_percentage,
+                    'passed_out_year':this.education.higher_secondary_passed
+                },
+                {
+                    'level':'UnderGraduate',
+                    'board':this.education.undergraduate,
+                    'percentage':this.education.undergraduate_percentage,
+                    'passed_out_year':this.education.undergraduate_passed
+                },
+                {
+                    'level':'PostGraduate',
+                    'board':this.education.postgraduate,
+                    'percentage':this.education.postgraduate_percentage,
+                    'passed_out_year':this.education.postgraduate_passed
+                },
+            ];
+
+            const languagesData = this.languages.map(language => {
+                return {
+                    name: language.name,
+                    proficiency: language.proficiency,
+                    fluency: {
+                        speak: language.fluency.speak,
+                        read: language.fluency.read,
+                        write: language.fluency.write
+                    }
+                };
+            });
+
+            const experiencesData = this.experiences.map(experience => {
+                return {
+                    jobTitle: experience.jobTitle,
+                    companyName: experience.companyName,
+                    years: experience.years
+                };
+            });
+            
+            
+            
+            const datatosend = {
+                'name':this.firstname,
+                'mobile':this.mobile,
+                'address':this.address,
+                'status':'Active',
+                'resume_file':"resume-sadham.pdf",
+                'skills':this.selectedSkills.join(','),
+
+                'job_id':6,
+                'last_name' : this.lastname,
+                'dob':this.dob,
+                'city':this.city,
+                'state':this.state,
+                'pincode':this.pincode,
+                'job_title':this.job_title,
+                'alternate_mobile':this.alternate_mobile,
+                
+                'relocate':'No',
+                'image_path':'"C:/Users/dell/Desktop/image1.jpg',
+                'gender':this.gender,
+                'martialstatus':this.martialStatus,
+                'email':this.email,
+                'current_salary':this.current_salary,
+                'expected_salary':this.expected_salary,
+
+                
+                'preferred_job':'Engineer',
+                'certifications':this.selectedCertifcates.join(','),
+                'preferred_locations':'Madurai',
+                
+                'languages': languagesData,
+                'education_details':educationdata,
+                'experience':experiencesData,
+            }
+
+            console.log(datatosend);
+            
+            axios.post('http://127.0.0.1:8000/insertcandidate', datatosend)
+                .then(response => {
+                    console.log('inserted candidate successfully:');
+                    this.updateSuccess = true;
+                    window.scrollTo(0, 0);
+                })
+                .catch(error => {
+                    console.error('Error adding job:', error);
+                });
+        
+            
+        
+           
+
+            // const d = {
+            //     'experience':   experiencesData,
+            //     'languages': languagesData,
+            //     'education_details':educationdata
+            // }
+
+
+            // axios.post('http://127.0.0.1:8000/dummy',d)
+            // .then(response => {
+            //     console.log('inserted candidate successfully:');
+            //     this.updateSuccess = true;
+            //     window.scrollTo(0,0);
+            // })
+            // .catch(error => {
+            //     console.error('Error adding job:', error);
+            // });
+
+        },
+
+        onFileChange(e){
+            this.document = e.target.files[0].name;
+            console.log(this.document);
+        },
         scrollToPersonal() {
             const installationSection = document.getElementById('personal-details');
             if (installationSection) {
@@ -535,6 +770,13 @@ export default {
                 inputSection.scrollIntoView({ behavior: 'smooth' });
             }
         },
+        scrollToAdditional() {
+            const inputSection = document.getElementById('additional');
+            if (inputSection) {
+                inputSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        },
+
         addLanguage() {
             if (this.languages.length < 3) {
                 this.languages.push({
@@ -546,7 +788,6 @@ export default {
                         write: false,
                     },
                 });
-                console.log(this.languages.at(0));
             }
         },
         addExperience() {
@@ -1713,3 +1954,4 @@ details summary::-webkit-details-marker {
     display: none;
 }
 </style>
+<style src="vue-multiselect/dist/vue-multiselect.css"></style>
