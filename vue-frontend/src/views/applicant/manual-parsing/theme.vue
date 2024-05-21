@@ -37,17 +37,6 @@
                             Documents</a>
                     </li>
                     <li>
-                        <a href="#checkbox-and-radio" @click.prevent="scrollToEducation">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-layers">
-                                <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                                <polyline points="2 17 12 22 22 17" />
-                                <polyline points="2 12 12 17 22 12" />
-                            </svg>
-                            Education</a>
-                    </li>
-                    <li>
                         <a href="#fieldset" @click.prevent="scrollToCertifications">
                             <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(90deg)" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -158,6 +147,14 @@
                     <input type="tel" placeholder="Your phonenumber" value="" v-model="alternate_mobile" />
                 </div>
 
+                <div class="nice-form-group">
+                    <label>Education Qualification</label>
+                    <select v-model="selectedField" id="educationField" >
+                        <option value="" disabled selected>Select field of study</option>
+                        <option v-for="degree in degrees" :key="degree" :value="degree">{{ degree }}</option>
+                    </select>
+                </div>
+
                 <div style="display :flex; gap:4px">
                     <div class="nice-form-group">
                         <label>DOB</label>
@@ -177,25 +174,15 @@
 
                 <div style="display :flex; gap:4px">
                     <div class="nice-form-group">
-                        <label>City</label>
-                        <select style="width:248px;" v-model="city">
-                            <option value="" disabled selected>Select city</option>
-                            <option value="Chennai">Chennai</option>
-                            <option value="Bangalore">Bangalore</option>
-                            <option value="Cochi">Cochi</option>
-                            <option value="Mumbai "> Mumbai</option>
-                            <option value="Pune">Pune</option>
+                        <label>State</label>
+                        <select style="width:248px;" v-model="state" id="stateSelect" @change="updateCity">
+                            <option value="" disabled selected>Select State</option>
                         </select>
                     </div>
                     <div class="nice-form-group">
-                        <label>State</label>
-                        <select style="width:248px;" v-model="state">
-                            <option value="" disabled selected>Select State</option>
-                            <option value="Tamil Nadu">Tamil Nadu</option>
-                            <option value="Maharastra">Maharastra</option>
-                            <option value="Kerala">Kerala</option>
-                            <option value="Andhra Pradesh">Andhra Pradesh</option>
-                            <option value="Karnataka">Karnataka</option>
+                        <label>City</label>
+                        <select style="width:248px;" v-model="city" id="citySelect" >
+                            <option value="" disabled selected>Select city</option>
                         </select>
                     </div>
                 </div>
@@ -241,7 +228,7 @@
 
                 <div class="nice-form-group">
                     <label>Profile Summary</label>
-                    <textarea rows="5" placeholder="Summary"></textarea>
+                    <textarea rows="5" placeholder="Summary" v-model="summary"></textarea>
                 </div>
 
                 <div style="display :flex; gap:4px">
@@ -257,16 +244,27 @@
                             :close-on-select="true" placeholder="Pick some" style="width:248px; overflow:visible">
                         </VueMultiselect required>
                     </div>
-                    
                 </div>
-                <div class="nice-form-group">
-                    <label>Physically Challenged</label>
-                    <select style="width:248px;" v-model="state">
-                        <option value="" disabled selected>Select options</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                    </select>
+
+                <div  style="display :flex; gap:4px">
+                    <div class="nice-form-group">
+                        <label>Relocate</label>
+                        <select style="width:248px;" v-model="relocate">
+                            <option value="" disabled selected>Select options</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="nice-form-group">
+                        <label>Physically Challenged</label>
+                        <select style="width:248px;" v-model="physically_challenged">
+                            <option value="" disabled selected>Select options</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
                 </div>
+                
                 
 
 
@@ -292,7 +290,7 @@
 
             </section>
 
-            <section>
+            <!-- <section>
                 <div class="href-target" id="Education"></div>
                 <h1>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -393,7 +391,7 @@
                     </div>
                 </div>
 
-            </section>
+            </section> -->
 
             <section>
                 <div class="href-target" id="Certificates"></div>
@@ -409,7 +407,7 @@
                 <div class="nice-form-group">
                     <label>Certificates</label>
                     <VueMultiselect v-model="selectedCertifcates" :options="certicates" :multiple="true"
-                        :close-on-select="true" placeholder="Pick some" style="width: 500px;">
+                        :close-on-select="true" placeholder="Pick some" style="width: 500px;" >
                     </VueMultiselect>
                     <div v-for="(c, index) in selectedCertifcates" :key="index">
                         <p>{{ c }}</p>
@@ -521,8 +519,8 @@
 
                 <button v-if="experiences.length < 3" @click="addExperience" class="btn btn-secondary btn-sm"
                     style="margin-top: 10px;">+ Add Company</button>
-                <button @click="addCandidate" class="btn btn-primary btn-sm" style="margin-top: 10px;">Get
-                    Experience Data</button>
+                    <br>
+                <button @click="addCandidate" class="btn btn-primary " style="margin-top: 10px;">Submit</button>
             </section>
 
 
@@ -535,7 +533,8 @@
 <script>
 import axios from 'axios';
 import VueMultiselect from 'vue-multiselect';
-
+import { print_state,print_city,state_arr } from './cities';
+import { degrees } from './degrees';
 
 export default {
     name: 'theme',
@@ -544,6 +543,7 @@ export default {
     },
     data() {
         return {
+            degrees:degrees,
             updateSuccess:false,
             firstname: '',
             lastname: '',
@@ -563,26 +563,11 @@ export default {
             expected_salary:'',
             preferred_job : [],
             preferred_locations : [],
-
+            summary:'',
+            physically_challenged:'',
             document: null,
-            education : [
-                {
-                    secondary_school: '',
-                    secondary_percentage: '',
-                    secondary_passed: '',
-                    higher_secondary_school: '',
-                    higher_secondary_percentage: '',
-                    higher_secondary_passed: '',
-                    undergraduate: '',
-                    undergraduate_percentage: '',
-                    undergraduate_passed: '',
-                    postgraduate: '',
-                    postgraduate_percentage: '',
-                    postgraduate_passed: '',
-                }
-            ],
-            count: 1,
-            company: 1,
+            selectedField : '',
+            relocate:'',
             languages: [
                 {
                     name: '',
@@ -606,38 +591,20 @@ export default {
             selectedCertifcates: [],
             certicates: ['Associate Java Programming from oracle', 'Machine learning with python', 'Cloud computing with Aws ', 'Tally and advanced excel from microsoft', 'Python Programming', 'Ethical Hacking', 'Computer Networking', 'Automation with Devops', 'Electronics and Communications from iit', 'Embedded system and arduino programming'],
             cities : ['Chennai','Mumbai','Cochi'],
-            roles : ['Lawyer','Doctor','Accountant','Mechanical Engineer','Chemical Engineer','Computer Engineer','Software Developer','Software Engineer']
+            roles : ['Lawyer','Doctor','Accountant','Mechanical Engineer','Chemical Engineer','Computer Engineer','Software Developer','Software Engineer'],
+            
         }
     },
+    mounted(){
+        print_state('stateSelect');
+    },
     methods: {
+        updateCity(event){
+            const stateIndex = state_arr.indexOf(event.target.value) + 1;
+            print_city('citySelect',stateIndex)
+        },
+        
         addCandidate(){
-            const educationdata = [
-                {
-                    'level':'Secondary school',
-                    'board':this.education.secondary_school,
-                    'percentage':this.education.secondary_percentage,
-                    'passed_out_year':this.education.secondary_percentage
-                },
-                {
-                    'level':'Higher secondary',
-                    'board':this.education.higher_secondary_school,
-                    'percentage':this.education.higher_secondary_percentage,
-                    'passed_out_year':this.education.higher_secondary_passed
-                },
-                {
-                    'level':'UnderGraduate',
-                    'board':this.education.undergraduate,
-                    'percentage':this.education.undergraduate_percentage,
-                    'passed_out_year':this.education.undergraduate_passed
-                },
-                {
-                    'level':'PostGraduate',
-                    'board':this.education.postgraduate,
-                    'percentage':this.education.postgraduate_percentage,
-                    'passed_out_year':this.education.postgraduate_passed
-                },
-            ];
-
             const languagesData = this.languages.map(language => {
                 return {
                     name: language.name,
@@ -677,7 +644,7 @@ export default {
                 'job_title':this.job_title,
                 'alternate_mobile':this.alternate_mobile,
                 
-                'relocate':'No',
+                'relocate':this.relocate,
                 'image_path':'"C:/Users/dell/Desktop/image1.jpg',
                 'gender':this.gender,
                 'martialstatus':this.martialStatus,
@@ -686,13 +653,15 @@ export default {
                 'expected_salary':this.expected_salary,
 
                 
-                'preferred_job':'Engineer',
+                'preferred_job':this.preferred_job,
                 'certifications':this.selectedCertifcates.join(','),
-                'preferred_locations':'Madurai',
+                'preferred_locations':this.preferred_locations,
                 
                 'languages': languagesData,
-                'education_details':educationdata,
+                'education_details':this.selectedField,
                 'experience':experiencesData,
+                'summary':this.summary,
+                'physically_challenged':this.physically_challenged
             }
 
             console.log(datatosend);

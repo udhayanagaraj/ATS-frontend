@@ -76,7 +76,7 @@
           </div>
           <br>
           <br>
-          <div class="align-margin">
+          <div class="align-margin2">
             <br>
             <h5>Job Description</h5>
             <div v-html="job[2]" :class="{ 'collapsed': !showAllDescription }"></div>
@@ -119,7 +119,7 @@
                     <tr v-for="candidate in candidates" :key="candidate.id">
                       <td @click="viewCandidateDetail(candidate.id)" style="cursor: pointer;">
                         {{ candidate.name }}
-                        <a :href="'http://localhost:8000/view-resume/' + candidate.id" target="_blank">
+                        <a :href="'http://192.168.1.10:8000/view-resume/' + candidate.id" target="_blank">
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-file-earmark-pdf" viewBox="0 0 16 16">
                             <path
@@ -208,7 +208,7 @@ export default {
       }
     },
     fetchJobDetails(jobId) {
-      axios.get(`http://localhost:8000/jobs/${jobId}`)
+      axios.get(`http://192.168.1.10:8000/jobs/${jobId}`)
         .then(response => {
           this.loading  = false;
           this.job = response.data.data;
@@ -219,7 +219,7 @@ export default {
         });
     },
     fetchCandidateDetails(jobId) {
-      axios.get(`http://localhost:8000/candidatesByJobId/${jobId}`)
+      axios.get(`http://192.168.1.10:8000/candidatesByJobId/${jobId}`)
         .then(response => {
           this.candidates = response.data.candidates;
           console.log(this.candidates);
@@ -276,6 +276,11 @@ export default {
   white-space: nowrap;
   overflow: hidden; 
   text-overflow: ellipsis;
+}
+
+.align-margin2 {
+  margin-left: 28px;
+  margin-top: -45px;
 }
 
 .status-button {
