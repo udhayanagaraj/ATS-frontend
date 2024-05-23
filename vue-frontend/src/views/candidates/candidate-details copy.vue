@@ -147,7 +147,7 @@
 
             <div v-for="candidate in dummy_candidates" :key="candidate.id" class="row mb-4">
               <div class="col-sm-3">
-                <img :src="candidate.photo" alt="Profile Photo" class="img-fluid rounded-circle mb-3">
+                <img src="./1.jpg" alt="Profile Photo" class="img-fluid rounded-circle mb-3">
               </div>
               <div class="col-sm-9">
                 <h5>{{ candidate.name }}</h5>
@@ -193,43 +193,43 @@
           id: 1,
           name: 'John Doe',
           email: 'john.doe@example.com',
-          photo: 'ATS-frontend/vue-frontend/public/pexels-andre-furtado-43594-1264210.jpg',
+          photo: require('@/assets/candidates/1.jpg')
         },
         {
           id: 2,
           name: 'Jane Smith',
           email: 'jane.smith@example.com',
-          photo: 'ATS-frontend/vue-frontend/public/pexels-asim-razan-343717.jpg',
+          photo: require('@/assets/candidates/2.jpg')
         },
         {
           id: 3,
           name: 'Kaviya Nagaraj',
           email: 'kavi@example.com',
-          photo: 'ATS-frontend/vue-frontend/public/pexels-olly-733872.jpg',
+          photo: require('@/assets/candidates/2.jpg')
         },
         {
           id: 4,
           name: 'Arun Kumar',
           email: 'arun@example.com',
-          photo: 'ATS-frontend/vue-frontend/public/pexels-olly-3785079.jpg',
+          photo: require('@/assets/candidates/2.jpg')
         },
         {
           id: 5,
           name: 'Asha',
           email: 'asha@example.com',
-          photo: 'ATS-frontend/vue-frontend/public/pexels-pixabay-415829.jpg',
+          photo: require('@/assets/candidates/2.jpg')
         },
         {
           id: 6,
           name: 'Subha',
           email: 'subha@example.com',
-          photo: 'path/to/photo2.jpg',
+          photo: require('@/assets/candidates/2.jpg')
         },
         {
           id: 7,
           name: 'Herish',
           email: 'herish@example.com',
-          photo: 'path/to/photo2.jpg',
+          photo: require('@/assets/candidates/2.jpg')
         },
       ],
 
