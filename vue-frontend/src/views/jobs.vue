@@ -458,7 +458,7 @@
 
 
       fetchJobs() {
-        axios.get('http://192.168.1.10:8000/jobs')
+        axios.get('http://127.0.0.1:8000/jobs')
           .then(response => {
             this.loading = false;
             this.jobs = response.data.data;

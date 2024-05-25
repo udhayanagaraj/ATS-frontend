@@ -15,8 +15,9 @@
             <br>
             <br>
             <img src="./Logo.jpeg" alt="Profile Photo" class="logo mb-3">
-
-            <h3 class="mb-2" style="margin-left:100px; margin-top: -120px;">{{candidate.name}}</h3>
+            <button class="btn btn-secondary btn-sm" style="margin-left: 550px; margin-top: -120px;" @click="editButton">Edit</button>
+            <h3 class="mb-2" style="margin-left:100px; margin-top: -120px;">{{candidate.name}} {{ candidate.last_name }}</h3>
+            
             <div class="first-row">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase"
                 viewBox="0 0 16 16">
@@ -37,21 +38,16 @@
               </svg>{{ candidate.address }}
             </div>
 
-
             <div class="first-row" style="margin-top:6px">
-              <strong>Current:</strong> Position
+              <strong>Education: </strong>{{candidate.education}}
             </div>
 
             <div class="first-row" style="margin-top:6px">
-              <strong>Highest Degree: {{candidate.education}}</strong>
-            </div>
-
-            <div class="first-row" style="margin-top:6px">
-              <strong>Preferred locations:</strong> Chennai
+              <strong>Preferred locations:</strong> {{candidate.preferred_locations}}
             </div>
             <div class="first-row" style="margin-top:8px">
               <strong>mobile: </strong><span>{{candidate.mobile}}</span>
-              <button class="btn btn-secondary btn-sm" style="margin-left:20px">
+              <button class="btn btn-outline-secondary btn-sm" style="margin-left:20px">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                   class="bi bi-telephone-fill" viewBox="0 0 16 16">
                   <path fill-rule="evenodd"
@@ -68,12 +64,13 @@
             <h5>Profile detail</h5>
 
             <h6>Summary</h6>
-            <div class="mb-3">
+            <div class="mb-3" >
               <p>
-                This is the summary of the candidate. It could contain a brief overview of their skills, experience, and
-                qualifications.
+                {{candidate.summary}}
               </p>
             </div>
+            
+
 
             <h6>Skills</h6>
             <div class="mb-3" v-for="skill in getSkill(candidate.skills)" style="display:inline; margin-left: 4px;">
@@ -81,7 +78,7 @@
             </div>
 
             <h6>Language Known</h6>
-            <div class="mb-3" v-for="lang in getLanguages(candidate.languages)"
+            <div class="mb-3" v-for="lang in splitLanguages(candidate.languages)"
               style="display:inline; margin-left: 4px;">
               <span class="badge bg-secondary">{{ lang }}</span>
             </div>
@@ -108,7 +105,8 @@
                 <div class="col-sm-3" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                   <strong>Physically Challenged:</strong>
                   <br>
-                  <span>no</span>
+                  <span >{{candidate.physically_challenged}}</span>
+                  
                 </div>
               </div>
             </div>
@@ -130,7 +128,7 @@
             </div>
 
             <h6>Attached cv</h6>
-            <iframe :src="'http://192.168.1.10:8000/view-resume/'+candidate.id" width="100%" height="600"
+            <iframe :src="'http://127.0.0.1:8000/view-resume/'+candidate.id" width="100%" height="600"
               style="border: none;">
             </iframe>
 
@@ -146,11 +144,14 @@
           <div class="profile-container">
 
             <div v-for="candidate in dummy_candidates" :key="candidate.id" class="row mb-4">
-              <div class="col-sm-3">
-                <img :src="candidate.photo" alt="Profile Photo" class="img-fluid rounded-circle mb-3">
+              <div class="col-sm-3 ">
+                <div class="img-container">
+                    <img src="./4.jpg" alt="" class="rounded-circle img-similar">
+                </div>
               </div>
               <div class="col-sm-9">
                 <h5>{{ candidate.name }}</h5>
+                <h6>{{candidate.title}}</h6>
                 <p>{{ candidate.email }}</p>
                 <div class="d-flex justify-content-between">
                   <button @click="viewMobileNumber(candidate)" class="btn btn-sm btn-outline-secondary">
@@ -180,7 +181,7 @@
   
   <script>
   import axios from 'axios';
-  
+
   export default {
     name:'candidate-detail',
     data() {
@@ -192,44 +193,51 @@
         {
           id: 1,
           name: 'John Doe',
+          title:'Developer',
           email: 'john.doe@example.com',
-          photo: 'ATS-frontend/vue-frontend/public/pexels-andre-furtado-43594-1264210.jpg',
+          photo: './1.jpg'
         },
         {
           id: 2,
           name: 'Jane Smith',
+          title:'Developer',
           email: 'jane.smith@example.com',
-          photo: 'ATS-frontend/vue-frontend/public/pexels-asim-razan-343717.jpg',
+          photo: './1.jpg'
         },
         {
           id: 3,
           name: 'Kaviya Nagaraj',
+          title:'Developer',
           email: 'kavi@example.com',
-          photo: 'ATS-frontend/vue-frontend/public/pexels-olly-733872.jpg',
+          photo: './1.jpg'
         },
         {
           id: 4,
           name: 'Arun Kumar',
+          title:'Developer',
           email: 'arun@example.com',
-          photo: 'ATS-frontend/vue-frontend/public/pexels-olly-3785079.jpg',
+          photo: './1.jpg'
         },
         {
           id: 5,
           name: 'Asha',
+          title:'Developer',
           email: 'asha@example.com',
-          photo: 'ATS-frontend/vue-frontend/public/pexels-pixabay-415829.jpg',
+          photo: './1.jpg'
         },
         {
           id: 6,
           name: 'Subha',
+          title:'Developer',
           email: 'subha@example.com',
-          photo: 'path/to/photo2.jpg',
+          photo: './1.jpg'
         },
         {
           id: 7,
           name: 'Herish',
+          title:'Developer',
           email: 'herish@example.com',
-          photo: 'path/to/photo2.jpg',
+          photo: './1.jpg'
         },
       ],
 
@@ -241,8 +249,17 @@
     },
 
     methods: {
+      splitLanguages(lang){
+        if(lang){
+          const l = lang.split(',');
+          return l;
+        }else{
+          return [];
+        }
+        
+      },
       fetchCandidateDetails(candidateId){
-        axios.get(`http://192.168.1.10:8000/candidateById/${candidateId}`)
+        axios.get(`http://127.0.0.1:8000/candidateById/${candidateId}`)
           .then(response => {
             this.candidate = response.data.candidates;
             console.log(this.candidate);
@@ -257,33 +274,20 @@
             const s = skill.split(",");
             return s;
         } else {
-            // Handle the case where skill is undefined
             return [];
         }
       },
 
-
-      getLanguages(lang){
-        if (lang) {
-            const l = JSON.parse(lang);
-            const languages = [];
-            for (let i=0;i<l.length;i++){
-              languages.push(l[i].lang1);
-            }
-          
-            return languages;
-        } else {
-            // Handle the case where skill is undefined
-            return [];
-        }
+      editButton(){
+        console.log(this.candidate.id);
+        this.$router.push({ name: 'updateCandidate', params: { id: this.candidate.id } })
+      
       },
 
       viewMobileNumber(candidate) {
-      // Implement viewing mobile number logic
         alert(`Mobile number of ${candidate.name}`);
       },
       mailCandidate(candidate) {
-        // Implement mailing logic
         window.location.href = `mailto:${candidate.email}`;
       },
       forwardCandidate(candidate) {
@@ -301,6 +305,16 @@
   </script>
   
   <style scoped>
+  .img-container {
+    width: 60px; /* Adjust width and height as needed */
+    height: 60px; /* Adjust width and height as needed */
+    border-radius: 50%; /* Make it a circle */
+  }
+  .img-similar {
+      width: 100%; /* Ensure the image fills the container */
+      height: 100%; /* Ensure the image fills the container */
+  }
+
 
     .second-row {
         display: flex;
@@ -317,7 +331,7 @@
 
     }
   .container-fluid{
-    width:1200px;
+    width:1250px;
     margin-top: 50px;
     border: none;
   }
@@ -328,11 +342,11 @@
     max-height: 400px;
     width: 350px;
   }
-  .img-fluid {
-    max-width: 100%;
-    height: auto;
-  }
 
+ 
+
+ 
+  
   .container-1{
     margin-top: 10px;
     margin-left: -370px;

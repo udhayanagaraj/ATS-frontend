@@ -49,10 +49,10 @@
     background-color: rgb(109, 170, 240);
   }
   .navbar-logo {
-  width: 35px; /* Adjust the width as needed */
-  height: auto; /* Maintain aspect ratio */
-  margin-right: 10px; /* Add margin if needed */
-  border-radius: 50%;
+    width: 35px; 
+    height: auto; 
+    margin-right: 10px; 
+    border-radius: 50%;
 }
 
   

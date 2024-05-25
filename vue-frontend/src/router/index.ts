@@ -9,6 +9,7 @@ import Parser from "@/views/applicant/automation/parser.vue";
 import Candidate from '@/views/candidates/candidate-details.vue';
 import Applicant_search from "@/views/applicant/applicant-search/applicant_search.vue";
 import Theme from "@/views/applicant/manual-parsing/theme.vue";
+import EditCandidate from "@/views/applicant/manual-parsing/edit_candidate.vue";
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -76,6 +77,11 @@ const routes: Array<RouteRecordRaw> = [
     path:"/theme",
     name:"theme",
     component:Theme
+  },
+  {
+    path:"/updateCandidate/:id",
+    name:"updateCandidate",
+    component:EditCandidate
   },
 ];
 

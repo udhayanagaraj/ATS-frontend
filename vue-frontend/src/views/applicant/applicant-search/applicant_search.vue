@@ -62,8 +62,11 @@
                             <td>{{ candidate.email }}</td>
                             <td>{{ candidate.mobile }}</td>
                             <td>{{ candidate.job_title }}</td>
-                            <td>{{ parseExperience(candidate.experience) }}</td>
-                            <td>{{ candidate.ctiy }}</td>
+
+                            <td >
+                                {{ calculateYears(JSON.parse(candidate.experience)) }} years
+                            </td>
+                            <td>{{ candidate.city }}</td>
                             <td>{{ candidate.state }}</td>
 
                         </tr>
@@ -162,7 +165,8 @@ export default {
                 { name: "Gujarat" },
                 { name: "Madhya Pradesh" },
                 { name: "Bihar" },
-                { name: "West Bengal" }
+                { name: "West Bengal" },
+                { name: "Delhi" }
             ],
             notFound: false
         }
@@ -192,14 +196,15 @@ export default {
     },
    
     methods: {
-        parseExperience(experience) {
-            if (experience === null) {
-                return ''; 
-            }
 
-            const y = JSON.parse(experience);
-            return y[0].years;
+        calculateYears(years){
+            let dummy = 0;
+            for (let i=0;i<years.length;i++){
+                dummy += years[i].years;
+            }
+            return dummy; 
         },
+
         fetchCandidatesBySearch() {
             if (this.searchCategory === 'skills') {
                 axios.get(`http://localhost:8000/candidate/searchBySkill/${this.selected.name.toLowerCase()}`)
@@ -207,7 +212,7 @@ export default {
                         this.notFound = false;
                         this.candidates = [];
                         this.candidates = response.data.candidates;
-
+                        console.log(response.data.candidates);
 
                         let d = Date(Date.now());
 
@@ -231,7 +236,6 @@ export default {
                             console.error("Error fetching the candidates:", error);
                         }
                     });
-
             }
             else if (this.searchCategory === 'title') {
                 axios.get(`http://localhost:8000/candidate/searchByTitle/${this.selected.name.toLowerCase()}`)

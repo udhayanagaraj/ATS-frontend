@@ -276,7 +276,6 @@
           .then(response => {
             this.job = response.data.data;
             console.log(response.data.data);
-            console.log("exp",this.job[6]);
             this.getMinimumExperience(this.job[6]);
           })
           .catch(error => {
