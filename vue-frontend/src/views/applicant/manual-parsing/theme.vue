@@ -181,9 +181,8 @@
                     </div>
                     <div class="nice-form-group">
                         <label>City</label>
-                        <select style="width:248px;" v-model="city" id="citySelect" >
-                            <option value="" disabled selected>Select city</option>
-                        </select>
+                        
+                        
                     </div>
                 </div>
 
