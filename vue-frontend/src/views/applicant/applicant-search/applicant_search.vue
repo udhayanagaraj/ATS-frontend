@@ -217,7 +217,7 @@ export default {
             }
         },
         fetchCandidatesByLogicalQuery() {
-            axios.post('/search-logical/', { logical_query: this.logicalQuery })
+            axios.post('http://localhost:8000/candidate', { logical_query: this.logicalQuery })
                 .then(response => {
                     this.candidates = response.data.candidates;
                     this.notFound = this.candidates.length === 0;
@@ -241,12 +241,19 @@ export default {
     overflow-y: hidden;
     height: 100vh;
     overflow-y: auto;
+    background-image: url("bc.jpg");
+    background-size:1400px 400px;
+    background-repeat: no-repeat; 
+    background-position: top center; 
 }
+
+
 
 .search-heading {
     margin-top: 80px;
-    margin-left: 170px;
+    margin-left: 120px;
     text-decoration: underline;
+    color: #fff;
 
 }
 
@@ -254,7 +261,7 @@ export default {
     margin-top: 10px;
     margin-left: 120px;
     cursor: pointer;
-    color: #0934f3;
+    color: #fff;
     margin-bottom: 20px;
 }
 
@@ -304,19 +311,20 @@ export default {
 
 .recent-search {
     width: 250px;
-    margin-top: 30px;
+    margin-top: 100px;
     margin-left: 80px;
 }
 
 
 .custom-container {
     width: 550px; /* Adjust as needed for larger width */
-    height: 60px; /* Adjust as needed for smaller height */
+    height: 50px; /* Adjust as needed for smaller height */
     padding: 6px;
     background-color: #fff; /* Optional: background color for the container */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adding some shadow */
     border-radius: 8px; /* Optional: rounded corners */
     margin-top: -10px;
+    padding-top: 0px;
 }
 
 .custom-container label {
@@ -343,12 +351,13 @@ export default {
 
 .custom-container2 {
     width: 513px; /* Adjust as needed for larger width */
-    height: 60px; /* Adjust as needed for smaller height */
+    height: 50px; /* Adjust as needed for smaller height */
     padding: 6px;
     background-color: #fff; /* Optional: background color for the container */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adding some shadow */
     border-radius: 8px; /* Optional: rounded corners */
     margin-top: -10px;
+    padding-top: 1px;
 }
 
 .custom-container2 label {

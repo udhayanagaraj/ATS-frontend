@@ -10,7 +10,7 @@ import Candidate from '@/views/candidates/candidate-details.vue';
 import Applicant_search from "@/views/applicant/applicant-search/applicant_search.vue";
 import Theme from "@/views/applicant/manual-parsing/theme.vue";
 import EditCandidate from "@/views/applicant/manual-parsing/edit_candidate.vue";
-
+import Applicant_details from "@/views/applicant/applicant-search/applicants_details.vue"
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -82,6 +82,11 @@ const routes: Array<RouteRecordRaw> = [
     path:"/updateCandidate/:id",
     name:"updateCandidate",
     component:EditCandidate
+  },
+  {
+    path:"/applicants-details",
+    name:"applicants-details",
+    component:Applicant_details
   },
 ];
 

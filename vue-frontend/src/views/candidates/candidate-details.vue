@@ -327,8 +327,7 @@
         margin-bottom: 10px;
     }
     .card-header{
-        border:none;
-
+      border:none;
     }
   .container-fluid{
     width:1250px;

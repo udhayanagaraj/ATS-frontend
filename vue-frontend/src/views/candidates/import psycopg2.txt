@@ -1,0 +1,67 @@
+import psycopg2
+import re
+
+def connect_to_database():
+    conn = psycopg2.connect(
+        dbname="your_database_name",
+        user="your_username",
+        password="your_password",
+        host="your_host",
+        port="your_port"
+    )
+    return conn
+
+def search_resumes(conn, search_query):
+    cursor = conn.cursor()
+    
+    # Construct the SQL query for boolean search
+    query = """
+        SELECT * FROM resumes
+        WHERE to_tsvector('english', resume_text) @@ to_tsquery(%s)
+    """
+    
+    cursor.execute(query, (search_query,))
+    
+    # Fetch all matching resumes
+    results = cursor.fetchall()
+    
+    cursor.close()
+    
+    return results
+
+def suggest_boolean_query(search_string):
+    # Split the search string into individual tokens
+    tokens = re.findall(r'\(|\)|AND|OR|NOT|"[^"]+"|\S+', search_string.upper())
+    
+    # Construct a boolean query based on the tokens
+    boolean_query = []
+    for token in tokens:
+        if token in ("AND", "OR", "NOT", "(", ")"):
+            boolean_query.append(token)
+        elif token.startswith('"') and token.endswith('"'):
+            boolean_query.append(token)  # Preserve exact phrase
+        else:
+            boolean_query.append(token)
+            boolean_query.append("&")  # Default to AND operator between keywords
+    
+    return " ".join(boolean_query)
+
+def main():
+    conn = connect_to_database()
+    
+    # Accept boolean search string from user
+    search_string = input("Enter your boolean search string: ")
+    
+    # Suggest a boolean query based on the search string
+    boolean_query = suggest_boolean_query(search_string)
+    
+    # Search for resumes based on the suggested boolean query
+    results = search_resumes(conn, boolean_query)
+    
+    for row in results:
+        print(row)  # Modify as needed to process the results
+        
+    conn.close()
+
+if __name__ == "__main__":
+    main()

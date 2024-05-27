@@ -78,7 +78,8 @@ export default {
 .heading {
   position: absolute;
   margin-top: -170px;
-  margin-left: -105px;
+  margin-left: -70px;
+  font-size: large;
 }
 
 .container {
