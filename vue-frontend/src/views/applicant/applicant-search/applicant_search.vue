@@ -14,8 +14,15 @@
 
             
         </div>
-        <div style="margin-top: 10px;">
-            <span class="string-builder">+ string builder</span>
+        <div class="string-builder">
+            <span @click="toggleLogicalSearch">+ string builder</span>
+        </div>
+        <div class="search-container" style="margin-top: 10px;">
+            
+            <div class="custom-container3" v-if="showLogicalSearch">
+                <input type="text"  v-model="logicalQuery" placeholder="Enter logical query">
+            </div>
+            <button class="btn btn-primary" v-if="showLogicalSearch" @click="fetchCandidatesByLogicalQuery">Search</button>
         </div>
      
         <div class="search-container">
@@ -131,7 +138,9 @@ export default {
             candidates: [],
             recentSearches: JSON.parse(localStorage.getItem('recentSearches')) || [],
             selected: [],
-            notFound: false
+            notFound: false,
+            showLogicalSearch: false,
+            logicalQuery: ''
         }
     },
 
@@ -142,6 +151,9 @@ export default {
     },
     
     methods: {
+        toggleLogicalSearch() {
+            this.showLogicalSearch = !this.showLogicalSearch;
+        },
         updateCity(event){
             const stateIndex = state_arr.indexOf(event.target.value) + 1;
             print_city('citySelect',stateIndex)
@@ -204,6 +216,16 @@ export default {
                 this.candidates = recent_search.data;
             }
         },
+        fetchCandidatesByLogicalQuery() {
+            axios.post('/search-logical/', { logical_query: this.logicalQuery })
+                .then(response => {
+                    this.candidates = response.data.candidates;
+                    this.notFound = this.candidates.length === 0;
+                })
+                .catch(error => {
+                    console.error("Error fetching candidates:", error);
+                });
+    }
     }
 }
 
@@ -233,6 +255,7 @@ export default {
     margin-left: 120px;
     cursor: pointer;
     color: #0934f3;
+    margin-bottom: 20px;
 }
 
 .input-label{
@@ -293,6 +316,7 @@ export default {
     background-color: #fff; /* Optional: background color for the container */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adding some shadow */
     border-radius: 8px; /* Optional: rounded corners */
+    margin-top: -10px;
 }
 
 .custom-container label {
@@ -324,6 +348,7 @@ export default {
     background-color: #fff; /* Optional: background color for the container */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adding some shadow */
     border-radius: 8px; /* Optional: rounded corners */
+    margin-top: -10px;
 }
 
 .custom-container2 label {
@@ -352,6 +377,38 @@ export default {
 }
 
 .custom-container2 input::placeholder {
+    color: #aaa; /* Placeholder color */
+    opacity: 1; /* Ensure placeholder is fully opaque */
+}
+
+
+
+.custom-container3 {
+    width: 1035px; /* Adjust as needed for larger width */
+    height: 50px; /* Adjust as needed for smaller height */
+    padding: 10px;
+    background-color: #fff; /* Optional: background color for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adding some shadow */
+    border-radius: 8px; /* Optional: rounded corners */
+    margin-top: -10px;
+}
+
+.custom-container3 label {
+    font-size: 14px;
+    color: #333; /* Adjust label color */
+}
+
+.custom-container3 input {
+    width: 100%;
+    margin-top: 2px; /* Space between label and input */
+    padding: 1px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.custom-container3 input::placeholder {
     color: #aaa; /* Placeholder color */
     opacity: 1; /* Ensure placeholder is fully opaque */
 }
