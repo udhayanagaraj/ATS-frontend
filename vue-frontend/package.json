@@ -18,7 +18,8 @@
     "mdb-ui-kit": "^7.2.0",
     "vue": "^3.4.21",
     "vue-multiselect": "^3.0.0-beta.3",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.2",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",

@@ -178,12 +178,12 @@
           </div>
         </div>
 
-        <div class="row candidates-container">
-          <div class="row">
-            <div class="col-md-7 column-1">
+        <div class="row candidates-container" v-for="candidate in candidates">
+          <div class="row" >
+            <div class="col-md-7 column-1" >
               <div class="cd  d-flex align-items-center">
                 <input type="checkbox" name="" id="" style="margin-left: -30px;">
-                <h6 class="mb-0 ms-2">Name</h6>
+                <h6 class="mb-0 ms-2">{{candidate.name}}</h6>
               </div>
               <div class="first-row">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase-fill" viewBox="0 0 16 16">
@@ -194,10 +194,10 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet-fill" viewBox="0 0 16 16">
                   <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542s.987-.254 1.194-.542C9.42 6.644 9.5 6.253 9.5 6a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2z"/>
                   <path d="M16 6.5h-5.551a2.7 2.7 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5s-1.613-.412-2.006-.958A2.7 2.7 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5z"/>
-                </svg> ₹ 2.15 Lacks
+                </svg> {{ candidate.expected_salary }}
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                   <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
-                </svg> Pune
+                </svg> {{candidate.city}}
               </div>
 
               <div class="row mb-2">
@@ -223,7 +223,7 @@
                   <span>Education</span>
                 </div>
                 <div class="col-md-8 custom_spacing">
-                  <span class="candidate-text-color">Msc- Computer Science</span>
+                  <span class="candidate-text-color">{{candidate.education}}</span>
                 </div>
               </div>
 
@@ -232,7 +232,7 @@
                   <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Pref Locations</span>
                 </div>
                 <div class="col-md-8 custom_spacing">
-                  <span class="candidate-text-color">Chennai</span>
+                  <span class="candidate-text-color">{{candidate.preferred_locations}}</span>
                 </div>
               </div>
 
@@ -241,7 +241,7 @@
                   <span>Key skills</span>
                 </div>
                 <div class="col-md-8 custom_spacing">
-                  <span class="candidate-text-color">Java,python,spring boot,keras,machine learning</span>
+                  <span class="candidate-text-color">{{candidate.skills}}</span>
                 </div>
               </div>
 
@@ -264,7 +264,7 @@
                   <img src="./bc.jpg" alt="profile" class="rounded-circle img-similar">
                 </div>
                 <div>
-                  <p>This is the candidate summary</p>
+                  <p>{{candidate.summary}}</p>
                   <button class="btn btn-sm btn-outline-primary mb-2">
                      View Mobile
                   </button>
@@ -275,22 +275,36 @@
                   <br>
                   <div class="d-flex align-items-center gap-4 " style="margin-left: 45px">
                     <span style="cursor: pointer; color: blue; ">Comment</span> 
-                    <svg  style="cursor: pointer;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark" viewBox="0 0 16 16">
-                      <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
-                    </svg>
+                    <div>
+                      <svg
+                        @click="toggleSave"
+                        style="cursor: pointer;"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-bookmark"
+                        viewBox="0 0 16 16"
+                        :class="{ 'saved': isSaved, 'clicked': isClicked }"
+                      >
+                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                      </svg>
+                    </div>
                   </div>
                   
                 </div>
               </div>
               <div class="col-md-1">
                 <div class="d-flex flex-column align-items-center">
-                  <button class="btn btn-sm btn-outline-secondary mb-2" style="border: none;">
+                  <button class="btn btn-sm btn-outline-secondary mb-2"  @click="showEmailModal = true" style="border: none;">
                     <i class="fas fa-envelope"></i>
                   </button>
+                  <Email v-if="showEmailModal" :show="showEmailModal" @close="showEmailModal = false" :data="candidate"/>
+
                   <button class="btn btn-sm btn-outline-secondary mb-2" style="border: none;">
                     <i class="fas fa-share"></i>
                   </button>
-                  <button class="btn btn-sm btn-outline-secondary" style="border: none;">
+                  <button class="btn btn-sm btn-outline-secondary" :class="{ 'favorite': isFavorite }" style="border: none;" @click="toggleFavorite">
                     <i class="fas fa-star"></i>
                   </button>
                 </div>
@@ -310,12 +324,17 @@
 
 <script>
 import { Range, initMDB } from "mdb-ui-kit";
-
+import { mapGetters } from "vuex";
+import Email from "./Email.vue";
 
 export default {
   name: 'applicants_details',
+  computed:{
+    ...mapGetters(['getCandidates'])
+  },
   data() {
     return {
+      candidates : [],
       showKeywordInput: false,
       showLocationsInput:false,
       showExperienceInput:false,
@@ -324,16 +343,25 @@ export default {
       showCurrentDesignation:false,
       showDepartmentAndRole:false,
       showIndustry:false,
-      items: [ // Example data for the loop
+      items: [ 
         { id: 1, name: 'Item 1', description: 'Description 1' },
         { id: 2, name: 'Item 2', description: 'Description 2' },
         { id: 3, name: 'Item 3', description: 'Description 3' }
-      ]
+      ],
+      showEmailModal : false,
+      isFavorite: false, 
+      isSaved: false,
+      isClicked: false
     };
+  },
+  components:{
+    Email
   },
   mounted(){
     initMDB({ Range });
-  },
+    this.candidates =  this.getCandidates;
+    console.log(this.getCandidates);
+   },
   methods: {
     toggleKeywordInput() {
       this.showKeywordInput = !this.showKeywordInput;
@@ -359,6 +387,21 @@ export default {
     toggleIndustry(){
       this.showIndustry = !this.showIndustry;
     },
+    toggleFavorite() {
+      this.isFavorite = !this.isFavorite;
+      this.saveToFavorites(this.isFavorite);
+    },
+    saveToFavorites(isFavorite) {
+      console.log(isFavorite ? 'Added to favorites' : 'Removed from favorites');
+    },
+    toggleSave() {
+      this.isSaved = !this.isSaved;
+      this.isClicked = true;
+      this.saveOrRemoveFromBookmarks(this.isSaved);
+    },
+    saveOrRemoveFromBookmarks(isSaved) {
+      console.log(isSaved ? 'Saved' : 'Removed from bookmarks');
+    }
   }
 };
 </script>
@@ -376,7 +419,17 @@ export default {
   
 }
 
+.favorite .fa-star {
+  color: #0275d8;
+}
 
+.saved {
+  color: #0275d8;
+}
+
+.clicked {
+  color: #0275d8; 
+}
 
 .keyword {
   border-top: 1px solid #ced4da;

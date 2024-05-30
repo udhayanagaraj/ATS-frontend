@@ -119,6 +119,8 @@
 import VueMultiselect from 'vue-multiselect';
 import axios from 'axios';
 import { print_state,print_city,state_arr } from '../manual-parsing/cities';
+import { mapActions } from 'vuex';
+
 
 export default {
     name: 'search-applicant',
@@ -151,6 +153,7 @@ export default {
     },
     
     methods: {
+        ...mapActions(['updateCandidates']),
         toggleLogicalSearch() {
             this.showLogicalSearch = !this.showLogicalSearch;
         },
@@ -177,9 +180,10 @@ export default {
             axios.post('http://localhost:8000/candidate/search', query)
                 .then(response => {
                     this.notFound = false;
-                    this.candidates = [];
                     this.candidates = response.data.candidates;
 
+                    this.updateCandidates(this.candidates);
+                    
                     let d = Date(Date.now());
 
                     const newSearch = {
@@ -193,6 +197,7 @@ export default {
                         this.recentSearches.pop();
                     }
                     localStorage.setItem('recentSearches', JSON.stringify(this.recentSearches));
+                    this.$router.push({ name: 'applicants-details' });
                 })
                 .catch(error => {
                     if (error.response.status === 404) {
