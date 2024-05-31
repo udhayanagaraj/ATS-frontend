@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div class="row filter-col">
-      <div class="col-md-3">
+    <div class="row  filter-col">
+      <div class="col-md-3 filter-col2">
         <span>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter"
             viewBox="0 0 16 16">
@@ -20,7 +20,7 @@
             </svg>
           </div>
           <div class="keyword-dropdown" v-show="showKeywordInput">
-            <input type="text" class="form-control" placeholder="Java" style="margin-bottom:8px;">
+            <input type="text" class="form-control" placeholder="Java" style="margin-bottom:8px;" v-model = "filter.keywords">
           </div>
         </div>
 
@@ -34,7 +34,7 @@
             </svg>
           </div>
           <div class="keyword-dropdown" v-show="showLocationsInput">
-            <input type="text" class="form-control" placeholder="Chennai" style="margin-bottom:8px;">
+            <input type="text" class="form-control" placeholder="Chennai" style="margin-bottom:8px;"  v-model = "filter.location">
           </div>
         </div>
 
@@ -53,13 +53,13 @@
                 <div class="col">
                   <div class="form-group">
                     <h5>Min</h5>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" v-model="filter.minExperience" placeholder="1">
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-group">
                     <h5>Max</h5>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" v-model="filter.maxExperience"  placeholder="5">
                   </div>
                 </div>
               </div>
@@ -77,15 +77,14 @@
             </svg>
           </div>
           <div class="keyword-dropdown" v-show="showSalaryInput">
-            <div class="range" data-mdb-range-init>
-              <input type="range" class="form-range" id="customRange1" />
-            </div>
+            <input type="text" class="form-control" placeholder="₹350000" style="margin-bottom:8px;"  v-model = "filter.salary">
           </div>
+         
         </div>
 
         <div class="current_company">
           <div class="d-flex justify-content-between align-items-center pb-3 pt-3" @click="toggleCurrentCompany">
-            <span>Current Company</span>
+            <span>Company</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
               class="bi bi-chevron-down" viewBox="0 0 16 16">
               <path fill-rule="evenodd"
@@ -93,13 +92,13 @@
             </svg>
           </div>
           <div class="keyword-dropdown" v-show="showCurrentCompany">
-            <input type="text" class="form-control" placeholder="Filter by current company" style="margin-bottom:8px;">
+            <input type="text" class="form-control" placeholder="Filter by current company" style="margin-bottom:8px;"  v-model = "filter.current_company">
           </div>
         </div>
 
         <div class="current_designation">
           <div class="d-flex justify-content-between align-items-center pb-3 pt-3" @click="toggleCurrentDesignation">
-            <span>Current Designation</span>
+            <span>Designation</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
               class="bi bi-chevron-down" viewBox="0 0 16 16">
               <path fill-rule="evenodd"
@@ -107,7 +106,7 @@
             </svg>
           </div>
           <div class="keyword-dropdown" v-show="showCurrentDesignation">
-            <input type="text" class="form-control" placeholder="Filter by designation" style="margin-bottom:8px;">
+            <input type="text" class="form-control" placeholder="Filter by designation" style="margin-bottom:8px;"  v-model = "filter.current_designation">
           </div>
         </div>
 
@@ -121,7 +120,7 @@
             </svg>
           </div>
           <div class="keyword-dropdown" v-show="showDepartmentAndRole">
-            <input type="text" class="form-control" placeholder="Filter by designation" style="margin-bottom:8px;">
+            <input type="text" class="form-control" placeholder="Filter by designation" style="margin-bottom:8px;"  v-model = "filter.department_and_role">
           </div>
         </div>
 
@@ -135,7 +134,7 @@
             </svg>
           </div>
           <div class="keyword-dropdown" v-show="showIndustry">
-            <input type="text" class="form-control" placeholder="Filter by industry" style="margin-bottom:8px;">
+            <input type="text" class="form-control" placeholder="Filter by industry" style="margin-bottom:8px;"  v-model = "filter.industry">
           </div>
         </div>
       </div>
@@ -178,7 +177,145 @@
           </div>
         </div>
 
-        <div class="row candidates-container" v-for="candidate in candidates">
+
+        <div class="row candidates-container" v-if="filteredCandidates" v-for="candidate in filteredCandidates">
+          <div class="row" >
+            <div class="col-md-7 column-1" >
+              <div class="cd  d-flex align-items-center">
+                <input type="checkbox" name="" id="" style="margin-left: -30px;">
+                <h6 class="mb-0 ms-2">{{candidate.name}}</h6>
+              </div>
+              <div class="first-row">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase-fill" viewBox="0 0 16 16">
+                  <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5"/>
+                  <path d="M0 12.5A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5V6.85L8.129 8.947a.5.5 0 0 1-.258 0L0 6.85z"/>
+                </svg> {{ candidate.experience.years }} yr
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wallet-fill" viewBox="0 0 16 16">
+                  <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542s.987-.254 1.194-.542C9.42 6.644 9.5 6.253 9.5 6a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2z"/>
+                  <path d="M16 6.5h-5.551a2.7 2.7 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5s-1.613-.412-2.006-.958A2.7 2.7 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5z"/>
+                </svg> {{ candidate.expected_salary }}
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                  <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                </svg> {{candidate.city}}
+              </div>
+
+              <div class="row mb-2">
+                <div class="col-md-4 ">
+                  <span>Current</span>
+                </div>
+                <div class="col-md-8 custom_spacing">
+                  <span class="candidate-text-color">Apple Technologies and private limited</span>
+                </div>
+              </div>
+
+              <div class="row mb-2">
+                <div class="col-md-4">
+                  <span>Previous</span>
+                </div>
+                <div class="col-md-8 custom_spacing">
+                  <span class="candidate-text-color">Previous company</span>
+                </div>
+              </div>
+
+              <div class="row mb-2">
+                <div class="col-md-4">
+                  <span>Education</span>
+                </div>
+                <div class="col-md-8 custom_spacing">
+                  <span class="candidate-text-color">{{candidate.education}}</span>
+                </div>
+              </div>
+
+              <div class="row mb-2">
+                <div class="col-md-4">
+                  <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Pref Locations</span>
+                </div>
+                <div class="col-md-8 custom_spacing">
+                  <span class="candidate-text-color">{{candidate.preferred_locations}}</span>
+                </div>
+              </div>
+
+              <div class="row mb-2">
+                <div class="col-md-4">
+                  <span>Key skills</span>
+                </div>
+                <div class="col-md-8 custom_spacing">
+                  <span class="candidate-text-color">{{candidate.skills}}</span>
+                </div>
+              </div>
+
+              <div class="row mb-2">
+                <div class="col-md-4">
+                  <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Job type</span>
+                </div>
+                <div class="col-md-8 custom_spacing">
+                  <span class="candidate-text-color">Full time</span>
+                </div>
+            </div>
+  
+            </div>
+
+            <!-- second column -->
+            <div class="col-md-4 ml-auto text-center "  >
+              <div class="row">
+                <div class="col-md-10">
+                <div class="img-container mb-3">
+                  <img src="./bc.jpg" alt="profile" class="rounded-circle img-similar">
+                </div>
+                <div>
+                  <p>{{candidate.summary}}</p>
+                  <span>+91 {{candidate.mobile}}</span>
+                  <!-- <button class="btn btn-sm btn-outline-primary mb-2">
+                     View Mobile
+                  </button> -->
+
+                  <button class="btn btn-sm btn-outline-secondary mb-2">
+                    <i class="fas fa-phone"></i> Call candidate
+                  </button>
+                  <br>
+                  <div class="d-flex align-items-center gap-4 " style="margin-left: 45px">
+                    <span style="cursor: pointer; color: blue; ">Comment</span> 
+                    <div>
+                      <svg
+                        @click="toggleSave"
+                        style="cursor: pointer;"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-bookmark"
+                        viewBox="0 0 16 16"
+                        :class="{ 'saved': isSaved, 'clicked': isClicked }"
+                      >
+                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z"/>
+                      </svg>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="col-md-1">
+                <div class="d-flex flex-column align-items-center">
+                  <button class="btn btn-sm btn-outline-secondary mb-2"  @click="showEmailModal = true" style="border: none;">
+                    <i class="fas fa-envelope"></i>
+                  </button>
+                  <Email v-if="showEmailModal" :show="showEmailModal" @close="showEmailModal = false" :data="candidate"/>
+
+                  <button class="btn btn-sm btn-outline-secondary mb-2" style="border: none;">
+                    <i class="fas fa-share"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-secondary" :class="{ 'favorite': isFavorite }" style="border: none;" @click="toggleFavorite">
+                    <i class="fas fa-star"></i>
+                  </button>
+                </div>
+              </div>
+              </div>
+            </div>        
+        </div>
+        </div>
+
+        <div class="row candidates-container" v-else  v-for="candidate in candidates">
           <div class="row" >
             <div class="col-md-7 column-1" >
               <div class="cd  d-flex align-items-center">
@@ -265,9 +402,10 @@
                 </div>
                 <div>
                   <p>{{candidate.summary}}</p>
-                  <button class="btn btn-sm btn-outline-primary mb-2">
+                  <span>+91 {{candidate.mobile}}</span>
+                  <!-- <button class="btn btn-sm btn-outline-primary mb-2">
                      View Mobile
-                  </button>
+                  </button> -->
 
                   <button class="btn btn-sm btn-outline-secondary mb-2">
                     <i class="fas fa-phone"></i> Call candidate
@@ -330,7 +468,23 @@ import Email from "./Email.vue";
 export default {
   name: 'applicants_details',
   computed:{
-    ...mapGetters(['getCandidates'])
+    ...mapGetters(['getCandidates']),
+    filteredCandidates() {
+      return this.getCandidates.filter(candidate => {
+        return (
+          (!this.filter.keywords || candidate.skills.includes(this.filter.keywords)) &&
+          (!this.filter.location || candidate.city.toLowerCase() === this.filter.location.toLowerCase()) &&
+          (!this.filter.minExperience || candidate.experience >= this.filter.minExperience) &&
+          (!this.filter.maxExperience || candidate.experience <= this.filter.maxExperience) &&
+          (!this.filter.salary || parseFloat(candidate.expected_salary) >=parseFloat( this.filter.salary)) &&
+          (!this.filter.current_company || candidate.currentCompany.includes(this.filter.current_company)) &&
+          (!this.filter.previousCompany || candidate.previousCompany.includes(this.filter.previousCompany)) &&
+          (!this.filter.current_designation || candidate.currentDesignation.includes(this.filter.current_designation)) &&
+          (!this.filter.department || candidate.department.includes(this.filter.department)) &&
+          (!this.filter.industry || candidate.industry.includes(this.filter.industry))
+        );
+      });
+    }
   },
   data() {
     return {
@@ -351,11 +505,23 @@ export default {
       showEmailModal : false,
       isFavorite: false, 
       isSaved: false,
-      isClicked: false
+      isClicked: false,
+      filter:{
+        keywords:'',
+        location:'',
+        minExperience: '',
+        maxExperience: '',
+        salary:null,
+        current_company:'',
+        current_designation:'',
+        department_and_role:'',
+        industry:''
+      }
     };
   },
   components:{
     Email
+    
   },
   mounted(){
     initMDB({ Range });
@@ -410,14 +576,15 @@ export default {
 .container{
   width: 1200px;
   height: auto;
+  
 }
 
 .filter-col {
   position: relative;
   margin-top: 30px;
   background-color: #fff;
-  
 }
+
 
 .favorite .fa-star {
   color: #0275d8;

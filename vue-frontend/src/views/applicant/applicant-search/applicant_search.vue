@@ -398,7 +398,7 @@ export default {
 
 
 .custom-container3 {
-    width: 1035px; /* Adjust as needed for larger width */
+    width: 1030px; /* Adjust as needed for larger width */
     height: 50px; /* Adjust as needed for smaller height */
     padding: 10px;
     background-color: #fff; /* Optional: background color for the container */

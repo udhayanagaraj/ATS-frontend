@@ -414,7 +414,7 @@
                 </div>
             </section>
 
-
+  
             <!-- <section>
                 <div class="href-target" id="Languages"></div>
                 <h1>
@@ -497,28 +497,31 @@
                     Experience
                 </h1>
                 <div v-for="(company, index) in experiences" :key="index" class="companyContainer">
-                    <button v-if="index >= 1" @click="removeExperience(index)" class="close-btn">×</button>
+                    <div style="display:flex;justify-content: end;">
+                        <input type="checkbox" name="" id="" v-model="fresher">
+                        <span>&emsp;I am a fresher</span>
+                    </div>
+                    <div class="nice-form-group">
+                        <label>Current Company</label>
+                        <input type="text" placeholder="Job Title" v-model="company.currentCompany" />
+                    </div>
                     <div class="nice-form-group">
                         <label>Job Title</label>
-                        <input type="text" placeholder="Job Title" v-model="company.jobTitle" />
+                        <input type="text" placeholder="Company name" v-model="company.currentCompanyJobTitle" />
                     </div>
                     <div class="nice-form-group">
-                        <label>Company Name</label>
-                        <input type="text" placeholder="Company name" v-model="company.companyName" />
+                        <label>Previous Company</label>
+                        <input type="text" placeholder="Job Title" v-model="company.previousCompany" />
                     </div>
-
+                    <div class="nice-form-group">
+                        <label>Job Title</label>
+                        <input type="text" placeholder="Company name" v-model="company.previousCompanyJobTitle" />
+                    </div>
                     <div class="nice-form-group">
                         <label>Experience (years)</label>
                         <input type="number" placeholder="5" v-model="company.years" />
                     </div>
-                    <div v-if="experiences.length > 1">
-                        <hr />
-                    </div>
                 </div>
-
-                <button v-if="experiences.length < 3" @click="addExperience" class="btn btn-secondary btn-sm"
-                    style="margin-top: 10px;">+ Add Company</button>
-                    <br>
                 <button @click="addCandidate" class="btn btn-primary " style="margin-top: 10px;">Submit</button>
             </section>
 
@@ -542,6 +545,7 @@ export default {
     },
     data() {
         return {
+            fresher:false,
             degrees:degrees,
             updateSuccess:false,
             firstname: '',
@@ -580,8 +584,10 @@ export default {
             ],
             experiences: [
                 {
-                    jobTitle: '',
-                    companyName: '',
+                    currentCompany:'',
+                    currentCompanyJobTitle:'',
+                    previousCompany: '',
+                    previousCompanyJobTitle: '',
                     years: '',
                 },
             ],
